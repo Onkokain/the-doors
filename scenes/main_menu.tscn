@@ -1,3 +1,47 @@
 [gd_scene format=3 uid="uid://bxg5d7ookg47r"]
 
-[node name="main menu" type="Node3D" unique_id=1916910369]
+[ext_resource type="Script" uid="uid://db3tfuvjnvkgi" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://dwe7u632f0ut1" path="res://assets/bg.png" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://cicxmv8cu64m2" path="res://fonts/Creepy Blood.ttf" id="1_l6cm7"]
+
+[node name="main menu" type="Node2D" unique_id=1985274283]
+script = ExtResource("1_bqqt6")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1167241781]
+offset_right = 1166.0
+offset_bottom = 665.0
+texture = ExtResource("1_ekxnf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1652959937]
+offset_left = 253.0
+offset_top = 204.0
+offset_right = 915.0
+offset_bottom = 538.0
+theme_override_constants/separation = 17
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=167972983]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "Start"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=729237503]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=348510588]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=1246752811]
+offset_left = 392.0
+offset_top = 28.0
+offset_right = 805.0
+offset_bottom = 179.0
+theme_override_colors/font_color = Color(0.78586525, 0.12752235, 0.2466143, 1)
+theme_override_colors/font_shadow_color = Color(7.4190426, 1.2321472e-05, 3.411683, 0)
+theme_override_colors/font_outline_color = Color(0.6079359, 0.36190447, 1, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 113
+text = "The Doors"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

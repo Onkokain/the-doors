@@ -13,10 +13,6 @@ var highest_room_spawned: int = 1
 var lowest_room_spawned: int = 1
 
 func _ready():
-	if not player:
-		push_error("Hey! You forgot to assign the Player...")
-		return
-
 	var first_room = room_scene.instantiate()
 	add_child(first_room)
 	first_room.global_transform = Transform3D.IDENTITY

@@ -9,4 +9,5 @@ func _process(delta: float) -> void:
 		var hitobj=get_collider()
 		if hitobj.has_method("interact") && Input.is_action_just_pressed('interact'):
 			hitobj.interact()
-			Global.room_change_counter+=1
+			Global.doors_opened+=1
+			print(Global.doors_opened)

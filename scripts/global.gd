@@ -1,4 +1,4 @@
 extends Node
 
-var player_room = 1
-var room_change_counter=0
+var player_room = 0 # players current room-1
+var doors_opened=0 # number of doors player has opened 

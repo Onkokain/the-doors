@@ -3,7 +3,7 @@ extends CSGCombiner3D
 @onready var label: Label3D = $Label3D
 
 # This will hold this specific room's permanent number
-var my_room_number: int = 1 
+var my_room_number: int = 1
 
 func _ready() -> void:
 	# Update the text on the wall once when the room loads
@@ -19,4 +19,5 @@ func set_room_number(num: int) -> void:
 func _on_updator_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
 		# Instead of math, just directly tell the Global script exactly where the player is
-		Global.player_room = my_room_number
+		Global.player_room = my_room_number+1
+		

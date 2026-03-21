@@ -7,10 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cug7i82iloikb" path="res://assets/wall_center.blend" id="5_jn645"]
 [ext_resource type="PackedScene" uid="uid://82flvwiribml" path="res://assets/wall_top_of_door.blend" id="6_jn645"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85yof"]
-transparency = 1
-albedo_color = Color(1, 0.45882353, 1, 0.29803923)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
 size = Vector3(4.199463, 9.462402, 1)
 
@@ -23,78 +19,6 @@ script = ExtResource("1_ffxv4")
 
 [node name="door" parent="." unique_id=1196333875 instance=ExtResource("1_36trf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6283408, 2.217392, 15.030989)
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=446114290]
-visible = false
-metadata/_edit_lock_ = true
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1307191168]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 0.013762474, 3.917366, 14.742144)
-size = Vector3(9.208496, 0.1, 30.3)
-material = SubResource("StandardMaterial3D_85yof")
-metadata/_edit_lock_ = true
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1760193750]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 0.013762474, 3.917366, -15.072424)
-size = Vector3(9.208496, 0.1, 30.3)
-material = SubResource("StandardMaterial3D_85yof")
-metadata/_edit_lock_ = true
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=634802466]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -0.28583837, 2.240551, 14.731878)
-operation = 2
-size = Vector3(5.049103, 1, 3.0401611)
-material = SubResource("StandardMaterial3D_85yof")
-metadata/_edit_lock_ = true
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1943312607]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.519751, 0)
-use_collision = true
-size = Vector3(30, 0.1, 30.3)
-material = SubResource("StandardMaterial3D_85yof")
-metadata/_edit_lock_ = true
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=2061145699]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 14.893135, 3.8353348, 0)
-use_collision = true
-size = Vector3(9.044434, 0.1, 30.3)
-material = SubResource("StandardMaterial3D_85yof")
-metadata/_edit_lock_ = true
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=613672590]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -14.953268, 4.423897, -0.08604622)
-use_collision = true
-size = Vector3(10.221558, 0.1, 30.472101)
-material = SubResource("StandardMaterial3D_85yof")
-metadata/_edit_lock_ = true
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1296705211]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34622836, 8.3766365, 21.638014)
-use_collision = true
-size = Vector3(3.0892334, 0.0546875, 13.687241)
-material = SubResource("StandardMaterial3D_85yof")
-metadata/_edit_lock_ = true
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D" unique_id=618498267]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34622836, -0.0033779144, 21.518908)
-use_collision = true
-size = Vector3(3.0892334, 0.099609375, 13.210503)
-material = SubResource("StandardMaterial3D_85yof")
-metadata/_edit_lock_ = true
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1227160884]
-transform = Transform3D(2.9802322e-08, 1, 0, -1, 2.9802322e-08, 0, 0, 0, 1, 1.4376466, 3.4737282, 21.452147)
-use_collision = true
-size = Vector3(10.317917, 0.099609375, 13.344021)
-material = SubResource("StandardMaterial3D_85yof")
-metadata/_edit_lock_ = true
-
-[node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D" unique_id=71824561]
-transform = Transform3D(2.9802322e-08, 1, 0, -1, 2.9802322e-08, 0, 0, 0, 1, -1.8642356, 3.4737282, 21.421957)
-use_collision = true
-size = Vector3(10.317917, 0.099609375, 13.404404)
-material = SubResource("StandardMaterial3D_85yof")
-metadata/_edit_lock_ = true
 
 [node name="ExitMarker" type="Marker3D" parent="." unique_id=412077109]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42.244835)
@@ -409,7 +333,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.32264, -1.6737366, 14.8228
 [node name="wall_center9" parent="walls" unique_id=1641838657 instance=ExtResource("5_jn645")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.274576, 3.1214523, -15.298175)
 
-[node name="wall_center63" parent="walls" unique_id=691750131 instance=ExtResource("5_jn645")]
+[node name="wall_center62" parent="walls" unique_id=691750131 instance=ExtResource("5_jn645")]
+transform = Transform3D(-1.0585492e-07, 0, 1, 0, 1.3700114, 0, -2.4216783, 0, -4.371139e-08, -1.88, 2.378, 20.9)
+
+[node name="wall_center65" parent="walls" unique_id=873981247 instance=ExtResource("5_jn645")]
+transform = Transform3D(-1.0585492e-07, 0, 1, 0, 1.3700114, 0, -2.4216783, 0, -4.371139e-08, 1.4, 2.378, 20.9)
+
+[node name="wall_center63" parent="walls" unique_id=2062282700 instance=ExtResource("5_jn645")]
 transform = Transform3D(1, 0, 0, 0, 0.15123981, 0, 0, 0, 1, -0.496516, 5.199421, 14.822809)
 
 [node name="wall_center64" parent="walls" unique_id=1347260909 instance=ExtResource("5_jn645")]
