@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dxc8hqjruyrbc"]
 
 [ext_resource type="Script" uid="uid://dj5oav6b66s2i" path="res://scripts/door.gd" id="1_hpvv5"]
-[ext_resource type="PackedScene" uid="uid://b5288uvva0v3g" path="res://assets/door1.blend" id="2_la1wf"]
+[ext_resource type="PackedScene" uid="uid://3morhf7sm0hi" path="res://assets/door1.blend" id="2_la1wf"]
 [ext_resource type="AudioStream" uid="uid://dfrce040kugsh" path="res://assets/door.mp3" id="2_uvdjg"]
-[ext_resource type="Texture2D" uid="uid://dya3tw1b5x75x" path="res://assets/Door_texture.png" id="3_18pbm"]
+[ext_resource type="Texture2D" uid="uid://bms2qa8hn3rvo" path="res://assets/Door_texture.png" id="3_18pbm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uvdjg"]
 size = Vector3(0.3383789, 5.379883, 4.5566406)
@@ -12,7 +12,7 @@ size = Vector3(0.3383789, 5.379883, 4.5566406)
 albedo_texture = ExtResource("3_18pbm")
 
 [sub_resource type="Animation" id="Animation_hpvv5"]
-length = 0.001
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -96,13 +96,12 @@ script = ExtResource("1_hpvv5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hinge/StaticBody3D" unique_id=510390635]
 transform = Transform3D(-4.371261e-08, 0, -1, 0, 1, 0, 1, 0, -4.371261e-08, 0.43805945, 1.2485976, -0.80373466)
-visible = false
 shape = SubResource("BoxShape3D_uvdjg")
 
-[node name="door1" parent="hinge/StaticBody3D" unique_id=497432578 instance=ExtResource("2_la1wf")]
+[node name="door1" parent="hinge/StaticBody3D" unique_id=152567644 instance=ExtResource("2_la1wf")]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0.44648123, -1.2932823, 0)
 
-[node name="Cube" parent="hinge/StaticBody3D/door1" index="0" unique_id=1222226363]
+[node name="Cube" parent="hinge/StaticBody3D/door1" index="0" unique_id=2004775720]
 surface_material_override/0 = SubResource("StandardMaterial3D_q5w8r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=625903212]
@@ -116,20 +115,17 @@ volume_db = 80.0
 [node name="InteractionArea" type="Area3D" parent="." unique_id=708772120]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=258017]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.250484, 0.85991716, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7588239, 0.85991716, 1.4979157)
 shape = SubResource("SphereShape3D_uvdjg")
 
 [node name="Prompt" type="Label3D" parent="InteractionArea" unique_id=1596608413]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0831702, 0.47185874, -0.83300316)
-visible = false
 pixel_size = 0.01
 billboard = 1
 text = "[E]"
 
 [node name="Prompt2" type="Label3D" parent="InteractionArea" unique_id=659237352]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8504539, 0.47185874, 0.5474857)
-visible = false
 pixel_size = 0.01
 billboard = 1
 text = "[E]"
