@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dexc8vvd7ghmx"]
+
+[ext_resource type="Script" uid="uid://tamknsnvnemd" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://dgru8u2tp6br1" path="res://scripts/raycast.gd" id="2_g2els"]
+[ext_resource type="AudioStream" uid="uid://bja6r3ay5x43e" path="res://assets/walking.mp3" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://cap1brs84y80i" path="res://assets/jumpland.wav" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://y2qy60ioav46" path="res://assets/cursor.png" id="5_qlg0r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
+height = 3.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3vyb7"]
+height = 3.0
+
+[node name="player" type="CharacterBody3D" unique_id=289016444]
+script = ExtResource("1_3vyb7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=34712546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8451296, 0)
+shape = SubResource("CapsuleShape3D_u8vuu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=42558101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7844726, 0)
+mesh = SubResource("CapsuleMesh_3vyb7")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=863034593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.138707, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D" unique_id=167183864]
+light_color = Color(0.91764706, 0.90588236, 0.7254902, 1)
+light_energy = 2.29
+spot_range = 4096.0
+spot_attenuation = 0.99
+spot_angle = 45.94
+spot_angle_attenuation = 1.9118468
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1949263254]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, -0.46420476)
+debug_shape_custom_color = Color(0, 0, 0.56078434, 1)
+script = ExtResource("2_g2els")
+
+[node name="walking" type="AudioStreamPlayer3D" parent="." unique_id=194239202]
+stream = ExtResource("3_qhqgy")
+
+[node name="jump" type="AudioStreamPlayer3D" parent="." unique_id=309225455]
+stream = ExtResource("4_dqkch")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=357619119]
+
+[node name="CustomCursor" type="TextureRect" parent="UI" unique_id=576421313]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_qlg0r")

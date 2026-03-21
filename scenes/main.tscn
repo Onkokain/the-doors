@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bk34sy1gxddw0"]
+
+[ext_resource type="PackedScene" uid="uid://dexc8vvd7ghmx" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://8gsbq2h6uijs" path="res://scripts/world_generator.gd" id="2_0wfyh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sgp6g"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.096833475, 0.0991453, 0.10608221, 1)
+sky_energy_multiplier = 2.0
+sky_cover_modulate = Color(0.10224319, 0.10224321, 0.10224321, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.057996348, 0.057996348, 0.05799634, 1)
+ground_energy_multiplier = 2.0
+
+[sub_resource type="Sky" id="Sky_o5qli"]
+sky_material = SubResource("ProceduralSkyMaterial_sgp6g")
+
+[sub_resource type="Environment" id="Environment_0wfyh"]
+background_mode = 2
+sky = SubResource("Sky_o5qli")
+tonemap_mode = 3
+sdfgi_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1178
+volumetric_fog_albedo = Color(0.16924536, 0.16924527, 0.16924527, 1)
+volumetric_fog_emission = Color(0.04755766, 0.047557645, 0.047557645, 1)
+volumetric_fog_emission_energy = 6.95
+volumetric_fog_length = 305.19
+adjustment_enabled = true
+adjustment_brightness = 1.15
+adjustment_contrast = 1.055
+adjustment_saturation = 0.81
+
+[node name="main" type="Node3D" unique_id=891550892]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=228127302]
+environment = SubResource("Environment_0wfyh")
+
+[node name="player" parent="." unique_id=289016444 instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.307335, 0)
+
+[node name="WorldGenerator" type="Node3D" parent="." unique_id=1834764579 node_paths=PackedStringArray("player")]
+script = ExtResource("2_0wfyh")
+player = NodePath("../player")

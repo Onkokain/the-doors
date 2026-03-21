@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://dxc8hqjruyrbc"]
+
+[ext_resource type="Script" uid="uid://dj5oav6b66s2i" path="res://scripts/door.gd" id="1_hpvv5"]
+[ext_resource type="PackedScene" uid="uid://b5288uvva0v3g" path="res://assets/door1.blend" id="2_la1wf"]
+[ext_resource type="AudioStream" uid="uid://dfrce040kugsh" path="res://assets/door.mp3" id="2_uvdjg"]
+[ext_resource type="Texture2D" uid="uid://dya3tw1b5x75x" path="res://assets/Door_texture.png" id="3_18pbm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uvdjg"]
+size = Vector3(0.3383789, 5.379883, 4.5566406)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5w8r"]
+albedo_texture = ExtResource("3_18pbm")
+
+[sub_resource type="Animation" id="Animation_hpvv5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uvdjg"]
+resource_name = "door_close"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.3962634, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5f452"]
+resource_name = "door_open"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.3962634, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_83dcw"]
+resource_name = "door_openz"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.3962634, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hpvv5"]
+_data = {
+&"RESET": SubResource("Animation_hpvv5"),
+&"door_close": SubResource("Animation_uvdjg"),
+&"door_open": SubResource("Animation_5f452"),
+&"door_openz": SubResource("Animation_83dcw")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uvdjg"]
+radius = 4.990065
+
+[node name="door" type="Node3D" unique_id=1196333875]
+
+[node name="hinge" type="Node3D" parent="." unique_id=2008647475]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="hinge" unique_id=642406739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 1.4901163e-08, 0, 1, -2.4040384, -0.9777741, 0.39854807)
+script = ExtResource("1_hpvv5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hinge/StaticBody3D" unique_id=510390635]
+transform = Transform3D(-4.371261e-08, 0, -1, 0, 1, 0, 1, 0, -4.371261e-08, 0.43805945, 1.2485976, -0.80373466)
+visible = false
+shape = SubResource("BoxShape3D_uvdjg")
+
+[node name="door1" parent="hinge/StaticBody3D" unique_id=497432578 instance=ExtResource("2_la1wf")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0.44648123, -1.2932823, 0)
+
+[node name="Cube" parent="hinge/StaticBody3D/door1" index="0" unique_id=1222226363]
+surface_material_override/0 = SubResource("StandardMaterial3D_q5w8r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=625903212]
+libraries/ = SubResource("AnimationLibrary_hpvv5")
+
+[node name="door_audio" type="AudioStreamPlayer3D" parent="." unique_id=1872079493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6624501, 0, 0)
+stream = ExtResource("2_uvdjg")
+volume_db = 80.0
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=708772120]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=258017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.250484, 0.85991716, 0)
+visible = false
+shape = SubResource("SphereShape3D_uvdjg")
+
+[node name="Prompt" type="Label3D" parent="InteractionArea" unique_id=1596608413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0831702, 0.47185874, -0.83300316)
+visible = false
+pixel_size = 0.01
+billboard = 1
+text = "[E]"
+
+[node name="Prompt2" type="Label3D" parent="InteractionArea" unique_id=659237352]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8504539, 0.47185874, 0.5474857)
+visible = false
+pixel_size = 0.01
+billboard = 1
+text = "[E]"
+
+[connection signal="body_entered" from="InteractionArea" to="hinge/StaticBody3D" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="hinge/StaticBody3D" method="_on_interaction_area_body_exited"]
+
+[editable path="hinge/StaticBody3D/door1"]
