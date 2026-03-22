@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bwylvr7ntkorg" path="res://scenes/wall_top.tscn" id="4_jxe34"]
 [ext_resource type="PackedScene" uid="uid://3bq8o07j55g6" path="res://scenes/wall_center.tscn" id="5_jn645"]
 [ext_resource type="PackedScene" path="res://scenes/wall_top_of_door.tscn" id="6_jn645"]
-[ext_resource type="PackedScene" path="res://scenes/cupboard.tscn" id="7_qvc4m"]
+[ext_resource type="PackedScene" uid="uid://bblvk4n4m68tj" path="res://scenes/cupboard.tscn" id="7_qvc4m"]
+[ext_resource type="PackedScene" uid="uid://befj2xtxekpuv" path="res://scenes/closet.tscn" id="8_7dqbv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
 size = Vector3(4.199463, 9.462402, 1)
@@ -507,5 +508,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.429, 3.03, 14.83)
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.429, 3.0300007, -15.334844)
 
 [node name="cupboard" parent="." unique_id=109282610 instance=ExtResource("7_qvc4m")]
+
+[node name="closet" parent="." unique_id=1859943216 instance=ExtResource("8_7dqbv")]
+transform = Transform3D(0.63761795, 0, 0, 0, 0.67681336, 0, 0, 0, 1, -2.3873904, -1.6640263, -5.36878)
 
 [connection signal="body_entered" from="updator" to="." method="_on_updator_body_entered"]

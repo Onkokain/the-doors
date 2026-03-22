@@ -2,19 +2,30 @@ extends CharacterBody3D
 
 @onready var jump: AudioStreamPlayer3D = $jump
 @onready var walking: AudioStreamPlayer3D = $walking
+@onready var collision_shape: CollisionShape3D = $CollisionShape3D
+@onready var body_mesh: MeshInstance3D = $MeshInstance3D
 
 # Preload your custom cursor image
 var custom_cursor = preload("res://assets/images/cursor.png")
 
 # Movement Constants
 var SPEED = 5.0
+const WALK_SPEED = 5.0
+const SPRINT_SPEED = 7.5
+const CROUCH_SPEED = 3.2
+const STANDING_HEIGHT = 3.0
+const CROUCH_HEIGHT = 2.2
+const STANDING_COLLISION_Y = 1.8451296
+const CROUCH_COLLISION_Y = 1.4451296
+const STANDING_MESH_Y = 1.7844726
+const CROUCH_MESH_Y = 1.3844726
 const JUMP_VELOCITY = 4.5
 
 # Tracking landing state	
 var was_in_air = false
-
+var is_croutching=false
 # Head Bob Settings
-const BASE_HEIGHT = 2.5
+var BASE_HEIGHT = 2.8
 const BOB_FREQ = 2.4
 const BOB_AMP = 0.3
 var bob_t = 1.0
@@ -28,6 +39,7 @@ var is_locked = false
 
 # --- FLY MODE ---
 var is_flying = false
+var is_sprinting = false
 const FLY_SPEED = 117.0
 const FLY_VERTICAL_SPEED = 115.0
 
@@ -66,11 +78,10 @@ func _input(event):
 
 	# 2. HANDLE RUNNING SPEED (Sprint)
 	if Input.is_action_just_pressed('run'):
-		if SPEED != 7.5:
-			SPEED = 7.5
+		is_sprinting = !is_sprinting
+		if is_sprinting:
 			walking.pitch_scale = 1.5
 		else:
-			SPEED = 5.0
 			walking.pitch_scale = 1.0
 
 	# 3. HANDLE CAMERA ROTATION
@@ -82,6 +93,7 @@ func _input(event):
 
 
 func _physics_process(delta: float) -> void:
+	crouching()
 	if get_tree().paused:
 		return
 	else:
@@ -113,6 +125,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = FLY_VERTICAL_SPEED
 		elif Input.is_action_pressed("crouch"):
 			velocity.y = -FLY_VERTICAL_SPEED
+			BASE_HEIGHT=2.5
 		else:
 			velocity.y = 0
 
@@ -168,3 +181,20 @@ func _handle_head_bob(delta: float) -> void:
 	pos.y += sin(bob_t * BOB_FREQ) * BOB_AMP
 	pos.x += cos(bob_t * BOB_FREQ * 0.5) * (BOB_AMP * 0.6)
 	camera.transform.origin = pos
+
+func crouching() -> void:
+	is_croutching = Input.is_action_pressed("crouch")
+	BASE_HEIGHT = 2.0 if is_croutching else 2.8
+	SPEED = CROUCH_SPEED if is_croutching else (SPRINT_SPEED if is_sprinting else WALK_SPEED)
+	walking.pitch_scale = 0.59 if is_croutching else (1.5 if is_sprinting else 1.0)
+
+	var body_height := CROUCH_HEIGHT if is_croutching else STANDING_HEIGHT
+	var capsule_shape := collision_shape.shape as CapsuleShape3D
+	if capsule_shape != null:
+		capsule_shape.height = body_height
+	collision_shape.position.y = CROUCH_COLLISION_Y if is_croutching else STANDING_COLLISION_Y
+
+	var capsule_mesh := body_mesh.mesh as CapsuleMesh
+	if capsule_mesh != null:
+		capsule_mesh.height = body_height
+	body_mesh.position.y = CROUCH_MESH_Y if is_croutching else STANDING_MESH_Y
