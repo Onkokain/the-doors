@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://3morhf7sm0hi"
-path="res://.godot/imported/door1.blend-4743bf70d62f75a414cacda7365b0aee.scn"
+uid="uid://dvmpcj1fd1b23"
+path="res://.godot/imported/wall_top.blend-5fd67be0d44e4922e8e5ea9c0eed127c.scn"
 
 [deps]
 
-source_file="res://assets/door1.blend"
-dest_files=["res://.godot/imported/door1.blend-4743bf70d62f75a414cacda7365b0aee.scn"]
+source_file="res://assets/blender/wall_top.blend"
+dest_files=["res://.godot/imported/wall_top.blend-5fd67be0d44e4922e8e5ea9c0eed127c.scn"]
 
 [params]
 

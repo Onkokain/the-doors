@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dvmpcj1fd1b23"
-path="res://.godot/imported/wall_top.blend-2934326097bdf43b7f368b5dee90b5a8.scn"
+uid="uid://cug7i82iloikb"
+path="res://.godot/imported/wall_center.blend-43635921d09dad1253b8b8e70bfb6202.scn"
 
 [deps]
 
-source_file="res://assets/wall_top.blend"
-dest_files=["res://.godot/imported/wall_top.blend-2934326097bdf43b7f368b5dee90b5a8.scn"]
+source_file="res://assets/blender/wall_center.blend"
+dest_files=["res://.godot/imported/wall_center.blend-43635921d09dad1253b8b8e70bfb6202.scn"]
 
 [params]
 
@@ -37,7 +37,13 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Cube": {
+"generate/physics": true
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

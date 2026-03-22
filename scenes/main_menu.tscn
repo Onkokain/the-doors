@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxg5d7ookg47r"]
 
 [ext_resource type="Script" uid="uid://db3tfuvjnvkgi" path="res://scripts/main_menu.gd" id="1_bqqt6"]
-[ext_resource type="Texture2D" uid="uid://dwe7u632f0ut1" path="res://assets/bg.png" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://dwe7u632f0ut1" path="res://assets/images/bg.png" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://cicxmv8cu64m2" path="res://fonts/Creepy Blood.ttf" id="1_l6cm7"]
 [ext_resource type="FontFile" uid="uid://bur0xekl7f8a7" path="res://fonts/Scratch.ttf" id="3_8ln24"]
 [ext_resource type="Script" uid="uid://dfxe5rgid5rpe" path="res://scripts/main.gd" id="4_wu84c"]

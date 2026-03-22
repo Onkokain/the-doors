@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dxc8hqjruyrbc" path="res://scenes/door.tscn" id="1_36trf"]
 [ext_resource type="Script" uid="uid://d1gomfab7a1il" path="res://scripts/room.gd" id="1_ffxv4"]
-[ext_resource type="PackedScene" uid="uid://c8d3rv6m28ogu" path="res://assets/floor.blend" id="3_85yof"]
-[ext_resource type="PackedScene" uid="uid://dvmpcj1fd1b23" path="res://assets/wall_top.blend" id="4_jxe34"]
-[ext_resource type="PackedScene" uid="uid://cug7i82iloikb" path="res://assets/wall_center.blend" id="5_jn645"]
-[ext_resource type="PackedScene" uid="uid://82flvwiribml" path="res://assets/wall_top_of_door.blend" id="6_jn645"]
+[ext_resource type="PackedScene" uid="uid://cu725jrw64lnf" path="res://scenes/floor.tscn" id="3_85yof"]
+[ext_resource type="PackedScene" uid="uid://bwylvr7ntkorg" path="res://scenes/wall_top.tscn" id="4_jxe34"]
+[ext_resource type="PackedScene" uid="uid://3bq8o07j55g6" path="res://scenes/wall_center.tscn" id="5_jn645"]
+[ext_resource type="PackedScene" path="res://scenes/wall_top_of_door.tscn" id="6_jn645"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
 size = Vector3(4.199463, 9.462402, 1)

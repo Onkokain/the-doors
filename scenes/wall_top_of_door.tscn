@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://82flvwiribml" path="res://assets/blender/wall_top_of_door.blend" id="1_h6v0m"]
+[ext_resource type="Texture2D" uid="uid://c1r587mqxc7ey" path="res://assets/images/wall_top.png" id="2_3f7mn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3f7mn"]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("2_3f7mn")
+roughness = 0.5
+
+[node name="wall top of door" type="Node3D"]
+
+[node name="wall_top_of_door" parent="." instance=ExtResource("1_h6v0m")]
+
+[node name="Cube" parent="wall_top_of_door" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3f7mn")
+
+[editable path="wall_top_of_door"]

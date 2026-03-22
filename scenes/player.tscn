@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://tamknsnvnemd" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dgru8u2tp6br1" path="res://scripts/raycast.gd" id="2_g2els"]
-[ext_resource type="AudioStream" uid="uid://bja6r3ay5x43e" path="res://assets/walking.mp3" id="3_qhqgy"]
-[ext_resource type="AudioStream" uid="uid://cap1brs84y80i" path="res://assets/jumpland.wav" id="4_dqkch"]
-[ext_resource type="Texture2D" uid="uid://y2qy60ioav46" path="res://assets/cursor.png" id="5_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://bja6r3ay5x43e" path="res://assets/music/walking.mp3" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://cap1brs84y80i" path="res://assets/music/jumpland.wav" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://y2qy60ioav46" path="res://assets/images/cursor.png" id="5_qlg0r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 height = 3.0

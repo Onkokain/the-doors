@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cu725jrw64lnf"]
 
-[ext_resource type="Texture2D" uid="uid://bwgba637xmmqg" path="res://assets/floor_texture1.png" id="1_ij88a"]
+[ext_resource type="Texture2D" uid="uid://bwgba637xmmqg" path="res://assets/images/floor_texture1.png" id="1_ij88a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e33sj"]
 resource_name = "Material.001"

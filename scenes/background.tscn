@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://35s30872jpg6"]
 
-[ext_resource type="AudioStream" uid="uid://cwiko5so8iyma" path="res://assets/universfield-eerie-music-box-melody-163556.mp3" id="1_bkp1e"]
+[ext_resource type="AudioStream" uid="uid://cwiko5so8iyma" path="res://assets/music/universfield-eerie-music-box-melody-163556.mp3" id="1_bkp1e"]
 
 [node name="background" type="AudioStreamPlayer2D" unique_id=1277750288]
 stream = ExtResource("1_bkp1e")

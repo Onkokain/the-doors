@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://82flvwiribml"
-path="res://.godot/imported/wall_top_of_door.blend-12d5dc50bc398f9cc2dcd4dd1cb2e765.scn"
+path="res://.godot/imported/wall_top_of_door.blend-21a43f0aef9f4f18f7375cb0b3954671.scn"
 
 [deps]
 
-source_file="res://assets/wall_top_of_door.blend"
-dest_files=["res://.godot/imported/wall_top_of_door.blend-12d5dc50bc398f9cc2dcd4dd1cb2e765.scn"]
+source_file="res://assets/blender/wall_top_of_door.blend"
+dest_files=["res://.godot/imported/wall_top_of_door.blend-21a43f0aef9f4f18f7375cb0b3954671.scn"]
 
 [params]
 

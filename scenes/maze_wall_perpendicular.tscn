@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cm230rwny10u7"]
 
-[ext_resource type="Texture2D" uid="uid://dn81o0q02p5a5" path="res://assets/wall_center.png" id="1_i27cr"]
+[ext_resource type="Texture2D" uid="uid://dn81o0q02p5a5" path="res://assets/images/wall_center.png" id="1_i27cr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w3hfx"]
 resource_name = "Material"

@@ -4,7 +4,7 @@ extends CharacterBody3D
 @onready var walking: AudioStreamPlayer3D = $walking
 
 # Preload your custom cursor image
-var custom_cursor = preload("res://assets/cursor.png")
+var custom_cursor = preload("res://assets/images/cursor.png")
 
 # Movement Constants
 var SPEED = 5.0

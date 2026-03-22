@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dxc8hqjruyrbc"]
 
 [ext_resource type="Script" uid="uid://dj5oav6b66s2i" path="res://scripts/door.gd" id="1_hpvv5"]
-[ext_resource type="PackedScene" uid="uid://3morhf7sm0hi" path="res://assets/door1.blend" id="2_la1wf"]
-[ext_resource type="AudioStream" uid="uid://dfrce040kugsh" path="res://assets/door.mp3" id="2_uvdjg"]
-[ext_resource type="Texture2D" uid="uid://bms2qa8hn3rvo" path="res://assets/Door_texture.png" id="3_18pbm"]
+[ext_resource type="PackedScene" uid="uid://3morhf7sm0hi" path="res://assets/blender/door1.blend" id="2_la1wf"]
+[ext_resource type="AudioStream" uid="uid://dfrce040kugsh" path="res://assets/music/door.mp3" id="2_uvdjg"]
+[ext_resource type="Texture2D" uid="uid://bms2qa8hn3rvo" path="res://assets/images/Door_texture.png" id="3_18pbm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uvdjg"]
 size = Vector3(0.3383789, 5.379883, 4.5566406)
@@ -101,7 +101,7 @@ shape = SubResource("BoxShape3D_uvdjg")
 [node name="door1" parent="hinge/StaticBody3D" unique_id=152567644 instance=ExtResource("2_la1wf")]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0.44648123, -1.2932823, 0)
 
-[node name="Cube" parent="hinge/StaticBody3D/door1" index="0" unique_id=2004775720]
+[node name="Cube" parent="hinge/StaticBody3D/door1" index="0" unique_id=1416417815]
 surface_material_override/0 = SubResource("StandardMaterial3D_q5w8r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=625903212]
@@ -126,6 +126,12 @@ text = "[E]"
 
 [node name="Prompt2" type="Label3D" parent="InteractionArea" unique_id=659237352]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8504539, 0.47185874, 0.5474857)
+pixel_size = 0.01
+billboard = 1
+text = "[E]"
+
+[node name="Prompt3" type="Label3D" parent="InteractionArea" unique_id=814607948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2674109, 0.47185874, 2.9186597)
 pixel_size = 0.01
 billboard = 1
 text = "[E]"
