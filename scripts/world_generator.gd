@@ -1,31 +1,51 @@
 extends Node3D
 
-@export var room_scene: PackedScene = preload("res://scenes/room.tscn")
 @export var player: CharacterBody3D
+@export var spawn_distance: float = 100.0
+@export var max_rooms_on_screen: int = 20
 
-@export var spawn_distance: float = 100.0  
-@export var max_rooms_on_screen: int = 20 
+var prev_room: int = -1
+
+# 1. Update your room list to include weights. 
+# Higher weight = more likely to spawn.
+var room_data: Array[Dictionary] = [
+	{"scene": preload("res://scenes/room.tscn"), "weight": 10.0},        # Very common
+	{"scene": preload("res://scenes/hallway.tscn"), "weight": 10.0},     # Very common
+	{"scene": preload("res://scenes/hallway_long.tscn"), "weight": 1.0}, # Uncommon
+	{"scene": preload("res://scenes/maze1.tscn"), "weight": 0.1}         # Rare
+]
 
 var active_rooms: Array = []
 
-# --- NEW: Track the room numbers ---
+# Track room numbers
 var highest_room_spawned: int = 1
 var lowest_room_spawned: int = 1
 
+
 func _ready():
-	var first_room = room_scene.instantiate()
+	randomize()  # Ensure different rooms each run
+
+	if player == null:
+		player = get_parent().get_node_or_null("player") as CharacterBody3D
+		if player == null:
+			push_error("WorldGenerator could not find a player node.")
+			return
+	
+	# Spawn first room
+	var first_room = _get_random_room()
 	add_child(first_room)
 	first_room.global_transform = Transform3D.IDENTITY
-	
-	# Assign the first room its number
-	first_room.set_room_number(highest_room_spawned) 
+	first_room.set_room_number(highest_room_spawned)
 	active_rooms.append(first_room)
 	
+	# Spawn initial rooms to fill screen
 	for i in range(max_rooms_on_screen - 1):
 		_spawn_next_room(true)
 
+
 func _process(_delta):
-	if not player or active_rooms.is_empty(): return
+	if not player or active_rooms.is_empty(): 
+		return
 
 	var front_room = active_rooms.back()
 	var back_room = active_rooms.front()
@@ -39,12 +59,45 @@ func _process(_delta):
 	if player.global_position.distance_to(back_pos) < spawn_distance:
 		_spawn_next_room(false)
 
+
+# -----------------------------
+# SPAWN RANDOM ROOM WITH WEIGHTS
+# -----------------------------
+func _get_random_room() -> Node3D:
+	if room_data.is_empty():
+		push_error("No room data assigned!")
+		return Node3D.new()  # fallback
+
+	var total_weight: float = 0.0
+	var valid_indices: Array[int] = []
+
+	# 1. Tally up the total weight of all VALID rooms (excluding prev_room)
+	for i in range(room_data.size()):
+		if i != prev_room or room_data.size() == 1:
+			total_weight += room_data[i]["weight"]
+			valid_indices.append(i)
+
+	# 2. Pick a random number between 0 and our new total_weight
+	var random_val: float = randf_range(0.0, total_weight)
+	var cumulative_weight: float = 0.0
+	var selected_index: int = 0
+
+	# 3. Iterate through valid rooms to see where the random number landed
+	for i in valid_indices:
+		cumulative_weight += room_data[i]["weight"]
+		if random_val <= cumulative_weight:
+			selected_index = i
+			break
+
+	prev_room = selected_index  # update prev_room
+	return room_data[selected_index]["scene"].instantiate()
+
+
 func _spawn_next_room(is_front: bool):
-	var new_room = room_scene.instantiate()
+	var new_room = _get_random_room()
 	add_child(new_room)
-	
+
 	if is_front:
-		# Increase the tracking number and assign it
 		highest_room_spawned += 1
 		new_room.set_room_number(highest_room_spawned)
 		
@@ -53,7 +106,6 @@ func _spawn_next_room(is_front: bool):
 		new_room.global_transform = exit_marker.global_transform
 		active_rooms.append(new_room)
 	else:
-		# Decrease the tracking number and assign it
 		lowest_room_spawned -= 1
 		new_room.set_room_number(lowest_room_spawned)
 		

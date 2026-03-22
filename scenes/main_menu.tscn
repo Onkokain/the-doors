@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://db3tfuvjnvkgi" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://dwe7u632f0ut1" path="res://assets/bg.png" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://cicxmv8cu64m2" path="res://fonts/Creepy Blood.ttf" id="1_l6cm7"]
+[ext_resource type="FontFile" uid="uid://bur0xekl7f8a7" path="res://fonts/Scratch.ttf" id="3_8ln24"]
+[ext_resource type="Script" uid="uid://dfxe5rgid5rpe" path="res://scripts/main.gd" id="4_wu84c"]
 
 [node name="main menu" type="Node2D" unique_id=1985274283]
 script = ExtResource("1_bqqt6")
@@ -13,24 +15,43 @@ offset_bottom = 665.0
 texture = ExtResource("1_ekxnf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1652959937]
-offset_left = 253.0
-offset_top = 204.0
-offset_right = 915.0
-offset_bottom = 538.0
+offset_left = 270.0
+offset_top = 177.0
+offset_right = 932.0
+offset_bottom = 628.0
 theme_override_constants/separation = 17
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=167972983]
-custom_minimum_size = Vector2(100, 100)
+[node name="start" type="Button" parent="VBoxContainer" unique_id=167972983]
+custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
-text = "Start"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_8ln24")
+theme_override_font_sizes/font_size = 78
+text = "Start Game"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=729237503]
-custom_minimum_size = Vector2(100, 100)
+[node name="settings" type="Button" parent="VBoxContainer" unique_id=729237503]
+custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_8ln24")
+theme_override_font_sizes/font_size = 78
+text = "Settings"
 
-[node name="Button3" type="Button" parent="VBoxContainer" unique_id=348510588]
-custom_minimum_size = Vector2(100, 100)
+[node name="cutscene" type="Button" parent="VBoxContainer" unique_id=348510588]
+custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_8ln24")
+theme_override_font_sizes/font_size = 78
+text = "Cutscenes"
+
+[node name="endgame" type="Button" parent="VBoxContainer" unique_id=1315941126]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_8ln24")
+theme_override_font_sizes/font_size = 78
+text = "End Game"
 
 [node name="Label" type="Label" parent="." unique_id=1246752811]
 offset_left = 392.0
@@ -44,4 +65,26 @@ theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 113
 text = "The Doors"
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="Settings" type="Panel" parent="." unique_id=77800051]
+process_mode = 3
+visible = false
+offset_left = 146.0
+offset_top = 169.0
+offset_right = 1048.0
+offset_bottom = 624.0
+script = ExtResource("4_wu84c")
+
+[node name="Cutscenes" type="Panel" parent="." unique_id=1555322869]
+process_mode = 3
+visible = false
+offset_left = 146.0
+offset_top = 169.0
+offset_right = 1048.0
+offset_bottom = 624.0
+script = ExtResource("4_wu84c")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1990046213]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]

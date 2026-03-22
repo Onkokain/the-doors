@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c4k6fjvaf2g67"]
+[gd_scene format=3 uid="uid://ctew63u5n1csk"]
 
 [ext_resource type="PackedScene" uid="uid://dxc8hqjruyrbc" path="res://scenes/door.tscn" id="1_36trf"]
 [ext_resource type="Script" uid="uid://d1gomfab7a1il" path="res://scripts/room.gd" id="1_ffxv4"]
@@ -26,7 +26,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42.244835)
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1466295915]
 transform = Transform3D(1, 0, 0, 0, 0.9675815, 0.25255913, 0, -0.25255913, 0.9675815, -0.40020442, 5.659691, 14.0672245)
 light_color = Color(0.54519457, 0, 0.07726038, 1)
-light_energy = 3.0
 
 [node name="Label3D" type="Label3D" parent="." unique_id=309539866]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.23404765, 5.495962, 14.685102)

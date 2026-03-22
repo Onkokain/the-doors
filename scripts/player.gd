@@ -26,6 +26,11 @@ var bob_t = 1.0
 var is_locked = false
 @onready var cursor_ui: TextureRect = $UI/CustomCursor
 
+# --- FLY MODE ---
+var is_flying = false
+const FLY_SPEED = 117.0
+const FLY_VERTICAL_SPEED = 115.0
+
 
 func _ready():
 	
@@ -33,11 +38,18 @@ func _ready():
 	is_locked = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	cursor_ui.visible = true
+
+
 func _input(event):
 	if event.is_action_pressed("pause"):
 		is_locked = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		cursor_ui.visible = false
+
+	# --- FLY TOGGLE ---
+	if event.is_action_pressed("fly"):
+		is_flying = !is_flying
+		velocity.y = 0
 
 	# 1. HANDLE MOUSE TOGGLE (Minecraft Mode)
 
@@ -67,6 +79,8 @@ func _input(event):
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		camera.rotate_x(-event.relative.y * mouse_sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+
+
 func _physics_process(delta: float) -> void:
 	if get_tree().paused:
 		return
@@ -82,41 +96,68 @@ func _physics_process(delta: float) -> void:
 	# Update air state for the next frame
 	was_in_air = !is_on_floor()
 
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	# --- FLY LOGIC ---
+	if is_flying:
+		var input_dir := Input.get_vector("left", "right", "forward", "backward")
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		
-	var input_dir := Input.get_vector("left", "right", "forward", "backward")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		if direction:
+			velocity.x = direction.x * FLY_SPEED
+			velocity.z = direction.z * FLY_SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, FLY_SPEED)
+			velocity.z = move_toward(velocity.z, 0, FLY_SPEED)
+
+		# Vertical movement
+		if Input.is_action_pressed("jump"):
+			velocity.y = FLY_VERTICAL_SPEED
+		elif Input.is_action_pressed("crouch"):
+			velocity.y = -FLY_VERTICAL_SPEED
+		else:
+			velocity.y = 0
+
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+			
+		var input_dir := Input.get_vector("left", "right", "forward", "backward")
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		
+		if direction:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
 	
 	_handle_head_bob(delta)
 	_handle_audio()
 
+
 func _on_land():
 	if not jump.playing:
 		jump.play()
 
+
 func _handle_audio() -> void:
 	var is_moving = Vector2(velocity.x, velocity.z).length() > 0.1
-	if is_on_floor() and is_moving:
+	if is_on_floor() and is_moving and not is_flying:
 		if not walking.playing:
 			walking.play()
 	else:
 		if walking.playing:
 			walking.stop()
 
+
 func _handle_head_bob(delta: float) -> void:
+	if is_flying:
+		return
+
 	var horizontal_velocity = Vector2(velocity.x, velocity.z)
 	if is_on_floor() and horizontal_velocity.length() > 0.1:
 		bob_t += delta * horizontal_velocity.length()
