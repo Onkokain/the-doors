@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://clqk3cijxw2ge" path="res://scripts/closet.gd" id="1_71km3"]
 [ext_resource type="Texture2D" uid="uid://c4epaqsom45xu" path="res://assets/blender/closet.png" id="1_uj11n"]
 [ext_resource type="Texture2D" uid="uid://b0f5k18x62m8r" path="res://assets/blender/door1.png" id="2_71km3"]
+[ext_resource type="Material" uid="uid://b0ltckauk0x8p" path="res://materials/wood_walls.tres" id="2_cgwhh"]
 [ext_resource type="Texture2D" uid="uid://x1oeyoursiq8" path="res://assets/blender/door2.png" id="3_cgwhh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js13p"]
@@ -291,6 +292,7 @@ script = ExtResource("1_71km3")
 
 [node name="closet" type="MeshInstance3D" parent="StaticBody3D" unique_id=1905372433]
 transform = Transform3D(1.0460513, 0, 0, 0, 1.0460513, 0, 0, 0, 1.0460513, 0, 0, 0)
+material_overlay = ExtResource("2_cgwhh")
 mesh = SubResource("ArrayMesh_rbvk1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=564199237]
