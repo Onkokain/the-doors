@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dxc8hqjruyrbc" path="res://scenes/door.tscn" id="1_36trf"]
 [ext_resource type="Script" uid="uid://d1gomfab7a1il" path="res://scripts/room.gd" id="1_ffxv4"]
 [ext_resource type="PackedScene" uid="uid://cu725jrw64lnf" path="res://scenes/floor.tscn" id="3_85yof"]
+[ext_resource type="FontFile" uid="uid://cicxmv8cu64m2" path="res://fonts/Creepy Blood.ttf" id="3_yjeik"]
 [ext_resource type="PackedScene" uid="uid://bwylvr7ntkorg" path="res://scenes/wall_top.tscn" id="4_jxe34"]
 [ext_resource type="PackedScene" uid="uid://3bq8o07j55g6" path="res://scenes/wall_center.tscn" id="5_jn645"]
 [ext_resource type="PackedScene" path="res://scenes/wall_top_of_door.tscn" id="6_jn645"]
@@ -30,6 +31,7 @@ light_energy = 3.0
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.23404765, 5.495962, 14.685102)
 pixel_size = 0.03
 text = "1"
+font = ExtResource("3_yjeik")
 
 [node name="updator" type="Area3D" parent="." unique_id=1750448096]
 

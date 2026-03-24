@@ -1,12 +1,12 @@
 [gd_resource type="Environment" format=3 uid="uid://0yyqkdr2f33f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sgp6g"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0.096833475, 0.0991453, 0.10608221, 1)
+sky_top_color = Color(0.05109611, 0.05109611, 0.051096104, 1)
+sky_horizon_color = Color(0.12211106, 0.12211125, 0.13115996, 1)
 sky_energy_multiplier = 2.0
 sky_cover_modulate = Color(0.10224319, 0.10224321, 0.10224321, 1)
-ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0.057996348, 0.057996348, 0.05799634, 1)
+ground_bottom_color = Color(0.040268797, 0.040268805, 0.040268797, 1)
+ground_horizon_color = Color(0.11119687, 0.11119684, 0.11119688, 1)
 ground_energy_multiplier = 2.0
 
 [sub_resource type="Sky" id="Sky_o5qli"]
