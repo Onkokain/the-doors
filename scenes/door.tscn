@@ -3,13 +3,9 @@
 [ext_resource type="Script" uid="uid://dj5oav6b66s2i" path="res://scripts/door.gd" id="1_hpvv5"]
 [ext_resource type="PackedScene" uid="uid://3morhf7sm0hi" path="res://assets/blender/door1.blend" id="2_la1wf"]
 [ext_resource type="AudioStream" uid="uid://dfrce040kugsh" path="res://assets/music/door.mp3" id="2_uvdjg"]
-[ext_resource type="Texture2D" uid="uid://bms2qa8hn3rvo" path="res://assets/images/Door_texture.png" id="3_18pbm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uvdjg"]
 size = Vector3(0.3383789, 5.379883, 4.5566406)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5w8r"]
-albedo_texture = ExtResource("3_18pbm")
 
 [sub_resource type="Animation" id="Animation_hpvv5"]
 length = 2.0
@@ -86,21 +82,18 @@ radius = 4.925747
 [node name="door" type="Node3D" unique_id=1196333875]
 
 [node name="hinge" type="Node3D" parent="." unique_id=2008647475]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0)
+transform = Transform3D(0.9999997, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, -0.017442703, 0.20937836, -0.4343506)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="hinge" unique_id=642406739]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 1.4901163e-08, 0, 1, -2.4040384, -0.9777741, 0.39854807)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -2.8287618, -1.1871524, 0.49115002)
 script = ExtResource("1_hpvv5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hinge/StaticBody3D" unique_id=510390635]
 transform = Transform3D(-4.371261e-08, 0, -1, 0, 1, 0, 1, 0, -4.371261e-08, 0.43805945, 1.2485976, -0.80373466)
 shape = SubResource("BoxShape3D_uvdjg")
 
-[node name="door1" parent="hinge/StaticBody3D" unique_id=152567644 instance=ExtResource("2_la1wf")]
-transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0.44648123, -1.2932823, 0)
-
-[node name="Cube" parent="hinge/StaticBody3D/door1" index="0" unique_id=1416417815]
-surface_material_override/0 = SubResource("StandardMaterial3D_q5w8r")
+[node name="door1" parent="hinge/StaticBody3D" unique_id=48040325 instance=ExtResource("2_la1wf")]
+transform = Transform3D(-4.4703484e-08, 0, -1, 0, 0.99999994, 0, 1, 0, -2.9802322e-08, 1.1832173, -1.1282173, 0.04908955)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=625903212]
 libraries/ = SubResource("AnimationLibrary_hpvv5")
@@ -118,5 +111,3 @@ shape = SubResource("SphereShape3D_uvdjg")
 
 [connection signal="body_entered" from="InteractionArea" to="hinge/StaticBody3D" method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="hinge/StaticBody3D" method="_on_interaction_area_body_exited"]
-
-[editable path="hinge/StaticBody3D/door1"]

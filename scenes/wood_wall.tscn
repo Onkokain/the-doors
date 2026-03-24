@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dfb2qtxtwir3q"]
+
+[ext_resource type="PackedScene" uid="uid://b8hhby4a1tifh" path="res://assets/public assets/wall/WOOD_WALL.glb" id="1_hhkds"]
+
+[node name="wall" type="Node3D" unique_id=1365467639]
+
+[node name="WOOD_WALL" parent="." unique_id=1823599304 instance=ExtResource("1_hhkds")]
