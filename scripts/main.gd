@@ -1,5 +1,5 @@
 extends Panel
-
+var is_already_playing=false
 var paused = false
 @onready var panel: Panel = $"."
 
@@ -13,4 +13,9 @@ func _input(event):
 		paused = !paused
 		get_tree().paused = paused
 		panel.visible = paused
-		Background.playing=true
+		if !is_already_playing:
+			Background.playing=true
+			is_already_playing=true
+		else:
+			Background.playing=false
+			is_already_playing=false

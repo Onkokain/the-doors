@@ -120,7 +120,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ls3vv")
 
 [node name="Node3D" type="Node3D" unique_id=1992892835]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="Sketchfab_Scene" type="Node3D" parent="." unique_id=35232151]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.58432925, 0, 0.6834171)

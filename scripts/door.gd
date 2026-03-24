@@ -18,14 +18,15 @@ func _on_interaction_area_body_entered(body: Node3D) -> void:
 
 func open_door_permanently() -> void:
 	is_open = true
-	
+	if door_audio != null:
+		door_audio.play()
+		await get_tree().create_timer(0.1).timeout
 	# Play the opening animation
 	if animation_player.has_animation("door_openz"):
 		animation_player.play("door_openz")
 	
 	# Play sound if the node exists
-	if door_audio != null:
-		door_audio.play()
+	
 	
 	# Logic for 'open forever' is handled by simply never 
 	# calling a close function or resetting 'is_open'

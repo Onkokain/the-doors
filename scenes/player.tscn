@@ -43,7 +43,7 @@ script = ExtResource("2_g2els")
 
 [node name="walking" type="AudioStreamPlayer3D" parent="." unique_id=194239202]
 stream = ExtResource("3_qhqgy")
-volume_db = -28.657
+volume_db = -25.0
 
 [node name="jump" type="AudioStreamPlayer3D" parent="." unique_id=309225455]
 stream = ExtResource("4_dqkch")
