@@ -48,6 +48,7 @@ const FLY_SPEED = 117.0
 const FLY_VERTICAL_SPEED = 115.0
 
 func _ready():
+	Background.playing=false
 	is_locked = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	cursor_ui.visible = true

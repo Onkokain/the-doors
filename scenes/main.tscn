@@ -13,7 +13,7 @@ environment = ExtResource("1_tbgi4")
 
 [node name="player" parent="." unique_id=289016444 instance=ExtResource("1_o5qli")]
 process_mode = 3
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 4.307335, -25.193054)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 4.307335, -12.961002)
 
 [node name="WorldGenerator" type="Node3D" parent="." unique_id=1834764579]
 script = ExtResource("2_0wfyh")

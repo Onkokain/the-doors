@@ -9,10 +9,10 @@ var prev_room: int = -1
 # 1. Update your room list to include weights. 
 # Higher weight = more likely to spawn.
 var room_data: Array[Dictionary] = [
-	{"scene": preload("res://scenes/room.tscn"), "weight": 10.0},        # Very common
 	{"scene": preload("res://scenes/hallway.tscn"), "weight": 10.0},     # Very common
 	{"scene": preload("res://scenes/hallway_long.tscn"), "weight": 1.0}, # Uncommon
-	{"scene": preload("res://scenes/maze1.tscn"), "weight": 0.1}         # Rare
+	{"scene": preload("res://scenes/maze1.tscn"), "weight": 0.1},        # 
+	{"scene": preload("res://scenes/newdesign_room.tscn"),"weight":20.0}
 ]
 
 var active_rooms: Array = []

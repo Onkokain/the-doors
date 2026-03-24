@@ -5,6 +5,7 @@ var paused = false
 
 
 func _ready() -> void:
+	
 	panel.visible = false
 
 func _input(event):
@@ -12,3 +13,4 @@ func _input(event):
 		paused = !paused
 		get_tree().paused = paused
 		panel.visible = paused
+		Background.playing=true

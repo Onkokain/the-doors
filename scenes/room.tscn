@@ -9,6 +9,11 @@
 [ext_resource type="PackedScene" path="res://scenes/wall_top_of_door.tscn" id="6_jn645"]
 [ext_resource type="PackedScene" uid="uid://bblvk4n4m68tj" path="res://scenes/cupboard.tscn" id="7_qvc4m"]
 [ext_resource type="PackedScene" uid="uid://befj2xtxekpuv" path="res://scenes/closet.tscn" id="8_7dqbv"]
+[ext_resource type="PackedScene" uid="uid://dkgrt7p3hqv6c" path="res://assets/public assets/ps1_style_nightstand.glb" id="11_dynfe"]
+[ext_resource type="PackedScene" uid="uid://k8alpqlqblhf" path="res://assets/public assets/low-poly_psx_style_double_bed.glb" id="12_vfrn5"]
+[ext_resource type="PackedScene" uid="uid://doqfgbi0ccd1x" path="res://assets/public assets/low-poly_psx_sofa.glb" id="13_katsu"]
+[ext_resource type="PackedScene" uid="uid://cii2lw8ibpq4a" path="res://assets/public assets/ps1_style_lamp.glb" id="14_jxwrd"]
+[ext_resource type="PackedScene" uid="uid://bfnaibgjpcl7m" path="res://assets/public assets/psx-style_cork_board_notes_polaroids__pins.glb" id="15_spkk5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
 size = Vector3(4.199463, 9.462402, 1)
@@ -510,8 +515,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.429, 3.03, 14.83)
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.429, 3.0300007, -15.334844)
 
 [node name="cupboard" parent="." unique_id=109282610 instance=ExtResource("7_qvc4m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.639333, 0, -13.654124)
 
 [node name="closet" parent="." unique_id=1859943216 instance=ExtResource("8_7dqbv")]
-transform = Transform3D(0.63761795, 0, 0, 0, 0.67681336, 0, 0, 0, 1, -2.3873904, -1.6640263, -5.36878)
+transform = Transform3D(-2.7871163e-08, 0, 0.99999994, 0, 0.6768133, 0, -0.63761795, 0, -4.371139e-08, -14.438171, -1.6640263, 13.808935)
+
+[node name="Sketchfab_Scene2" parent="." unique_id=35232151 instance=ExtResource("11_dynfe")]
+transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 15.146619, -0.1253624, -2.19129)
+
+[node name="Sketchfab_Scene3" parent="." unique_id=1919590484 instance=ExtResource("12_vfrn5")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -13.361081, -0.12509727, -14.287722)
+
+[node name="Sketchfab_Scene4" parent="." unique_id=1171747576 instance=ExtResource("13_katsu")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -14.626325, -0.29550362, 1.114111)
+
+[node name="Sketchfab_Scene5" parent="." unique_id=1080025562 instance=ExtResource("14_jxwrd")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 14.153205, 1.9297295, 2.2326794)
+
+[node name="Sketchfab_Scene6" parent="." unique_id=233459669 instance=ExtResource("15_spkk5")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 17.022623, -0.73620987, -11.47361)
 
 [connection signal="body_entered" from="updator" to="." method="_on_updator_body_entered"]

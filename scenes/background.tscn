@@ -3,6 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://cwiko5so8iyma" path="res://assets/music/universfield-eerie-music-box-melody-163556.mp3" id="1_bkp1e"]
 
 [node name="background" type="AudioStreamPlayer2D" unique_id=1277750288]
+process_mode = 3
 stream = ExtResource("1_bkp1e")
 pitch_scale = 0.9
 autoplay = true
