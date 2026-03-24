@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://3bq8o07j55g6" path="res://scenes/wall_center.tscn" id="5_jn645"]
 [ext_resource type="Texture2D" uid="uid://cbo6rdnsq2731" path="res://assets/public materials/stylized_wood_pbr_material_0.png" id="6_0dvdo"]
 [ext_resource type="PackedScene" path="res://scenes/wall_top_of_door.tscn" id="6_jn645"]
-[ext_resource type="PackedScene" uid="uid://50wp1f4mnjht" path="res://assets/public assets/cabinet_living_room.glb" id="7_oxp1g"]
-[ext_resource type="PackedScene" uid="uid://dutehtlmlnec1" path="res://assets/public assets/haunted_mansion_-_piano.glb" id="8_6blaw"]
 [ext_resource type="PackedScene" uid="uid://8w8qh564oha2" path="res://assets/public assets/haunted_mansion_-_sofa.glb" id="9_qjeoa"]
 [ext_resource type="PackedScene" uid="uid://b6dvjqwwnptkr" path="res://assets/public assets/old_wooden_chair.glb" id="10_o5f1n"]
 [ext_resource type="PackedScene" uid="uid://cii2lw8ibpq4a" path="res://assets/public assets/ps1_style_lamp.glb" id="11_xgxdy"]
@@ -16,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://dkgrt7p3hqv6c" path="res://assets/public assets/ps1_style_nightstand.glb" id="14_2pjiy"]
 [ext_resource type="PackedScene" uid="uid://c4vh1klbpm6cx" path="res://assets/public assets/low_wooden_bench.glb" id="15_d8i27"]
 [ext_resource type="PackedScene" uid="uid://jwyaxre1fbg5" path="res://assets/public assets/petate_carpet_straw_carpet_straw_rug.glb" id="16_joacx"]
+[ext_resource type="PackedScene" uid="uid://dcjxbw8m4e712" path="res://assets/public assets/lamp_22.glb" id="17_6blaw"]
+[ext_resource type="PackedScene" uid="uid://rsx3bdv5cwm7" path="res://scenes/piano.tscn" id="17_o5f1n"]
+[ext_resource type="PackedScene" uid="uid://dgxrd460hgqnf" path="res://scenes/big_cabinet.tscn" id="17_qjeoa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
 size = Vector3(4.199463, 9.462402, 1)
@@ -341,12 +342,6 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.4
 transform = Transform3D(24.70394, 0, 0, 0, 0.73599076, 0, 0, 0, 30.724575, 0.8661809, 0, 4.6778736)
 mesh = SubResource("PlaneMesh_8f3np")
 
-[node name="bigcloset" parent="." unique_id=1545176579 instance=ExtResource("7_oxp1g")]
-transform = Transform3D(-1.04907336e-07, 0, 2.4, 0, 2.4, 0, -2.4, 0, -1.04907336e-07, -15.2266445, 0.0036201477, 9.140432)
-
-[node name="piano" parent="." unique_id=1134930766 instance=ExtResource("8_6blaw")]
-transform = Transform3D(-1.09278474e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278474e-07, 0.8847556, 1.4646091, -1.0947094)
-
 [node name="sofa" parent="." unique_id=1651039923 instance=ExtResource("9_qjeoa")]
 transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -14.886637, 0.7535801, -1.5146408)
 
@@ -357,7 +352,7 @@ transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 13
 transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 15.484333, 0.17651558, -8.600132)
 
 [node name="chair3" parent="." unique_id=1985873790 instance=ExtResource("10_o5f1n")]
-transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 11.356458, 0.17651558, -10.725685)
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 11.330699, 0.17651558, -10.725685)
 
 [node name="chair4" parent="." unique_id=1759469234 instance=ExtResource("10_o5f1n")]
 transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 11.356458, 0.17651558, -12.586252)
@@ -397,5 +392,43 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0.7399119, 0.017921448, 0.
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=312170134]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12301254, 0)
 shape = SubResource("WorldBoundaryShape3D_oxp1g")
+
+[node name="lamp2" parent="." unique_id=391559412 instance=ExtResource("17_6blaw")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -6.162702, 5.483141, -15.214586)
+
+[node name="lamp3" parent="." unique_id=377561934 instance=ExtResource("17_6blaw")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.170591, 5.483141, -15.214586)
+
+[node name="lamp4" parent="." unique_id=1867954159 instance=ExtResource("17_6blaw")]
+transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, -6.162702, 5.483141, 14.645163)
+
+[node name="lamp5" parent="." unique_id=423030092 instance=ExtResource("17_6blaw")]
+transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, 4.170591, 5.483141, 14.645163)
+
+[node name="lamp6" parent="." unique_id=611521048 instance=ExtResource("17_6blaw")]
+transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 17.033125, 7.2418556, -12.176755)
+
+[node name="lamp7" parent="." unique_id=1531543769 instance=ExtResource("17_6blaw")]
+transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 17.033125, 7.2418556, -1.7815876)
+
+[node name="lamp8" parent="." unique_id=675352478 instance=ExtResource("17_6blaw")]
+transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 17.033125, 7.2418556, 8.178213)
+
+[node name="lamp9" parent="." unique_id=799405731 instance=ExtResource("17_6blaw")]
+transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -15.659655, 7.078911, -12.176755)
+
+[node name="lamp10" parent="." unique_id=1525350672 instance=ExtResource("17_6blaw")]
+transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -15.659655, 7.078911, -1.7815876)
+
+[node name="lamp11" parent="." unique_id=932352263 instance=ExtResource("17_6blaw")]
+transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -15.659655, 7.078911, 8.178213)
+
+[node name="decor" type="Node3D" parent="." unique_id=1462231099]
+
+[node name="big cabinet" parent="decor" unique_id=1892256965 instance=ExtResource("17_qjeoa")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.896299, -0.12301254, 8.266035)
+
+[node name="piano" parent="decor" unique_id=399880313 instance=ExtResource("17_o5f1n")]
+transform = Transform3D(-1.09278474e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278474e-07, 5.299421, 1.3053741, 3.8823967)
 
 [connection signal="body_entered" from="updator" to="." method="_on_updator_body_entered"]
