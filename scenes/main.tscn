@@ -5,7 +5,7 @@
 [ext_resource type="Environment" uid="uid://0yyqkdr2f33f" path="res://materials/world.tres" id="1_tefeu"]
 [ext_resource type="Script" uid="uid://8gsbq2h6uijs" path="res://scripts/world_generator.gd" id="2_0wfyh"]
 [ext_resource type="FontFile" uid="uid://cicxmv8cu64m2" path="res://fonts/Creepy Blood.ttf" id="3_sugp2"]
-[ext_resource type="AudioStream" uid="uid://cm1sh2u5qv7v0" path="res://assets/music/rain_bg.mp3" id="6_tefeu"]
+[ext_resource type="AudioStream" uid="uid://cq76fooon065s" path="res://assets/music/rain_bg.ogg" id="6_tefeu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbgi4"]
 transparency = 1
