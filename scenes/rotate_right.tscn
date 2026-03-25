@@ -173,9 +173,9 @@ size = Vector3(35.58203, 0.9898529, 0.491333)
 material = ExtResource("4_6blaw")
 
 [node name="door wall cutout" type="CSGBox3D" parent="walls" unique_id=1041976223]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.274227, 2.4377308, -5.28319)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.640598, 2.4377308, -5.28319)
 operation = 2
-size = Vector3(3.0489502, 4.9295692, 1.236145)
+size = Vector3(3.0489502, 4.9295692, 2.5530548)
 material = ExtResource("4_6blaw")
 
 [node name="door wall cutout2" type="CSGBox3D" parent="walls" unique_id=663352900]
