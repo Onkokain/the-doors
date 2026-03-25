@@ -46,12 +46,8 @@ transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.
 [node name="ExitMarker" type="Marker3D" parent="." unique_id=412077109]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -43.587, 0, -4.935749)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1466295915]
-transform = Transform3D(1.3113416e-07, 0.25255916, -0.96758145, 0, 0.96758145, 0.25255916, 1, -3.3119132e-08, 1.2688298e-07, -15.409397, 5.659691, -5.3359585)
-light_color = Color(0.54519457, 0, 0.07726038, 1)
-
 [node name="Label3D" type="Label3D" parent="." unique_id=309539866]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.959656, 5.495962, -5.3984547)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.422704, 5.495962, -5.3984547)
 pixel_size = 0.03
 text = "1"
 font = ExtResource("3_qjeoa")

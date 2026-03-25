@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dfxe5rgid5rpe" path="res://scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dexc8vvd7ghmx" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Environment" uid="uid://0yyqkdr2f33f" path="res://materials/world.tres" id="1_tefeu"]
 [ext_resource type="Script" uid="uid://8gsbq2h6uijs" path="res://scripts/world_generator.gd" id="2_0wfyh"]
 [ext_resource type="FontFile" uid="uid://cicxmv8cu64m2" path="res://fonts/Creepy Blood.ttf" id="3_sugp2"]
 [ext_resource type="AudioStream" uid="uid://cm1sh2u5qv7v0" path="res://assets/music/rain_bg.mp3" id="6_tefeu"]
@@ -32,10 +33,11 @@ size = Vector2(0.05, 0.2)
 [node name="main" type="Node3D" unique_id=891550892]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=228127302]
+environment = ExtResource("1_tefeu")
 
 [node name="player" parent="." unique_id=289016444 instance=ExtResource("1_o5qli")]
 process_mode = 3
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 4.307335, -12.961002)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 3.4675694, -10.8556595)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="player" unique_id=88317258]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.719265, 7.8054237, -0.10513306)

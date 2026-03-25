@@ -46,10 +46,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.6
 [node name="ExitMarker" type="Marker3D" parent="." unique_id=412077109]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 44.62789, 0, -4.923048)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1466295915]
-transform = Transform3D(-4.3711392e-08, -0.25255916, 0.9675815, 0, 0.9675815, 0.25255916, -1, 1.1039712e-08, -4.2294335e-08, 16.450285, 5.659691, -4.5228405)
-light_color = Color(0.54519457, 0, 0.07726038, 1)
-
 [node name="Label3D" type="Label3D" parent="." unique_id=309539866]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.000544, 5.495962, -4.4603443)
 pixel_size = 0.03
