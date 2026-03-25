@@ -16,7 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bjejwn8w5rpsh" path="res://assets/music/dragon-studio-clock-ticking-sfx-467486.mp3" id="13_snwyw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
-size = Vector3(4.199463, 9.462402, 1)
+size = Vector3(5.97229, 9.462402, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgxdy"]
 albedo_texture = ExtResource("6_o5f1n")
@@ -54,7 +54,7 @@ font = ExtResource("3_qjeoa")
 [node name="updator" type="Area3D" parent="." unique_id=1750448096]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="updator" unique_id=1071553891]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18053055, 4.231201, 16.795252)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0669441, 4.231201, -13.445347)
 shape = SubResource("BoxShape3D_ffxv4")
 
 [node name="ceiling" type="Node3D" parent="." unique_id=1656465122]
@@ -324,7 +324,7 @@ stream = ExtResource("13_snwyw")
 [node name="floor" type="Node3D" parent="." unique_id=1984927911]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=620957960]
-transform = Transform3D(24.70394, 0, 0, 0, 0.73599076, 0, 0, 0, 30.724575, 0.8695431, 0.015729904, 4.682003)
+transform = Transform3D(24.70394, 0, 0, 0, 0.73599076, 0, 0, 0, 30.724575, 0.85776424, 0.015729904, 4.6045685)
 mesh = SubResource("PlaneMesh_8f3np")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="floor" unique_id=1962419449]

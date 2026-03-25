@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cngtetqnup6ps" path="res://scenes/wall_light.tscn" id="17_6blaw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
-size = Vector3(4.199463, 9.462402, 1)
+size = Vector3(6.814453, 9.462402, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgxdy"]
 albedo_texture = ExtResource("6_o5f1n")
@@ -49,7 +49,7 @@ font = ExtResource("3_qjeoa")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.843422, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="updator" unique_id=1071553891]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18053055, 4.231201, 16.795252)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.429245, 4.231201, -14.266053)
 shape = SubResource("BoxShape3D_ffxv4")
 
 [node name="ceiling" type="Node3D" parent="." unique_id=1656465122]

@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://befj2xtxekpuv" path="res://scenes/closet.tscn" id="18_qjeoa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
-size = Vector3(4.199463, 9.462402, 1)
+size = Vector3(4.199463, 9.462402, 6.632324)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgxdy"]
 albedo_texture = ExtResource("6_o5f1n")
@@ -52,10 +52,10 @@ text = "1"
 font = ExtResource("3_qjeoa")
 
 [node name="updator" type="Area3D" parent="." unique_id=1750448096]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.3421736, 0, -10.887928)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 14.942967, 0, -10.887928)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="updator" unique_id=1071553891]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18053055, 4.231201, 16.795252)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18053055, 4.231201, 13.97909)
 shape = SubResource("BoxShape3D_ffxv4")
 
 [node name="ceiling" type="Node3D" parent="." unique_id=1656465122]

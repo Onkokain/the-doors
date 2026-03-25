@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://br7h5phbhttrw" path="res://assets/public assets/bedside_table_0.jpg" id="6_o5f1n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
-size = Vector3(4.199463, 9.462402, 1)
+size = Vector3(5.7139893, 9.462402, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgxdy"]
 albedo_texture = ExtResource("6_o5f1n")
@@ -44,7 +44,7 @@ font = ExtResource("3_qjeoa")
 [node name="updator" type="Area3D" parent="." unique_id=1750448096]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="updator" unique_id=1071553891]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18053055, 4.231201, 16.795252)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93779373, 4.231201, -13.311024)
 shape = SubResource("BoxShape3D_ffxv4")
 
 [node name="ceiling" type="Node3D" parent="." unique_id=1656465122]
