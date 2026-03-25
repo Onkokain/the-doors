@@ -290,7 +290,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.
 pixel_size = 0.03
 modulate = Color(0.40930197, 0, 0.13420406, 1)
 outline_modulate = Color(0.7480997, 0.7480997, 0.7480996, 1)
-text = "Enemies Spotted"
+text = "Rooms Visited"
 font = ExtResource("3_qjeoa")
 
 [node name="Label3D7" type="Label3D" parent="spawn room" unique_id=1459612136]
@@ -298,14 +298,14 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.
 pixel_size = 0.03
 modulate = Color(0.40930197, 0, 0.13420406, 1)
 outline_modulate = Color(0.7480997, 0.7480997, 0.7480996, 1)
-text = "Death count"
+text = "Coins Collected"
 font = ExtResource("3_qjeoa")
 
 [node name="Label3D3" type="Label3D" parent="spawn room" unique_id=992919119]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.03904, 3.913208, -1.7112961)
 pixel_size = 0.02
 text = "1. Survive
-2. Survive
+2. Reach room 25
 3. Survive......"
 font = ExtResource("3_qjeoa")
 font_size = 47

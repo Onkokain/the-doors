@@ -23,3 +23,11 @@ func _on_updator_body_entered(body: Node3D) -> void:
 		# Instead of math, just directly tell the Global script exactly where the player is
 		Global.player_room = my_room_number+1
 		
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	pass # Replace with function body.
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	pass # Replace with function body.

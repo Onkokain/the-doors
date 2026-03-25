@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://c56gf3nkk8l1q" path="res://scenes/low_table.tscn" id="16_8tebx"]
 [ext_resource type="PackedScene" uid="uid://cngtetqnup6ps" path="res://scenes/wall_light.tscn" id="17_6blaw"]
 [ext_resource type="PackedScene" uid="uid://ch6egkwqyyn05" path="res://scenes/chair.tscn" id="17_itmi0"]
-[ext_resource type="PackedScene" uid="uid://rsx3bdv5cwm7" path="res://scenes/piano.tscn" id="17_o5f1n"]
 [ext_resource type="PackedScene" uid="uid://dgxrd460hgqnf" path="res://scenes/big_cabinet.tscn" id="17_qjeoa"]
 [ext_resource type="PackedScene" uid="uid://eyxvmq7w2flb" path="res://scenes/lamp.tscn" id="17_xgxdy"]
 [ext_resource type="PackedScene" uid="uid://befj2xtxekpuv" path="res://scenes/closet.tscn" id="18_qjeoa"]
@@ -41,19 +40,19 @@ use_collision = true
 script = ExtResource("1_ffxv4")
 
 [node name="door" parent="." unique_id=1196333875 instance=ExtResource("1_36trf")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.637993, 2.217392, -3.6809368)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.637993, 2.217392, -9.633108)
 
 [node name="ExitMarker" type="Marker3D" parent="." unique_id=412077109]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -43.587, 0, -4.935749)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -43.587, 0, -10.88792)
 
 [node name="Label3D" type="Label3D" parent="." unique_id=309539866]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.422704, 5.495962, -5.3984547)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.422704, 5.495962, -11.350626)
 pixel_size = 0.03
 text = "1"
 font = ExtResource("3_qjeoa")
 
 [node name="updator" type="Area3D" parent="." unique_id=1750448096]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.3421736, 0, -4.9357567)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.3421736, 0, -10.887928)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="updator" unique_id=1071553891]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18053055, 4.231201, 16.795252)
@@ -173,7 +172,7 @@ size = Vector3(35.58203, 0.9898529, 0.491333)
 material = ExtResource("4_6blaw")
 
 [node name="door wall cutout" type="CSGBox3D" parent="walls" unique_id=1041976223]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.640598, 2.4377308, -5.28319)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.640598, 2.4377308, -11.235361)
 operation = 2
 size = Vector3(3.0489502, 4.9295692, 2.5530548)
 material = ExtResource("4_6blaw")
@@ -189,9 +188,6 @@ metadata/_edit_lock_ = true
 
 [node name="big cabinet" parent="decor" unique_id=1892256965 instance=ExtResource("17_qjeoa")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.896299, -0.12301254, 8.266035)
-
-[node name="piano" parent="decor" unique_id=399880313 instance=ExtResource("17_o5f1n")]
-transform = Transform3D(-1.09278474e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278474e-07, 5.299421, 1.3053741, 3.8823967)
 
 [node name="carpet" parent="decor" unique_id=1583250141 instance=ExtResource("12_6blaw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.072301865, 0)
@@ -218,19 +214,19 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -102
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -102.278275, -53.547195, 39.070305)
 
 [node name="lowtable" parent="decor" unique_id=1967974127 instance=ExtResource("16_8tebx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 16.233643, -0.00091552734, -14.69629)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 2.5822213, -0.00091552734, -3.1636734)
 
 [node name="Node3D" parent="decor" unique_id=387116280 instance=ExtResource("17_itmi0")]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 15.83516, 0.044597626, -6.8696594)
+transform = Transform3D(-3, 0, -4.5298742e-07, 0, 3, 0, 4.5298742e-07, 0, -3, 1.8284655, 0.26106262, 7.725622)
 
 [node name="Node3D2" parent="decor" unique_id=1018059802 instance=ExtResource("17_itmi0")]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 13.310844, 0.044597626, -6.897211)
+transform = Transform3D(-3, 0, -4.5298742e-07, 0, 3, 0, 4.5298742e-07, 0, -3, -1.6624923, 0.26106262, 7.6980686)
 
 [node name="Node3D3" parent="decor" unique_id=1130088148 instance=ExtResource("17_itmi0")]
-transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 9.251861, -0.029788971, -10.673079)
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -7.2650514, 0.18667603, 2.547472)
 
 [node name="Node3D4" parent="decor" unique_id=2013186173 instance=ExtResource("17_itmi0")]
-transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 9.251861, -0.029788971, -12.890273)
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -7.2650514, 0.18667603, -0.34640312)
 
 [node name="Node3D5" parent="decor" unique_id=1992892835 instance=ExtResource("16_6blaw")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.325165, -0.12301254, -4.2020226)
@@ -278,7 +274,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12301254, 0)
 shape = SubResource("WorldBoundaryShape3D_oxp1g")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1361732489]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.3421736, 0, -4.9357567)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.3421736, 0, -10.887928)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1688496573]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.244071, 2.9979858, 20.794607)
@@ -294,5 +290,17 @@ material = ExtResource("4_6blaw")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.5853027, 6.3451805, 20.840162)
 size = Vector3(0.11968994, 6.9959717, 12.196289)
 material = ExtResource("4_6blaw")
+
+[node name="Node3D" parent="." unique_id=1000624182 instance=ExtResource("15_xgxdy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.4100523, -0.12301254, 14.112196)
+
+[node name="Node3D2" parent="." unique_id=1524477296 instance=ExtResource("15_xgxdy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.6246605, -0.12301254, 14.112196)
+
+[node name="Node3D3" parent="." unique_id=201445866 instance=ExtResource("15_xgxdy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.3181152, -0.12301254, 14.112196)
+
+[node name="Node3D4" parent="." unique_id=805986522 instance=ExtResource("15_xgxdy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.031835, -0.12301254, 14.112196)
 
 [connection signal="body_entered" from="updator" to="." method="_on_updator_body_entered"]
