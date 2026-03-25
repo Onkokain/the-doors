@@ -5,7 +5,12 @@
 [ext_resource type="Material" uid="uid://b0ltckauk0x8p" path="res://materials/wood_walls.tres" id="4_6blaw"]
 [ext_resource type="Texture2D" uid="uid://cbo6rdnsq2731" path="res://assets/public materials/stylized_wood_pbr_material_0.png" id="6_0dvdo"]
 [ext_resource type="Texture2D" uid="uid://br7h5phbhttrw" path="res://assets/public assets/bedside_table_0.jpg" id="6_o5f1n"]
+[ext_resource type="Texture2D" uid="uid://c5lexao8t0oik" path="res://materials/denim_fabric_06_disp_4k.png" id="7_omrgh"]
 [ext_resource type="PackedScene" uid="uid://bvafej76q2um6" path="res://scenes/floormat.tscn" id="12_6blaw"]
+[ext_resource type="PackedScene" uid="uid://bnui2mjhxk4tm" path="res://scenes/couch.tscn" id="13_qjeoa"]
+[ext_resource type="PackedScene" uid="uid://boi866841lpv4" path="res://scenes/bookshelf.tscn" id="15_xgxdy"]
+[ext_resource type="PackedScene" uid="uid://c56gf3nkk8l1q" path="res://scenes/low_table.tscn" id="16_8tebx"]
+[ext_resource type="PackedScene" uid="uid://dgxrd460hgqnf" path="res://scenes/big_cabinet.tscn" id="17_qjeoa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
 size = Vector3(4.199463, 9.462402, 1)
@@ -39,8 +44,8 @@ size = Vector2(10, 4)
 subdivide_width = 10
 subdivide_depth = 10
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_omrgh"]
-albedo_color = Color(0.64, 0.21375999, 0.16639999, 0.83137256)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ncsg4"]
+albedo_texture = ExtResource("7_omrgh")
 
 [node name="room" type="CSGCombiner3D" unique_id=839876733]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25.366516, 26.748308)
@@ -323,7 +328,7 @@ shape = SubResource("CylinderShape3D_apkv3")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.274356, 3.3786087, 9.570925)
 pixel_size = 0.02
 billboard = 1
-modulate = Color(0.4911909, 0.4911909, 0.4911909, 1)
+modulate = Color(0.13464907, 0.1346491, 0.1346491, 1)
 text = "Return to Last Room"
 font = ExtResource("3_qjeoa")
 
@@ -345,7 +350,7 @@ material = ExtResource("4_6blaw")
 [node name="SoftBody3D" type="SoftBody3D" parent="spawn room" unique_id=259544305]
 transform = Transform3D(0.9898808, 0, 0, 0, 1.4588443e-08, -0.9619162, 0, 0.48950693, 2.8667337e-08, -0.38309586, 4.2990704, -12.726625)
 mesh = SubResource("PlaneMesh_apkv3")
-surface_material_override/0 = SubResource("StandardMaterial3D_omrgh")
+surface_material_override/0 = SubResource("StandardMaterial3D_ncsg4")
 pinned_points = [143, 142, 141, 140, 139, 138, 137, 136, 135, 134, 133, 132]
 attachments/0/point_index = 143
 attachments/0/spatial_attachment_path = NodePath("")
@@ -383,5 +388,26 @@ attachments/10/offset = Vector3(0, 0, 0)
 attachments/11/point_index = 132
 attachments/11/spatial_attachment_path = NodePath("")
 attachments/11/offset = Vector3(0, 0, 0)
+
+[node name="Node3D2" parent="." unique_id=1937612806 instance=ExtResource("15_xgxdy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.387579, 0.04888916, -14.724066)
+
+[node name="Node3D5" parent="." unique_id=289750314 instance=ExtResource("15_xgxdy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.63209, 0.04888916, -14.724066)
+
+[node name="Node3D3" parent="." unique_id=529514695 instance=ExtResource("15_xgxdy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.764711, 0.04888916, -14.724066)
+
+[node name="Node3D4" parent="." unique_id=202861705 instance=ExtResource("15_xgxdy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.480253, 0.04888916, -14.724066)
+
+[node name="big cabinet" parent="." unique_id=1892256965 instance=ExtResource("17_qjeoa")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11.422686, -0.12301254, 14.129053)
+
+[node name="Node3D6" parent="." unique_id=1967974127 instance=ExtResource("16_8tebx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -10.746759, -0.6763439, -10.467321)
+
+[node name="Node3D7" parent="." unique_id=179517213 instance=ExtResource("13_qjeoa")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.912809, 1.0126629, -1.0498581)
 
 [connection signal="body_entered" from="updator" to="." method="_on_updator_body_entered"]

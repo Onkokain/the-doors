@@ -129,7 +129,7 @@ material = ExtResource("4_6blaw")
 [node name="floor" type="Node3D" parent="." unique_id=1984927911]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=620957960]
-transform = Transform3D(24.70394, 0, 0, 0, 0.73599076, 0, 0, 0, 89.155594, 0.8695431, 0.015729904, 74.851845)
+transform = Transform3D(24.70394, 0, 0, 0, 0.73599076, 0, 0, 0, 109.35984, 0.8695431, 0.015729904, 70.79771)
 mesh = SubResource("PlaneMesh_8f3np")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="floor" unique_id=1962419449]
