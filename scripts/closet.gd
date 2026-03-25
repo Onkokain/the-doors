@@ -2,6 +2,8 @@ extends StaticBody3D
 
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 @onready var prompt: Label3D = $"../Detection Area/Prompt"
+@onready var open: AudioStreamPlayer3D = $"../open"
+@onready var close: AudioStreamPlayer3D = $"../close"
 
 var is_open := false
 var interactable := true
@@ -34,8 +36,10 @@ func interact() -> void:
 
 	if is_open:
 		animation_player.play(close_animation)
+		close.play()
 	else:
 		animation_player.play(open_animation)
+		open.play()
 
 	await animation_player.animation_finished
 

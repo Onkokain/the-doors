@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://b0f5k18x62m8r" path="res://assets/blender/door1.png" id="2_71km3"]
 [ext_resource type="Material" uid="uid://b0ltckauk0x8p" path="res://materials/wood_walls.tres" id="2_cgwhh"]
 [ext_resource type="Texture2D" uid="uid://x1oeyoursiq8" path="res://assets/blender/door2.png" id="3_cgwhh"]
+[ext_resource type="AudioStream" uid="uid://d07hiipyw2qwr" path="res://assets/music/closet_open.mp3" id="6_hivdx"]
+[ext_resource type="AudioStream" uid="uid://crucuneru6rx8" path="res://assets/music/closetclose.mp3" id="7_v2322"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js13p"]
 resource_name = "Material.002"
@@ -84,6 +86,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_71km3"]
 resource_name = "close"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -91,7 +94,7 @@ tracks/0/path = NodePath("door_right:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.9666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 1.9198622, 0), Vector3(0, 0.5235988, 0)]
@@ -103,7 +106,7 @@ tracks/1/path = NodePath("door_left:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.9666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, -1.9198622, 0), Vector3(0, -0.5235988, 0)]
@@ -111,6 +114,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_3gv2m"]
 resource_name = "close_full"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -118,7 +122,7 @@ tracks/0/path = NodePath("door_right:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.9333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 1.9198622, 0), Vector3(0, 0, 0)]
@@ -130,7 +134,7 @@ tracks/1/path = NodePath("door_left:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.9333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, -1.9198622, 0), Vector3(0, 0, 0)]
@@ -138,6 +142,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_cgwhh"]
 resource_name = "open"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -145,7 +150,7 @@ tracks/0/path = NodePath("door_right:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.9333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0.5235988, 0), Vector3(0, 1.9198622, 0)]
@@ -157,7 +162,7 @@ tracks/1/path = NodePath("door_left:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.9333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, -0.5235988, 0), Vector3(0, -1.9198622, 0)]
@@ -165,6 +170,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_hivdx"]
 resource_name = "open_full"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -172,7 +178,7 @@ tracks/0/path = NodePath("door_left:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.9666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -1.9198622, 0)]
@@ -184,7 +190,7 @@ tracks/1/path = NodePath("door_right:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.9666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 1.9198622, 0)]
@@ -353,6 +359,12 @@ mesh = SubResource("ArrayMesh_bf2r3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="inside closet detection" unique_id=67070951]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1548004, 6.1859207, 0.013366699)
 shape = SubResource("BoxShape3D_v2322")
+
+[node name="open" type="AudioStreamPlayer3D" parent="." unique_id=1845960347]
+stream = ExtResource("6_hivdx")
+
+[node name="close" type="AudioStreamPlayer3D" parent="." unique_id=739080410]
+stream = ExtResource("7_v2322")
 
 [connection signal="body_entered" from="Detection Area" to="StaticBody3D" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Detection Area" to="StaticBody3D" method="_on_detection_area_body_exited"]
