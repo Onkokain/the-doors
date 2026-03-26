@@ -5,7 +5,9 @@
 [ext_resource type="Environment" uid="uid://0yyqkdr2f33f" path="res://materials/world.tres" id="1_tefeu"]
 [ext_resource type="Script" uid="uid://8gsbq2h6uijs" path="res://scripts/world_generator.gd" id="2_0wfyh"]
 [ext_resource type="FontFile" uid="uid://cicxmv8cu64m2" path="res://fonts/Creepy Blood.ttf" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://62gr5liwc4or" path="res://scripts/settings_ingame.gd" id="6_85g3d"]
 [ext_resource type="AudioStream" uid="uid://cq76fooon065s" path="res://assets/music/rain_bg.ogg" id="6_tefeu"]
+[ext_resource type="FontFile" uid="uid://bur0xekl7f8a7" path="res://fonts/Scratch.ttf" id="7_choun"]
 [ext_resource type="Script" uid="uid://d1qv4ujuym6q1" path="res://scripts/coincounter.gd" id="7_o6xl0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbgi4"]
@@ -32,6 +34,17 @@ collision_mode = 2
 size = Vector2(0.05, 0.2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85g3d"]
+content_margin_left = 20.0
+content_margin_top = 14.0
+content_margin_right = 20.0
+content_margin_bottom = 14.0
+bg_color = Color(0, 0, 0, 0.40392157)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olot3"]
 content_margin_left = 20.0
 content_margin_top = 14.0
 content_margin_right = 20.0
@@ -111,7 +124,8 @@ offset_left = -16.0
 offset_top = -11.0
 offset_right = 599.0
 offset_bottom = 92.0
-theme_override_font_sizes/font_size = 44
+theme_override_fonts/font = ExtResource("7_choun")
+theme_override_font_sizes/font_size = 60
 text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -131,7 +145,8 @@ offset_left = -20.0
 offset_top = -10.0
 offset_right = 595.0
 offset_bottom = 93.0
-theme_override_font_sizes/font_size = 44
+theme_override_fonts/font = ExtResource("7_choun")
+theme_override_font_sizes/font_size = 60
 text = "Achievement"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -151,8 +166,87 @@ offset_left = -16.0
 offset_top = -11.0
 offset_right = 599.0
 offset_bottom = 92.0
-theme_override_font_sizes/font_size = 44
+theme_override_fonts/font = ExtResource("7_choun")
+theme_override_font_sizes/font_size = 60
 text = "Quit Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="settings" type="CenterContainer" parent="." unique_id=405921128]
+process_mode = 3
+offset_left = 5.0
+offset_top = 142.0
+offset_right = 1154.0
+offset_bottom = 621.0
+script = ExtResource("6_85g3d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settings" unique_id=1283085276]
+custom_minimum_size = Vector2(0, 71)
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="Panel2" type="PanelContainer" parent="settings/VBoxContainer" unique_id=1455720034]
+custom_minimum_size = Vector2(0, 71)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_olot3")
+
+[node name="visuals" type="TextureButton" parent="settings/VBoxContainer/Panel2" unique_id=530630425]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="settings/VBoxContainer/Panel2/visuals" unique_id=1841030820]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -13.0
+offset_right = 595.0
+offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("7_choun")
+theme_override_font_sizes/font_size = 60
+text = "Visuals"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="PanelContainer" parent="settings/VBoxContainer" unique_id=932530024]
+custom_minimum_size = Vector2(0, 71)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_olot3")
+
+[node name="Audio" type="TextureButton" parent="settings/VBoxContainer/Panel3" unique_id=828110143]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="settings/VBoxContainer/Panel3/Audio" unique_id=1307396720]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -10.0
+offset_right = 595.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("7_choun")
+theme_override_font_sizes/font_size = 60
+text = "Audio "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel4" type="PanelContainer" parent="settings/VBoxContainer" unique_id=707217889]
+custom_minimum_size = Vector2(620, 71)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_olot3")
+
+[node name="settings_return" type="TextureButton" parent="settings/VBoxContainer/Panel4" unique_id=110307165]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="settings/VBoxContainer/Panel4/settings_return" unique_id=653290063]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -15.0
+offset_right = 595.0
+offset_bottom = 83.0
+theme_override_fonts/font = ExtResource("7_choun")
+theme_override_font_sizes/font_size = 60
+text = "Return"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -161,7 +255,9 @@ stream = ExtResource("6_tefeu")
 volume_db = 20.0
 autoplay = true
 
-[node name="Label" type="Label" parent="." unique_id=1531337790]
+[node name="coin manager" type="Node3D" parent="." unique_id=1830904442]
+
+[node name="Label" type="Label" parent="coin manager" unique_id=1531337790]
 offset_left = 20.0
 offset_top = 13.0
 offset_right = 103.0
@@ -170,7 +266,7 @@ theme_override_fonts/font = ExtResource("3_sugp2")
 theme_override_font_sizes/font_size = 37
 text = "Coins:"
 
-[node name="Label2" type="Label" parent="." unique_id=1976041299]
+[node name="Label2" type="Label" parent="coin manager" unique_id=1976041299]
 offset_left = 116.0
 offset_top = 14.0
 offset_right = 192.0
@@ -180,4 +276,6 @@ theme_override_font_sizes/font_size = 37
 text = "Coins"
 script = ExtResource("7_o6xl0")
 
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Panel2/settings" to="Panel" method="_on_settings_pressed"]
 [connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Panel/quit game" to="Panel" method="_on_quit_game_pressed"]
+[connection signal="pressed" from="settings/VBoxContainer/Panel4/settings_return" to="Panel" method="_on_settings_return_pressed"]

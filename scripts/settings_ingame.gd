@@ -1,14 +1,10 @@
-extends Node2D
+extends CenterContainer
+@onready var settings_return: TextureButton = $VBoxContainer/Panel4/settings_return
+@onready var audio: TextureButton = $VBoxContainer/Panel3/Audio
+@onready var visuals: TextureButton = $VBoxContainer/Panel2/visuals
+@onready var settings: CenterContainer = $"."
+@onready var panel: Panel = $"../Panel"
 
-# Preloading the scene into memory
-const MAIN_SCENE = preload("res://scenes/main.tscn")
-
-@onready var start: TextureButton = $CenterContainer/VBoxContainer/Panel/start
-@onready var settings: TextureButton = $CenterContainer/VBoxContainer/Panel2/settings
-@onready var cutscene: TextureButton = $CenterContainer/VBoxContainer/Panel3/cutscene
-@onready var endgame: TextureButton = $CenterContainer/VBoxContainer/Panel4/endgame
-@onready var container: CenterContainer = $CenterContainer
-@onready var settings_menu: CenterContainer = $settings
 
 var button_type = null
 var hover_tweens := {}
@@ -16,14 +12,10 @@ var hovered_cards := {}
 var pressed_cards := {}	
 
 func _ready() -> void:
-	settings_menu.visible=false
-	_configure_hover(start)
-	_configure_hover(settings)
-	_configure_hover(cutscene)
-	_configure_hover(endgame)
+	_configure_hover(settings_return)
+	_configure_hover(audio)
+	_configure_hover(visuals)
 	
-	# Connecting the signal via code
-	start.pressed.connect(_on_start_pressed)
 
 func _configure_hover(button: TextureButton) -> void:
 	var card := button.get_parent() as Control
@@ -66,22 +58,7 @@ func _update_button_scale(card: Control) -> void:
 	var tween := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	hover_tweens[card] = tween
 	tween.tween_property(card, "scale", target_scale, 0.12)
+
+
+
 	
-func _on_start_pressed() -> void:
-	# Using change_scene_to_packed since we already preloaded it
-	get_tree().change_scene_to_packed(MAIN_SCENE)
-
-
-
-func _on_settings_pressed() -> void:
-	container.visible=false
-	settings_menu.visible=true
-
-
-func _on_return_pressed() -> void:
-	container.visible=true
-	settings_menu.visible=false
-
-
-func _on_endgame_pressed() -> void:
-	get_tree().quit()

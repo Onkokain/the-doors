@@ -9,6 +9,9 @@ var paused = false
 @onready var quit_game: TextureButton = $"CenterContainer/VBoxContainer/Panel/quit game"
 @onready var settings: TextureButton = $CenterContainer/VBoxContainer/Panel2/settings
 @onready var achievements: TextureButton = $CenterContainer/VBoxContainer/Panel3/achievements
+@onready var settings_menu: CenterContainer = $"../settings"
+
+
 
 
 # Animation dictionaries
@@ -17,6 +20,8 @@ var hovered_cards := {}
 var pressed_cards := {}
 
 func _ready() -> void:
+	settings.pressed.connect(_on_settings_pressed)
+	settings_menu.visible=false
 	# 1. CRITICAL: Set process mode so this script runs while paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
@@ -40,6 +45,8 @@ func _toggle_pause() -> void:
 	paused = !paused
 	get_tree().paused = paused
 	_update_menu_state(paused)
+	if !paused:
+		settings_menu.visible=false
 	
 	# Sync Background Audio
 	if is_instance_valid(Background):
@@ -113,4 +120,19 @@ func _update_button_scale(card: Control) -> void:
 
 
 func _on_quit_game_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	
+
+
+
+func _on_settings_pressed() -> void:
+	settings_menu.visible=true
+	container.visible=false
+	
+
+
+
+func _on_settings_return_pressed() -> void:
+	settings_menu.visible=false
+	container.visible=true
