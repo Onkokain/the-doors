@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://8gsbq2h6uijs" path="res://scripts/world_generator.gd" id="2_0wfyh"]
 [ext_resource type="FontFile" uid="uid://cicxmv8cu64m2" path="res://fonts/Creepy Blood.ttf" id="3_sugp2"]
 [ext_resource type="AudioStream" uid="uid://cq76fooon065s" path="res://assets/music/rain_bg.ogg" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://d1qv4ujuym6q1" path="res://scripts/coincounter.gd" id="7_o6xl0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbgi4"]
 transparency = 1
@@ -29,6 +30,17 @@ collision_mode = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_tefeu"]
 size = Vector2(0.05, 0.2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85g3d"]
+content_margin_left = 20.0
+content_margin_top = 14.0
+content_margin_right = 20.0
+content_margin_bottom = 14.0
+bg_color = Color(0, 0, 0, 0.40392157)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
 
 [node name="main" type="Node3D" unique_id=891550892]
 
@@ -72,7 +84,100 @@ theme_override_fonts/font = ExtResource("3_sugp2")
 theme_override_font_sizes/font_size = 80
 text = "The Doors"
 
+[node name="CenterContainer" type="CenterContainer" parent="Panel" unique_id=2052255360]
+layout_mode = 0
+offset_left = -92.0
+offset_top = 59.0
+offset_right = 1070.0
+offset_bottom = 542.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer" unique_id=1679725749]
+custom_minimum_size = Vector2(0, 71)
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="Panel2" type="PanelContainer" parent="Panel/CenterContainer/VBoxContainer" unique_id=828981028]
+custom_minimum_size = Vector2(0, 71)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_85g3d")
+
+[node name="settings" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/Panel2" unique_id=1043565800]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Panel/CenterContainer/VBoxContainer/Panel2/settings" unique_id=1438804965]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -11.0
+offset_right = 599.0
+offset_bottom = 92.0
+theme_override_font_sizes/font_size = 44
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="PanelContainer" parent="Panel/CenterContainer/VBoxContainer" unique_id=336647782]
+custom_minimum_size = Vector2(0, 71)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_85g3d")
+
+[node name="achievements" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/Panel3" unique_id=1250660014]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Panel/CenterContainer/VBoxContainer/Panel3/achievements" unique_id=1857126061]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 595.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 44
+text = "Achievement"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="Panel/CenterContainer/VBoxContainer" unique_id=529464367]
+custom_minimum_size = Vector2(620, 71)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_85g3d")
+
+[node name="quit game" type="TextureButton" parent="Panel/CenterContainer/VBoxContainer/Panel" unique_id=408805018]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/CenterContainer/VBoxContainer/Panel/quit game" unique_id=1363251163]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -11.0
+offset_right = 599.0
+offset_bottom = 92.0
+theme_override_font_sizes/font_size = 44
+text = "Quit Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=902320207]
 stream = ExtResource("6_tefeu")
 volume_db = 20.0
 autoplay = true
+
+[node name="Label" type="Label" parent="." unique_id=1531337790]
+offset_left = 20.0
+offset_top = 13.0
+offset_right = 103.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("3_sugp2")
+theme_override_font_sizes/font_size = 37
+text = "Coins:"
+
+[node name="Label2" type="Label" parent="." unique_id=1976041299]
+offset_left = 116.0
+offset_top = 14.0
+offset_right = 192.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("3_sugp2")
+theme_override_font_sizes/font_size = 37
+text = "Coins"
+script = ExtResource("7_o6xl0")
+
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Panel/quit game" to="Panel" method="_on_quit_game_pressed"]

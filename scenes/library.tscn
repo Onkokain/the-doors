@@ -282,22 +282,22 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.03781, -0.12301254, -13.29427)
 
 [node name="bookshelf35" parent="decor" unique_id=1745402842 instance=ExtResource("15_xgxdy")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.817674, -0.12301254, 12.682577)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.445966, -0.12301254, 12.682577)
 
 [node name="bookshelf36" parent="decor" unique_id=1928812313 instance=ExtResource("15_xgxdy")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.817674, -0.12301254, 8.812536)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.445966, -0.12301254, 8.812536)
 
 [node name="bookshelf37" parent="decor" unique_id=1777888101 instance=ExtResource("15_xgxdy")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.817674, -0.12301254, 5.007269)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.445966, -0.12301254, 5.007269)
 
 [node name="bookshelf38" parent="decor" unique_id=1415467188 instance=ExtResource("15_xgxdy")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.817674, -0.12301254, 1.1954098)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.445966, -0.12301254, 1.1954098)
 
 [node name="bookshelf39" parent="decor" unique_id=84529532 instance=ExtResource("15_xgxdy")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.817674, -0.12301254, -5.1357193)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.413446, -0.12301254, -5.1357193)
 
 [node name="bookshelf40" parent="decor" unique_id=1388717634 instance=ExtResource("15_xgxdy")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.817674, -0.12301254, -8.923908)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.445966, -0.12301254, -8.923908)
 
 [node name="Node3D" parent="decor" unique_id=1583250141 instance=ExtResource("12_6blaw")]
 transform = Transform3D(1.65, 0, 0, 0, 1.65, 0, 0, 0, 1.65, 0.76027155, 0.005048752, -1.8401337)

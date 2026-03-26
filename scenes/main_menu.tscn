@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dwe7u632f0ut1" path="res://assets/images/bg.png" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://cicxmv8cu64m2" path="res://fonts/Creepy Blood.ttf" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://cwgowqmjksxoa" path="res://assets/New-Game-2-28-2026.png" id="2_8ln24"]
-[ext_resource type="Script" uid="uid://dfxe5rgid5rpe" path="res://scripts/main.gd" id="4_wu84c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
 content_margin_left = 20.0
@@ -44,7 +43,6 @@ offset_left = 146.0
 offset_top = 169.0
 offset_right = 1048.0
 offset_bottom = 624.0
-script = ExtResource("4_wu84c")
 
 [node name="Cutscenes" type="Panel" parent="." unique_id=1555322869]
 process_mode = 3
@@ -53,7 +51,6 @@ offset_left = 146.0
 offset_top = 169.0
 offset_right = 1048.0
 offset_bottom = 624.0
-script = ExtResource("4_wu84c")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1990046213]
 offset_right = 40.0

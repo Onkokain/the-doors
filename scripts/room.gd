@@ -36,3 +36,7 @@ func _on_updator_body_entered(body: Node3D) -> void:
 		if not has_been_registered:
 			Global.register_discovery(room_type_name)
 			has_been_registered = true
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	pass # Replace with function body.

@@ -5,10 +5,16 @@ extends Node3D
 @export var max_rooms_on_screen: int = 15
 
 @export var lobby_scene: PackedScene = preload("res://scenes/lobby.tscn")
+# Added the end room scene
+@export var end_room_scene: PackedScene = preload("res://scenes/endroom.tscn")
 
 var prev_room_type: String = "straight"
 var straight_buffer: int = 3 
 var net_rotation: int = 0 
+
+# Flag to stop generation after the end room spawns
+var generation_finished: bool = false
+const END_ROOM_INDEX: int = 25
 
 # Room Data List
 var room_data: Array[Dictionary] = [
@@ -36,24 +42,44 @@ func _ready():
 		_spawn_next_room()
 
 func _process(_delta):
-	if active_rooms.is_empty(): return
+	# Stop checking if we have already spawned the end room
+	if generation_finished or active_rooms.is_empty(): 
+		return
+		
 	var last_room = active_rooms.back()
-	if not last_room.has_node("ExitMarker"): return
+	if not last_room.has_node("ExitMarker"): 
+		return
 	
 	var exit_marker = last_room.get_node("ExitMarker")
 	if player.global_position.distance_to(exit_marker.global_position) < spawn_distance:
 		_spawn_next_room()
 
 func _spawn_next_room():
+	# Safety check
+	if generation_finished:
+		return
+
 	var new_room: Node3D
-	var type_id: String = "lobby"
+	var type_id: String = "room"
 	
+	# Increment count early to track room number
+	highest_room_spawned += 1
+
+	# 1. LOBBY LOGIC (First Room)
 	if active_rooms.is_empty():
 		new_room = lobby_scene.instantiate()
+		type_id = "lobby"
 		prev_room_type = "straight"
 		straight_buffer = 3
+		
+	# 2. END ROOM LOGIC (25th Room)
+	elif highest_room_spawned == END_ROOM_INDEX:
+		new_room = end_room_scene.instantiate()
+		type_id = "end_room"
+		generation_finished = true # This prevents further calls to _spawn_next_room
+		
+	# 3. RANDOM GENERATION LOGIC
 	else:
-		# Selection Logic
 		var valid_indices: Array[int] = []
 		var total_weight: float = 0.0
 		var force_turn: bool = (straight_buffer <= 0)
@@ -103,7 +129,6 @@ func _spawn_next_room():
 	add_child(new_room)
 	
 	# Pass data to the room script
-	highest_room_spawned += 1
 	if new_room.has_method("set_room_info"):
 		new_room.set_room_info(highest_room_spawned, type_id)
 
@@ -117,6 +142,8 @@ func _spawn_next_room():
 
 	active_rooms.append(new_room)
 	
+	# Unload old rooms, but DON'T unload if there aren't many left 
+	# (usually keep max_rooms_on_screen logic as is)
 	if active_rooms.size() > max_rooms_on_screen:
 		var room_to_unload = active_rooms.pop_front()
 		room_to_unload.queue_free()
