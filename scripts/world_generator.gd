@@ -2,19 +2,23 @@ extends Node3D
 
 @export var player: CharacterBody3D
 @export var spawn_distance: float = 80.0
-@export var max_rooms_on_screen: int = 15
+@export var max_rooms_on_screen: int = 6 # REDUCED: 15 is often too much for low-end WebGL
 
 @export var lobby_scene: PackedScene = preload("res://scenes/lobby.tscn")
-# Added the end room scene
 @export var end_room_scene: PackedScene = preload("res://scenes/endroom.tscn")
 
 var prev_room_type: String = "straight"
 var straight_buffer: int = 3 
 var net_rotation: int = 0 
 
-# Flag to stop generation after the end room spawns
 var generation_finished: bool = false
 const END_ROOM_INDEX: int = 25
+
+# --- OPTIMIZATION VARIABLES ---
+var spawn_distance_squared: float
+var current_exit_marker: Node3D = null
+var check_timer: float = 0.0
+const CHECK_INTERVAL: float = 0.2 # How often to check distance (in seconds)
 
 # Room Data List
 var room_data: Array[Dictionary] = [
@@ -29,11 +33,14 @@ var room_data: Array[Dictionary] = [
 	{"name": "tv_room", "scene": preload("res://scenes/tv_room.tscn"), "weight": 20.0, "type": "straight"},
 ]
 
-var active_rooms: Array = []
+var active_rooms: Array[Node3D] = []
 var highest_room_spawned: int = 0
 
 func _ready():
 	randomize()
+	# Pre-calculate squared distance for cheaper math
+	spawn_distance_squared = spawn_distance * spawn_distance
+	
 	if player == null:
 		player = get_parent().get_node_or_null("player") as CharacterBody3D
 	
@@ -41,28 +48,27 @@ func _ready():
 	for i in range(max_rooms_on_screen - 1):
 		_spawn_next_room()
 
-func _process(_delta):
-	# Stop checking if we have already spawned the end room
-	if generation_finished or active_rooms.is_empty(): 
+func _process(delta: float) -> void:
+	if generation_finished or current_exit_marker == null: 
 		return
 		
-	var last_room = active_rooms.back()
-	if not last_room.has_node("ExitMarker"): 
+	# OPTIMIZATION: Instead of checking every single frame, check every 0.2 seconds.
+	check_timer += delta
+	if check_timer < CHECK_INTERVAL:
 		return
+	check_timer = 0.0
 	
-	var exit_marker = last_room.get_node("ExitMarker")
-	if player.global_position.distance_to(exit_marker.global_position) < spawn_distance:
+	# OPTIMIZATION: Use distance_squared_to (Avoids heavy square root calculations)
+	if player.global_position.distance_squared_to(current_exit_marker.global_position) < spawn_distance_squared:
 		_spawn_next_room()
 
-func _spawn_next_room():
-	# Safety check
+func _spawn_next_room() -> void:
 	if generation_finished:
 		return
 
 	var new_room: Node3D
 	var type_id: String = "room"
 	
-	# Increment count early to track room number
 	highest_room_spawned += 1
 
 	# 1. LOBBY LOGIC (First Room)
@@ -76,7 +82,7 @@ func _spawn_next_room():
 	elif highest_room_spawned == END_ROOM_INDEX:
 		new_room = end_room_scene.instantiate()
 		type_id = "end_room"
-		generation_finished = true # This prevents further calls to _spawn_next_room
+		generation_finished = true 
 		
 	# 3. RANDOM GENERATION LOGIC
 	else:
@@ -128,7 +134,6 @@ func _spawn_next_room():
 
 	add_child(new_room)
 	
-	# Pass data to the room script
 	if new_room.has_method("set_room_info"):
 		new_room.set_room_info(highest_room_spawned, type_id)
 
@@ -136,14 +141,15 @@ func _spawn_next_room():
 	if active_rooms.is_empty():
 		new_room.global_transform = Transform3D.IDENTITY
 	else:
-		var last_room = active_rooms.back()
-		if last_room.has_node("ExitMarker"):
-			new_room.global_transform = last_room.get_node("ExitMarker").global_transform
+		if current_exit_marker:
+			new_room.global_transform = current_exit_marker.global_transform
 
 	active_rooms.append(new_room)
 	
-	# Unload old rooms, but DON'T unload if there aren't many left 
-	# (usually keep max_rooms_on_screen logic as is)
+	# OPTIMIZATION: Cache the exit marker so we don't have to search the node tree in _process
+	current_exit_marker = new_room.get_node_or_null("ExitMarker")
+	
+	# Cleanup
 	if active_rooms.size() > max_rooms_on_screen:
 		var room_to_unload = active_rooms.pop_front()
 		room_to_unload.queue_free()

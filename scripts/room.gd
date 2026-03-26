@@ -14,10 +14,6 @@ func _ready() -> void:
 	
 	# Automatically connect the area signal so you don't have to do it in the editor
 	var area = get_node_or_null("updator")
-	if area:
-		area.body_entered.connect(_on_updator_body_entered)
-	else:
-		print("Error: No Area3D named 'updator' found in ", name)
 
 # Called by the World Generator immediately after spawning
 func set_room_info(num: int, type_name: String) -> void:

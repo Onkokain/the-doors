@@ -10,6 +10,7 @@ var paused = false
 @onready var settings: TextureButton = $CenterContainer/VBoxContainer/Panel2/settings
 @onready var achievements: TextureButton = $CenterContainer/VBoxContainer/Panel3/achievements
 @onready var settings_menu: CenterContainer = $"../settings"
+@onready var statistics_menu: CenterContainer = $"../statistics"
 
 
 
@@ -20,7 +21,7 @@ var hovered_cards := {}
 var pressed_cards := {}
 
 func _ready() -> void:
-	settings.pressed.connect(_on_settings_pressed)
+	statistics_menu.visible=false
 	settings_menu.visible=false
 	# 1. CRITICAL: Set process mode so this script runs while paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -135,4 +136,14 @@ func _on_settings_pressed() -> void:
 
 func _on_settings_return_pressed() -> void:
 	settings_menu.visible=false
+	container.visible=true
+
+
+func _on_achievements_pressed() -> void:
+	statistics_menu.visible=true
+	container.visible=false
+
+
+func _on_return_pressed() -> void:
+	statistics_menu.visible=false
 	container.visible=true

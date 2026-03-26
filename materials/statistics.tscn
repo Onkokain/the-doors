@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bw1oud53acjjl"]
+
+[ext_resource type="FontFile" uid="uid://bur0xekl7f8a7" path="res://fonts/Scratch.ttf" id="1_byltm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olot3"]
+content_margin_left = 20.0
+content_margin_top = 14.0
+content_margin_right = 20.0
+content_margin_bottom = 14.0
+bg_color = Color(0, 0, 0, 0.40392157)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[node name="statistics" type="CenterContainer" unique_id=405921128]
+process_mode = 3
+offset_top = 168.0
+offset_right = 1149.0
+offset_bottom = 647.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1283085276]
+custom_minimum_size = Vector2(0, 71)
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="Panel2" type="PanelContainer" parent="VBoxContainer" unique_id=1455720034]
+custom_minimum_size = Vector2(0, 71)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_olot3")
+
+[node name="achievements" type="TextureButton" parent="VBoxContainer/Panel2" unique_id=530630425]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/Panel2/achievements" unique_id=1841030820]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -13.0
+offset_right = 595.0
+offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("1_byltm")
+theme_override_font_sizes/font_size = 60
+text = "Achievements"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="PanelContainer" parent="VBoxContainer" unique_id=932530024]
+custom_minimum_size = Vector2(0, 71)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_olot3")
+
+[node name="Rooms Visited" type="TextureButton" parent="VBoxContainer/Panel3" unique_id=828110143]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/Panel3/Rooms Visited" unique_id=1307396720]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -10.0
+offset_right = 595.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("1_byltm")
+theme_override_font_sizes/font_size = 60
+text = "Rooms  Visisted"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel4" type="PanelContainer" parent="VBoxContainer" unique_id=707217889]
+custom_minimum_size = Vector2(620, 71)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_olot3")
+
+[node name="Return" type="TextureButton" parent="VBoxContainer/Panel4" unique_id=110307165]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="VBoxContainer/Panel4/Return" unique_id=653290063]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -15.0
+offset_right = 595.0
+offset_bottom = 83.0
+theme_override_fonts/font = ExtResource("1_byltm")
+theme_override_font_sizes/font_size = 60
+text = "Return"
+horizontal_alignment = 1
+vertical_alignment = 1
