@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ce4e35rwbgdlo" path="res://assets/public assets/monitor/office_monitor__workstation_monitor.glb" id="10_y1ug3"]
 [ext_resource type="Script" uid="uid://dir4vbf5yx5ft" path="res://scripts/tv_room.gd" id="10_y8prl"]
 [ext_resource type="AudioStream" uid="uid://b8hgtslsd0s2a" path="res://assets/music/TV white noise static footage & sound (royalty free) 4K.mp3" id="11_y1ug3"]
+[ext_resource type="ArrayOccluder3D" uid="uid://2uup8souqcgt" path="res://baked occlusion scenes/tv_room.occ" id="13_y1ug3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
 size = Vector3(5.281494, 9.462402, 1)
@@ -293,6 +294,9 @@ material = ExtResource("4_6blaw")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.5853027, 6.3451805, 20.840162)
 size = Vector3(0.11968994, 6.9959717, 12.196289)
 material = ExtResource("4_6blaw")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1018500030]
+occluder = ExtResource("13_y1ug3")
 
 [connection signal="body_entered" from="updator" to="." method="_on_updator_body_entered"]
 [connection signal="body_entered" from="decor/Area3D" to="decor/Area3D" method="_on_body_entered"]

@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dgxrd460hgqnf" path="res://scenes/big_cabinet.tscn" id="17_qjeoa"]
 [ext_resource type="PackedScene" uid="uid://eyxvmq7w2flb" path="res://scenes/lamp.tscn" id="17_xgxdy"]
 [ext_resource type="PackedScene" uid="uid://befj2xtxekpuv" path="res://scenes/closet.tscn" id="18_qjeoa"]
+[ext_resource type="ArrayOccluder3D" uid="uid://cmmqlbblxo1os" path="res://baked occlusion scenes/rotate_left.occ" id="19_qvcj6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
 size = Vector3(4.199463, 9.462402, 8.065002)
@@ -297,5 +298,8 @@ material = ExtResource("4_6blaw")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.5853027, 6.3451805, 20.840162)
 size = Vector3(0.11968994, 6.9959717, 12.196289)
 material = ExtResource("4_6blaw")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1960515827]
+occluder = ExtResource("19_qvcj6")
 
 [connection signal="body_entered" from="updator" to="." method="_on_updator_body_entered"]

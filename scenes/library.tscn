@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://br7h5phbhttrw" path="res://assets/public assets/bedside_table_0.jpg" id="6_o5f1n"]
 [ext_resource type="PackedScene" uid="uid://csgcwopx75qhl" path="res://scenes/trappedchest.tscn" id="11_7bqx5"]
 [ext_resource type="PackedScene" uid="uid://bvafej76q2um6" path="res://scenes/floormat.tscn" id="12_6blaw"]
+[ext_resource type="ArrayOccluder3D" uid="uid://bvs0ukkm77qrt" path="res://baked occlusion scenes/library.occ" id="12_aotgj"]
 [ext_resource type="PackedScene" uid="uid://ch2sqs27dc4s0" path="res://scenes/chest.tscn" id="14_o5f1n"]
 [ext_resource type="PackedScene" uid="uid://boi866841lpv4" path="res://scenes/bookshelf.tscn" id="15_xgxdy"]
 [ext_resource type="PackedScene" uid="uid://cngtetqnup6ps" path="res://scenes/wall_light.tscn" id="17_6blaw"]
@@ -349,5 +350,8 @@ material = ExtResource("4_6blaw")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.5853027, 6.3451805, 20.840162)
 size = Vector3(0.11968994, 6.9959717, 12.196289)
 material = ExtResource("4_6blaw")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1969971308]
+occluder = ExtResource("12_aotgj")
 
 [connection signal="body_entered" from="updator" to="." method="_on_updator_body_entered"]

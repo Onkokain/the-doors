@@ -700,21 +700,21 @@ transform = Transform3D(1, 0, 0, 0, 1, -4.3711392e-08, 0, 4.3711392e-08, 1, -0.5
 
 [node name="defaultMaterial3" type="MeshInstance3D" parent="Collada visual scene group/White_keys" unique_id=654850567]
 lod_bias = 0.1
-visibility_range_end = 16.0
+visibility_range_end = 30.0
 mesh = SubResource("ArrayMesh_pfqc2")
 
 [node name="Black_keys" type="StaticBody3D" parent="Collada visual scene group" unique_id=1504852474]
 
 [node name="defaultMaterial4" type="MeshInstance3D" parent="Collada visual scene group/Black_keys" unique_id=1297256886]
 lod_bias = 0.1
-visibility_range_end = 16.0
+visibility_range_end = 30.0
 mesh = SubResource("ArrayMesh_85tbw")
 
 [node name="Piano_Body" type="StaticBody3D" parent="Collada visual scene group" unique_id=824577247]
 
 [node name="defaultMaterial5" type="MeshInstance3D" parent="Collada visual scene group/Piano_Body" unique_id=772891117]
 lod_bias = 0.1
-visibility_range_end = 16.0
+visibility_range_end = 30.0
 mesh = SubResource("ArrayMesh_m2jxi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collada visual scene group/Piano_Body" unique_id=574427137]
@@ -724,7 +724,7 @@ shape = SubResource("ConcavePolygonShape3D_x6mkj")
 
 [node name="defaultMaterial6" type="MeshInstance3D" parent="Collada visual scene group/pCube95" unique_id=2104221903]
 lod_bias = 0.1
-visibility_range_end = 35.0
+visibility_range_end = 30.0
 mesh = SubResource("ArrayMesh_l2i21")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collada visual scene group/pCube95" unique_id=180317060]
@@ -734,7 +734,7 @@ shape = SubResource("ConcavePolygonShape3D_86ux1")
 
 [node name="defaultMaterial7" type="MeshInstance3D" parent="Collada visual scene group/pCube96" unique_id=1164390510]
 lod_bias = 0.1
-visibility_range_end = 16.0
+visibility_range_end = 30.0
 mesh = SubResource("ArrayMesh_o67sq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collada visual scene group/pCube96" unique_id=1467270132]
@@ -744,7 +744,7 @@ shape = SubResource("ConcavePolygonShape3D_i65ov")
 
 [node name="defaultMaterial11" type="MeshInstance3D" parent="Collada visual scene group/pCube100" unique_id=1196110659]
 lod_bias = 0.1
-visibility_range_end = 16.0
+visibility_range_end = 30.0
 mesh = SubResource("ArrayMesh_d1brh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collada visual scene group/pCube100" unique_id=2110986649]
@@ -754,7 +754,7 @@ shape = SubResource("ConcavePolygonShape3D_n7fh1")
 
 [node name="defaultMaterial12" type="MeshInstance3D" parent="Collada visual scene group/pCube99" unique_id=1748424636]
 lod_bias = 0.1
-visibility_range_end = 16.0
+visibility_range_end = 30.0
 mesh = SubResource("ArrayMesh_00b7n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collada visual scene group/pCube99" unique_id=1623548669]
@@ -764,7 +764,7 @@ shape = SubResource("ConcavePolygonShape3D_oumrg")
 
 [node name="defaultMaterial13" type="MeshInstance3D" parent="Collada visual scene group/pCube98" unique_id=2088027534]
 lod_bias = 0.1
-visibility_range_end = 16.0
+visibility_range_end = 30.0
 mesh = SubResource("ArrayMesh_78dw0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collada visual scene group/pCube98" unique_id=857533702]
@@ -774,42 +774,42 @@ shape = SubResource("ConcavePolygonShape3D_473ts")
 
 [node name="defaultMaterial14" type="MeshInstance3D" parent="Collada visual scene group/pCylinder3" unique_id=1960012027]
 lod_bias = 0.1
-visibility_range_end = 16.0
+visibility_range_end = 30.0
 mesh = SubResource("ArrayMesh_cgneh")
 
 [node name="pCube94" type="StaticBody3D" parent="Collada visual scene group" unique_id=1749513423]
 
 [node name="defaultMaterial17" type="MeshInstance3D" parent="Collada visual scene group/pCube94" unique_id=777346240]
 lod_bias = 0.1
-visibility_range_end = 16.0
+visibility_range_end = 30.0
 mesh = SubResource("ArrayMesh_m3qi4")
 
 [node name="pCube93" type="StaticBody3D" parent="Collada visual scene group" unique_id=1539745236]
 
 [node name="defaultMaterial18" type="MeshInstance3D" parent="Collada visual scene group/pCube93" unique_id=297225424]
 lod_bias = 0.1
-visibility_range_end = 16.0
+visibility_range_end = 30.0
 mesh = SubResource("ArrayMesh_vrvqd")
 
 [node name="Lever" type="StaticBody3D" parent="Collada visual scene group" unique_id=1510931414]
 
 [node name="defaultMaterial19" type="MeshInstance3D" parent="Collada visual scene group/Lever" unique_id=761835726]
 lod_bias = 0.1
-visibility_range_end = 16.0
+visibility_range_end = 30.0
 mesh = SubResource("ArrayMesh_4xc3d")
 
 [node name="Lid" type="StaticBody3D" parent="Collada visual scene group" unique_id=604732631]
 
 [node name="defaultMaterial20" type="MeshInstance3D" parent="Collada visual scene group/Lid" unique_id=412754698]
 lod_bias = 0.1
-visibility_range_end = 16.0
+visibility_range_end = 30.0
 mesh = SubResource("ArrayMesh_6ejp8")
 
 [node name="Inside" type="StaticBody3D" parent="Collada visual scene group" unique_id=669449828]
 
 [node name="defaultMaterial21" type="MeshInstance3D" parent="Collada visual scene group/Inside" unique_id=1711546567]
 lod_bias = 0.1
-visibility_range_end = 16.0
+visibility_range_end = 30.0
 mesh = SubResource("ArrayMesh_fdtor")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=615088261]

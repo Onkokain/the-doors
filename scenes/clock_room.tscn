@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bwv17b6s4qar6" path="res://assets/public assets/clocks/victorian_clock.glb" id="11_no6ll"]
 [ext_resource type="Script" uid="uid://ln1ykoo0bmyf" path="res://scripts/clock_room.gd" id="12_kk5w7"]
 [ext_resource type="AudioStream" uid="uid://bjejwn8w5rpsh" path="res://assets/music/dragon-studio-clock-ticking-sfx-467486.mp3" id="13_snwyw"]
+[ext_resource type="ArrayOccluder3D" uid="uid://d21qmrr0c60xp" path="res://baked occlusion scenes/clock_room.occ" id="15_iiyvy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
 size = Vector3(5.97229, 9.462402, 1)
@@ -349,6 +350,10 @@ material = ExtResource("4_6blaw")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.5853027, 6.3451805, 20.840162)
 size = Vector3(0.11968994, 6.9959717, 12.196289)
 material = ExtResource("4_6blaw")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1317021853]
+transform = Transform3D(1, 0, 0, 0, 0.74269503, 0, 0, 0, 1, 0, 12.464113, -0.46549416)
+occluder = ExtResource("15_iiyvy")
 
 [connection signal="body_entered" from="updator" to="." method="_on_updator_body_entered"]
 [connection signal="body_entered" from="decor/Area3D" to="decor/Area3D" method="_on_body_entered"]

@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://br7h5phbhttrw" path="res://assets/public assets/bedside_table_0.jpg" id="6_o5f1n"]
 [ext_resource type="Script" uid="uid://vkxg7qktu1i1" path="res://scripts/reset_all_rooms.gd" id="8_m1sns"]
 [ext_resource type="PackedScene" uid="uid://bvafej76q2um6" path="res://scenes/floormat.tscn" id="12_6blaw"]
+[ext_resource type="ArrayOccluder3D" uid="uid://jmn80vppkiyj" path="res://scenes/lobby.occ" id="13_dyhay"]
 [ext_resource type="PackedScene" uid="uid://bnui2mjhxk4tm" path="res://scenes/couch.tscn" id="13_qjeoa"]
 [ext_resource type="PackedScene" uid="uid://boi866841lpv4" path="res://scenes/bookshelf.tscn" id="15_xgxdy"]
 [ext_resource type="PackedScene" uid="uid://c56gf3nkk8l1q" path="res://scenes/low_table.tscn" id="16_8tebx"]
@@ -415,6 +416,9 @@ attachments/10/offset = Vector3(0, 0, 0)
 attachments/11/point_index = 132
 attachments/11/spatial_attachment_path = NodePath("")
 attachments/11/offset = Vector3(0, 0, 0)
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1307535820]
+occluder = ExtResource("13_dyhay")
 
 [connection signal="body_entered" from="updator" to="." method="_on_updator_body_entered"]
 [connection signal="body_entered" from="spawn room/Area3D" to="spawn room/Area3D" method="_on_body_entered"]

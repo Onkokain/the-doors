@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://csdxyfoy36kxa" path="res://scenes/cobweb.tscn" id="12_vvpus"]
 [ext_resource type="PackedScene" uid="uid://dqi0h7nf2xwes" path="res://assets/public assets/frames/frame03.glb" id="13_pe33r"]
 [ext_resource type="PackedScene" uid="uid://77ndh6s57l3v" path="res://assets/public assets/frames/frame01_lowpoly.glb" id="14_5t3b1"]
+[ext_resource type="ArrayOccluder3D" uid="uid://dd378ace8b8eg" path="res://baked occlusion scenes/library_broken.occ" id="15_5t3b1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
 size = Vector3(4.199463, 9.462402, 1)
@@ -439,5 +440,8 @@ transform = Transform3D(-6.119594e-07, 0, 14, 0, 14, 0, -14, 0, -6.119594e-07, -
 
 [node name="Sketchfab_Scene4" parent="." unique_id=777739765 instance=ExtResource("14_5t3b1")]
 transform = Transform3D(-6.119594e-07, 0, 14, 0, 14, 0, -14, 0, -6.119594e-07, -16.019503, 0.63284683, 8.5552845)
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=652701366]
+occluder = ExtResource("15_5t3b1")
 
 [connection signal="body_entered" from="updator" to="." method="_on_updator_body_entered"]

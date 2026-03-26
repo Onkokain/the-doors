@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 # --- PERMISSIONS ---
-const HAS_FLYING_PERMS = false 
+const HAS_FLYING_PERMS = true
 
 @onready var jump: AudioStreamPlayer3D = $jump
 @onready var walking: AudioStreamPlayer3D = $walking
@@ -10,7 +10,7 @@ const HAS_FLYING_PERMS = false
 @onready var camera = $Camera3D
 @onready var cursor_ui: TextureRect = $UI/CustomCursor
 @onready var settings_menu: CenterContainer = $"../settings"
-@onready var container: CenterContainer = $CenterContainer
+@onready var container: CenterContainer = $"../Panel/CenterContainer"
 
 # --- CAMERA SETTINGS (MINECRAFT STYLE - DIRECT INPUT) ---
 @export var mouse_sensitivity: float = 0.005 
