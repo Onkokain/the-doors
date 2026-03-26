@@ -190,7 +190,7 @@ metadata/_edit_lock_ = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.896299, -0.12301254, 8.266035)
 
 [node name="piano" parent="decor" unique_id=399880313 instance=ExtResource("17_o5f1n")]
-transform = Transform3D(-1.09278474e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278474e-07, 5.299421, 1.3053741, 3.8823967)
+transform = Transform3D(-1.09278474e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278474e-07, 5.299421, 1.3053741, 1.1321564)
 
 [node name="carpet" parent="decor" unique_id=1583250141 instance=ExtResource("12_6blaw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.072301865, 0)
