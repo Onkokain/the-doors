@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 # --- PERMISSIONS ---
-const HAS_FLYING_PERMS = true
+const HAS_FLYING_PERMS = false
 
 @onready var jump: AudioStreamPlayer3D = $jump
 @onready var walking: AudioStreamPlayer3D = $walking
@@ -12,9 +12,18 @@ const HAS_FLYING_PERMS = true
 @onready var settings_menu: CenterContainer = $"../settings"
 @onready var container: CenterContainer = $"../Panel/CenterContainer"
 
-# --- CAMERA SETTINGS (MINECRAFT STYLE - DIRECT INPUT) ---
+# --- SETTINGS ---
 @export var mouse_sensitivity: float = 0.005 
-# Removed rotation_speed, target variables, and head bob variables
+
+# --- HEAVY TILT & SHAKE SETTINGS ---
+@export var tilt_amount: float = 0.08 
+@export var tilt_speed: float = 8.0 
+@export var bob_freq: float = 2.4
+@export var bob_amp: float = 0.1
+
+# --- VIOLENT MOUSE JOLT (NEW) ---
+@export var shake_intensity: float = 0.2  # Increase this for more violence
+var mouse_jolt: float = 0.0
 
 # Movement Constants
 var SPEED = 5.0
@@ -35,6 +44,7 @@ var is_croutching: bool = false
 var is_locked: bool = true 
 var is_flying: bool = false
 var is_sprinting: bool = false
+var bob_t: float = 0.0
 
 # --- FLY MODE ---
 const FLY_SPEED = 117.0
@@ -67,14 +77,21 @@ func _input(event):
 			is_sprinting = !is_sprinting
 			walking.pitch_scale = 1.5 if is_sprinting else 1.0
 
-		# 1:1 MINECRAFT MOUSE MOVEMENT (Instant rotation, no lerping)
 		if event is InputEventMouseMotion:
+			# This creates the "Jolt"—it adds velocity to the camera's tilt
+			mouse_jolt += -event.relative.x * mouse_sensitivity * shake_intensity
+			
 			rotate_y(-event.relative.x * mouse_sensitivity)
 			camera.rotate_x(-event.relative.y * mouse_sensitivity)
-			# Prevent breaking the neck (looking too far up/down)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
-# _process() WAS COMPLETELY DELETED. WE DON'T NEED SMOOTHING.
+func _process(delta: float) -> void:
+	if not is_locked: return
+	
+	_handle_camera_effects(delta)
+	
+	# Spring the jolt back to zero
+	mouse_jolt = lerp(mouse_jolt, 0.0, delta * 10.0)
 
 func _physics_process(delta: float) -> void:
 	if get_tree().paused: return 
@@ -95,6 +112,33 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	_handle_audio()
 
+# --- CAMERA EFFECTS ---
+
+func _handle_camera_effects(delta: float):
+	# 1. TILT CALCULATION (Movement + Mouse Jolt)
+	var local_vel = velocity * transform.basis
+	var movement_tilt = -local_vel.x * (tilt_amount / SPEED)
+	
+	# COMBINE: Movement tilt + the active jolt from the mouse
+	var total_tilt = movement_tilt + mouse_jolt
+	
+	camera.rotation.z = lerp_angle(camera.rotation.z, total_tilt, delta * tilt_speed)
+
+	# 2. POSITION (BOB) CALCULATION
+	var horizontal_vel = Vector2(velocity.x, velocity.z)
+	var base_y = 2.0 if is_croutching else 2.8
+	
+	if is_on_floor() and horizontal_vel.length() > 0.1:
+		bob_t += delta * horizontal_vel.length()
+		var target_pos = Vector3.ZERO
+		target_pos.y = base_y + sin(bob_t * bob_freq) * bob_amp
+		target_pos.x = cos(bob_t * bob_freq * 0.5) * (bob_amp * 0.6)
+		camera.transform.origin = target_pos
+	else:
+		bob_t = 0
+		var idle_pos = Vector3(0, base_y, 0)
+		camera.transform.origin = camera.transform.origin.lerp(idle_pos, delta * 10.0)
+
 # --- HELPER FUNCTIONS ---
 
 func _toggle_pause():
@@ -104,13 +148,6 @@ func _toggle_pause():
 	cursor_ui.visible = is_locked
 	if is_locked:
 		settings_menu.visible = false
-
-func _on_settings_pressed() -> void:
-	if settings_menu:
-		settings_menu.visible = true
-		container.visible = false
-		for child in settings_menu.find_children("*", "Control", true):
-			child.mouse_filter = Control.MOUSE_FILTER_PASS
 
 func _handle_ground_movement(delta):
 	if not is_on_floor():
@@ -129,9 +166,6 @@ func _handle_ground_movement(delta):
 
 func crouching() -> void:
 	is_croutching = Input.is_action_pressed("crouch")
-	
-	# DIRECT CAMERA HEIGHT OVERRIDE (Replaces head bob offset)
-	camera.position.y = 2.0 if is_croutching else 2.8
 	
 	SPEED = CROUCH_SPEED if is_croutching else (SPRINT_SPEED if is_sprinting else WALK_SPEED)
 	walking.pitch_scale = 0.59 if is_croutching else (1.5 if is_sprinting else 1.0)
