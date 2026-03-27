@@ -168,12 +168,14 @@ material = ExtResource("4_6blaw")
 
 [node name="door wall cutout" type="CSGBox3D" parent="walls" unique_id=1041976223]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.19086, 2.4377308, 14.679522)
+ignore_occlusion_culling = true
 operation = 2
 size = Vector3(3.0489502, 4.9295692, 0.7310791)
 material = ExtResource("4_6blaw")
 
 [node name="door wall cutout2" type="CSGBox3D" parent="walls" unique_id=663352900]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34743786, 2.4377308, -15.444549)
+ignore_occlusion_culling = true
 operation = 2
 size = Vector3(3.0489502, 4.9295692, 1.4627075)
 material = ExtResource("4_6blaw")
@@ -353,5 +355,6 @@ material = ExtResource("4_6blaw")
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1969971308]
 occluder = ExtResource("12_aotgj")
+bake_simplification_distance = 0.0
 
 [connection signal="body_entered" from="updator" to="." method="_on_updator_body_entered"]

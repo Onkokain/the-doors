@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bk34sy1gxddw0"]
 
+[ext_resource type="Environment" uid="uid://0yyqkdr2f33f" path="res://materials/world.tres" id="1_choun"]
 [ext_resource type="Script" uid="uid://dfxe5rgid5rpe" path="res://scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dexc8vvd7ghmx" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://8gsbq2h6uijs" path="res://scripts/world_generator.gd" id="2_0wfyh"]
@@ -58,6 +59,7 @@ corner_radius_bottom_left = 24
 [node name="main" type="Node3D" unique_id=891550892]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=228127302]
+environment = ExtResource("1_choun")
 
 [node name="player" parent="." unique_id=289016444 instance=ExtResource("1_o5qli")]
 process_mode = 3

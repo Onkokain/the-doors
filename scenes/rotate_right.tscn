@@ -40,9 +40,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25.366516, 26.748308)
 use_collision = true
 script = ExtResource("1_ffxv4")
 
-[node name="door" parent="." unique_id=1196333875 instance=ExtResource("1_36trf")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.637993, 2.217392, -9.633108)
-
 [node name="ExitMarker" type="Marker3D" parent="." unique_id=412077109]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -43.587, 0, -10.88792)
 
@@ -306,5 +303,8 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.0
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1697129417]
 occluder = ExtResource("18_m8nof")
+
+[node name="door" parent="." unique_id=1196333875 instance=ExtResource("1_36trf")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.637993, 2.217392, -9.633108)
 
 [connection signal="body_entered" from="updator" to="." method="_on_updator_body_entered"]

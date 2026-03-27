@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d1gomfab7a1il" path="res://scripts/room.gd" id="1_ffxv4"]
 [ext_resource type="FontFile" uid="uid://cicxmv8cu64m2" path="res://fonts/Creepy Blood.ttf" id="3_qjeoa"]
 [ext_resource type="Material" uid="uid://b0ltckauk0x8p" path="res://materials/wood_walls.tres" id="4_6blaw"]
+[ext_resource type="PackedScene" uid="uid://cngtetqnup6ps" path="res://scenes/wall_light.tscn" id="5_cipcg"]
 [ext_resource type="Texture2D" uid="uid://cbo6rdnsq2731" path="res://assets/public materials/stylized_wood_pbr_material_0.png" id="6_0dvdo"]
 [ext_resource type="Texture2D" uid="uid://br7h5phbhttrw" path="res://assets/public assets/bedside_table_0.jpg" id="6_o5f1n"]
 [ext_resource type="Script" uid="uid://dekax8kjm4vq8" path="res://scripts/gameover_won.gd" id="7_8fv13"]
@@ -172,6 +173,18 @@ material = ExtResource("4_6blaw")
 
 [node name="decor" type="Node3D" parent="." unique_id=1462231099]
 metadata/_edit_lock_ = true
+
+[node name="Node3D" parent="decor" unique_id=1574238621 instance=ExtResource("5_cipcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.018263, 6.8347416, -15.633336)
+
+[node name="Node3D2" parent="decor" unique_id=898899667 instance=ExtResource("5_cipcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.447296, 6.8347416, -15.633336)
+
+[node name="Node3D3" parent="decor" unique_id=1771545084 instance=ExtResource("5_cipcg")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.018263, 6.8347416, 14.997488)
+
+[node name="Node3D4" parent="decor" unique_id=1246718362 instance=ExtResource("5_cipcg")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.447296, 6.8347416, 14.997488)
 
 [node name="floor" type="Node3D" parent="." unique_id=1984927911]
 

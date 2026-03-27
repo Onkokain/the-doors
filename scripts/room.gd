@@ -14,6 +14,10 @@ func _ready() -> void:
 	
 	# Automatically connect the area signal so you don't have to do it in the editor
 	var area = get_node_or_null("updator")
+	if area:
+		# Check if it isn't already connected (prevents double-firing if you DID connect it in the editor)
+		if not area.body_entered.is_connected(_on_updator_body_entered):
+			area.body_entered.connect(_on_updator_body_entered)
 
 # Called by the World Generator immediately after spawning
 func set_room_info(num: int, type_name: String) -> void:
@@ -32,7 +36,3 @@ func _on_updator_body_entered(body: Node3D) -> void:
 		if not has_been_registered:
 			Global.register_discovery(room_type_name)
 			has_been_registered = true
-
-
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	pass # Replace with function body.
