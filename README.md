@@ -1,4 +1,4 @@
-#The Doors 
+# The Doors 
 
 The Doors is a first-person atmospheric horror game I built with Godot 4.6. It currently includes 10 different  rooms each with an atmosphere with its own. The main objective of the room is get to room 25, where the game currently ends.
 Inspired by "The Backrooms," the game features an infinite loop of rooms (coming soon) , upgrades purchased with coins you find throughout the rooms , and a custom-built character controller that gives eerie vibes.
@@ -16,7 +16,7 @@ Culling Logic: Older rooms are freed once the player moves a certain distance, t
 
 Randomization: Uses a weighted selection algorithm to ensure a balanced mix of "safe" rooms and rooms with strange creatures never seen before.
 
-#Player Controller & Interaction
+# Player Controller & Interaction
 The main player is built using CharacterBody3D with the following implementations:
 
 Movement: WASD/Arrow keys with integrated head-bob including sprinting (Ctrl to toggle) and crouching (Shift hold to toggle). 
@@ -25,24 +25,24 @@ Interaction: Interaction with the static assets is done with collision shapes in
 
 Audio: Eerie raining background music with footsteps everytime the player walks has currently been implemented. All the interactable assets also have their own sound effects.
 
-#Physics & Performance
+# Physics & Performance
 Jolt Physics: Integrated the Godot Jolt plugin for more stable 3D character collisions and better performance over the default GodotPhysics3D.
 
 Debug Fly Mode: A dedicated debug build allows for F key toggling of a "Noclip" fly mode to inspect room stitching and collision boundaries in real-time.
 
-#Built With
+# Built With
 Godot V4.6
 GDScript (as the main scripting language)
 Jolt 3D (Physics Engine)
 Blender (To design low poly assets)
 
-#How to Play / Test
+# How to Play / Test
 You can play the game online at [The Doors] (https://baralekogyan.itch.io/the-doors)
 You can play the debug version online at [The Doors Debug] (https://baralekogyan.itch.io/the-doors-debug)
 
 Optionally, You can also clone the repo and open it with godot and make any changes you wish there.
 
-#Controls:
+# Controls:
 
 WASD / Arrows: Move
 
