@@ -3,6 +3,7 @@
 The Doors is a first-person atmospheric horror game I built with Godot 4.6. It currently includes 10 different  rooms each with an atmosphere with its own. The main objective of the room is get to room 25, where the game currently ends.
 Inspired by "The Backrooms," the game features an infinite loop of rooms (coming soon) , upgrades purchased with coins you find throughout the rooms , and a custom-built character controller that gives eerie vibes.
 
+
 # Play it Online
 
 [The Doors](https://baralekogyan.itch.io/the-doors)
@@ -56,5 +57,7 @@ E: Interact
 
 F: Toggle Fly Mode (Debug builds only)
 
+# Inspiration
+My main inspiration to build this copy was the Roblox game 'Doors'. I've always been fascinated by the concept of the game and wanted to recreate it on my own, add new features and improve the overall gameplay loop. I've always been fascinated by 3D games and I took this opportunity to make one on my own.
 # Development Status
 This is my first 3D project, and I am currently pushing updates every few days.
