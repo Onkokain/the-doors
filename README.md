@@ -5,7 +5,7 @@ Inspired by "The Backrooms," the game features an infinite loop of rooms (coming
 
 # Play it Online
 
-	[The Doors] (https://baralekogyan.itch.io/the-doors)
+[The Doors](https://baralekogyan.itch.io/the-doors)
 
 # Key Technical Features
 The core of the game is a weight-based room spawner that spawns rooms one after another using a weighted randomized selection.
@@ -37,8 +37,8 @@ Jolt 3D (Physics Engine)
 Blender (To design low poly assets)
 
 # How to Play / Test
-You can play the game online at [The Doors] (https://baralekogyan.itch.io/the-doors)
-You can play the debug version online at [The Doors Debug] (https://baralekogyan.itch.io/the-doors-debug)
+You can play the game online at [The Doors](https://baralekogyan.itch.io/the-doors)
+You can play the debug version online at [The Doors Debug](https://baralekogyan.itch.io/the-doors-debug)
 
 Optionally, You can also clone the repo and open it with godot and make any changes you wish there.
 
