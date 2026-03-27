@@ -259,9 +259,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.3
 [node name="Node3D16" parent="decor" unique_id=1766516225 instance=ExtResource("17_6blaw")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.397354, 7.0215664, -11.422638)
 
-[node name="closet" parent="decor" unique_id=1859943216 instance=ExtResource("18_qjeoa")]
-transform = Transform3D(-3.278354e-08, 0, -0.75, 0, 0.75, 0, 0.75, 0, -3.278354e-08, 15.442058, -1.7040634, 4.316107)
-
 [node name="floor" type="Node3D" parent="." unique_id=1984927911]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=620957960]
@@ -294,6 +291,9 @@ material = ExtResource("4_6blaw")
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=2027901939]
 transform = Transform3D(-1.09278474e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278474e-07, 5.299421, 1.3053741, 1.1321564)
 occluder = ExtResource("19_cle7w")
+
+[node name="closet" parent="." unique_id=1859943216 instance=ExtResource("18_qjeoa")]
+transform = Transform3D(-3.278354e-08, 0, -0.75, 0, 0.75, 0, 0.75, 0, -3.278354e-08, 15.442058, -1.7040634, 4.316107)
 
 [node name="door" parent="." unique_id=1196333875 instance=ExtResource("1_36trf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2548171, 2.217392, 15.29582)

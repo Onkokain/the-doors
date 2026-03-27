@@ -25,7 +25,7 @@ var net_rotation: int = 0
 @export var room_data: Array[Dictionary] = [
 	{"name": "hallway", "scene": preload("res://scenes/hallway.tscn"), "weight": 30.0, "type": "straight"},
 	{"name": "library_broken", "scene": preload("res://scenes/library_broken.tscn"), "weight": 20.0, "type": "straight"},
-	{"name": "library", "scene": preload("res://scenes/library.tscn"), "weight": 3335.0, "type": "straight"},
+	{"name": "library", "scene": preload("res://scenes/library.tscn"), "weight": 35.0, "type": "straight"},
 	{"name": "piano_room", "scene": preload("res://scenes/piano_room.tscn"), "weight": 35.0, "type": "straight"},
 	{"name": "clock_room", "scene": preload("res://scenes/clock_room.tscn"), "weight": 20.0, "type": "straight"},
 	{"name": "rotate_left", "scene": preload("res://scenes/rotate_left.tscn"), "weight": 20.0, "type": "left"},

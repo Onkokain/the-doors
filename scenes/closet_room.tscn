@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://befj2xtxekpuv" path="res://scenes/closet.tscn" id="6_7x1sp"]
 [ext_resource type="Texture2D" uid="uid://br7h5phbhttrw" path="res://assets/public assets/bedside_table_0.jpg" id="6_o5f1n"]
 [ext_resource type="PackedScene" uid="uid://cngtetqnup6ps" path="res://scenes/wall_light.tscn" id="7_tyd3v"]
-[ext_resource type="ArrayOccluder3D" uid="uid://0w7tgd0rn8e1" path="res://baked occlusion scenes/closet_room.occ" id="8_23mp1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
 size = Vector3(5.7139893, 9.462402, 1)
@@ -256,9 +255,6 @@ material = ExtResource("4_6blaw")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.5853027, 6.3451805, 20.840162)
 size = Vector3(0.11968994, 6.9959717, 12.196289)
 material = ExtResource("4_6blaw")
-
-[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=411935857]
-occluder = ExtResource("8_23mp1")
 
 [node name="door" parent="." unique_id=1196333875 instance=ExtResource("1_36trf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2548171, 2.217392, 15.29582)
