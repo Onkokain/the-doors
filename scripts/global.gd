@@ -12,3 +12,5 @@ func register_discovery(room_type: String):
 		unique_room_visited = discovered_rooms.size()
 		print("New room discovered: ", room_type)
 		print("Total unique rooms: ", unique_room_visited)
+var is_conversio=false
+var is_flickering=true

@@ -6,40 +6,21 @@
 [ext_resource type="StyleBox" uid="uid://blwe5doujew70" path="res://materials/menubuttons.tres" id="4_rtw2f"]
 [ext_resource type="FontFile" uid="uid://bur0xekl7f8a7" path="res://fonts/Scratch.ttf" id="4_wu84c"]
 [ext_resource type="Script" uid="uid://bi5kih2tqvh5k" path="res://scripts/settings_loadmenu.gd" id="6_rtw2f"]
+[ext_resource type="Script" uid="uid://o6xuxv6gw5y3" path="res://scripts/background_audiocontrol.gd" id="7_jk1qb"]
 [ext_resource type="Script" uid="uid://byqphsdel1uln" path="res://scripts/statistics_startmenu.gd" id="7_oa1go"]
+[ext_resource type="Script" uid="uid://dsaodwifqlywr" path="res://scripts/effects_audiocontrol.gd" id="8_5dd4i"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
-content_margin_left = 20.0
-content_margin_top = 14.0
-content_margin_right = 20.0
-content_margin_bottom = 14.0
-bg_color = Color(0, 0, 0, 0.40392157)
-corner_radius_top_left = 24
-corner_radius_top_right = 24
-corner_radius_bottom_right = 24
-corner_radius_bottom_left = 24
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_oa1go"]
+color = Color(1, 1, 1, 1)
+thickness = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olot3"]
-content_margin_left = 20.0
-content_margin_top = 14.0
-content_margin_right = 20.0
-content_margin_bottom = 14.0
-bg_color = Color(0, 0, 0, 0.40392157)
-corner_radius_top_left = 24
-corner_radius_top_right = 24
-corner_radius_bottom_right = 24
-corner_radius_bottom_left = 24
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_tbmy8"]
+color = Color(0.077850364, 0.3659946, 0.7039271, 1)
+thickness = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
-content_margin_left = 20.0
-content_margin_top = 14.0
-content_margin_right = 20.0
-content_margin_bottom = 14.0
-bg_color = Color(0, 0, 0, 0.40392157)
-corner_radius_top_left = 24
-corner_radius_top_right = 24
-corner_radius_bottom_right = 24
-corner_radius_bottom_left = 24
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_jk1qb"]
+color = Color(0.091499984, 0.091499984, 0.61, 1)
+thickness = 6
 
 [node name="main menu" type="Node2D" unique_id=1985274283]
 script = ExtResource("1_bqqt6")
@@ -62,6 +43,7 @@ theme_override_font_sizes/font_size = 113
 text = "The Doors"
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=2024613123]
+visible = false
 offset_left = -1.0
 offset_top = 140.0
 offset_right = 1161.0
@@ -98,7 +80,7 @@ vertical_alignment = 1
 [node name="Panel2" type="PanelContainer" parent="CenterContainer/VBoxContainer" unique_id=1250357231]
 custom_minimum_size = Vector2(0, 71)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="settings" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2" unique_id=449818160]
 custom_minimum_size = Vector2(100, 80)
@@ -119,11 +101,12 @@ vertical_alignment = 1
 [node name="Panel3" type="PanelContainer" parent="CenterContainer/VBoxContainer" unique_id=700221987]
 custom_minimum_size = Vector2(0, 71)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="cutscene" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel3" unique_id=1170486371]
 custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
+disabled = true
 
 [node name="Label3" type="Label" parent="CenterContainer/VBoxContainer/Panel3/cutscene" unique_id=2049295387]
 layout_mode = 0
@@ -133,14 +116,14 @@ offset_right = 595.0
 offset_bottom = 88.0
 theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 60
-text = "Statistics"
+text = "Coming Soon"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel4" type="PanelContainer" parent="CenterContainer/VBoxContainer" unique_id=1452950814]
 custom_minimum_size = Vector2(620, 71)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="endgame" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel4" unique_id=1762738036]
 custom_minimum_size = Vector2(100, 80)
@@ -162,7 +145,6 @@ vertical_alignment = 1
 
 [node name="settings" type="CenterContainer" parent="." unique_id=405921128]
 process_mode = 3
-visible = false
 offset_top = 137.0
 offset_right = 1149.0
 offset_bottom = 616.0
@@ -176,7 +158,7 @@ theme_override_constants/separation = 17
 [node name="Panel2" type="PanelContainer" parent="settings/VBoxContainer" unique_id=1455720034]
 custom_minimum_size = Vector2(0, 71)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_olot3")
+theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="visuals" type="TextureButton" parent="settings/VBoxContainer/Panel2" unique_id=530630425]
 custom_minimum_size = Vector2(100, 80)
@@ -197,7 +179,7 @@ vertical_alignment = 1
 [node name="Panel3" type="PanelContainer" parent="settings/VBoxContainer" unique_id=932530024]
 custom_minimum_size = Vector2(0, 71)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_olot3")
+theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="Audio" type="TextureButton" parent="settings/VBoxContainer/Panel3" unique_id=828110143]
 custom_minimum_size = Vector2(100, 80)
@@ -211,14 +193,14 @@ offset_right = 595.0
 offset_bottom = 88.0
 theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 60
-text = "Audio "
+text = "Controls"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel4" type="PanelContainer" parent="settings/VBoxContainer" unique_id=707217889]
 custom_minimum_size = Vector2(620, 71)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_olot3")
+theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="Return" type="TextureButton" parent="settings/VBoxContainer/Panel4" unique_id=110307165]
 custom_minimum_size = Vector2(100, 80)
@@ -238,6 +220,83 @@ text = "Return"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="visuals_menu" type="Node2D" parent="settings" unique_id=2143333510]
+
+[node name="Panel4" type="PanelContainer" parent="settings/visuals_menu" unique_id=789909011]
+custom_minimum_size = Vector2(100, 0)
+offset_left = 494.0
+offset_top = 390.0
+offset_right = 683.0
+offset_bottom = 473.0
+theme_override_styles/panel = ExtResource("4_rtw2f")
+
+[node name="Label4" type="Label" parent="settings/visuals_menu/Panel4" unique_id=1764060964]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 60
+text = "Return"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Return_inside_audio" type="TextureButton" parent="settings/visuals_menu/Panel4" unique_id=1858499642]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="background" type="HSlider" parent="settings/visuals_menu" unique_id=1728326761]
+custom_minimum_size = Vector2(800, 0)
+offset_left = 177.0
+offset_top = 72.0
+offset_right = 977.0
+offset_bottom = 88.0
+theme_override_styles/slider = SubResource("StyleBoxLine_oa1go")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_tbmy8")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_jk1qb")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("7_jk1qb")
+audio_bus_name = "background"
+
+[node name="effects" type="HSlider" parent="settings/visuals_menu" unique_id=2098584339]
+custom_minimum_size = Vector2(800, 0)
+offset_left = 177.0
+offset_top = 233.0
+offset_right = 977.0
+offset_bottom = 249.0
+theme_override_styles/slider = SubResource("StyleBoxLine_oa1go")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_tbmy8")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_jk1qb")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("8_5dd4i")
+audio_bus_name = "effects"
+
+[node name="Label" type="Label" parent="settings/visuals_menu" unique_id=1314178848]
+offset_left = 468.0
+offset_top = 111.0
+offset_right = 741.0
+offset_bottom = 192.0
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 60
+text = "Background "
+
+[node name="Label2" type="Label" parent="settings/visuals_menu" unique_id=944922275]
+offset_left = 452.0
+offset_top = 272.0
+offset_right = 745.0
+offset_bottom = 353.0
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 60
+text = "Sound Effects"
+
+[node name="controls_menu" type="VBoxContainer" parent="settings" unique_id=1104410394]
+custom_minimum_size = Vector2(0, 71)
+layout_mode = 2
+theme_override_constants/separation = 17
+
 [node name="statistics" type="CenterContainer" parent="." unique_id=680846564]
 process_mode = 3
 visible = false
@@ -255,7 +314,7 @@ theme_override_constants/separation = 17
 [node name="Panel2" type="PanelContainer" parent="statistics/VBoxContainer" unique_id=1174266100]
 custom_minimum_size = Vector2(0, 71)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="achievements" type="TextureButton" parent="statistics/VBoxContainer/Panel2" unique_id=1425815389]
 custom_minimum_size = Vector2(100, 80)
@@ -276,7 +335,7 @@ vertical_alignment = 1
 [node name="Panel3" type="PanelContainer" parent="statistics/VBoxContainer" unique_id=690602624]
 custom_minimum_size = Vector2(0, 71)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="Rooms Visited" type="TextureButton" parent="statistics/VBoxContainer/Panel3" unique_id=1001797794]
 custom_minimum_size = Vector2(100, 80)
@@ -297,7 +356,7 @@ vertical_alignment = 1
 [node name="Panel4" type="PanelContainer" parent="statistics/VBoxContainer" unique_id=1219391539]
 custom_minimum_size = Vector2(620, 71)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="Return" type="TextureButton" parent="statistics/VBoxContainer/Panel4" unique_id=1091169992]
 custom_minimum_size = Vector2(100, 80)
@@ -321,5 +380,10 @@ vertical_alignment = 1
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Panel2/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Panel3/cutscene" to="." method="_on_cutscene_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Panel4/endgame" to="." method="_on_endgame_pressed"]
+[connection signal="pressed" from="settings/VBoxContainer/Panel2/visuals" to="settings" method="_on_visuals_pressed"]
+[connection signal="pressed" from="settings/VBoxContainer/Panel3/Audio" to="settings" method="_on_audio_pressed"]
 [connection signal="pressed" from="settings/VBoxContainer/Panel4/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="settings/visuals_menu/Panel4/Return_inside_audio" to="settings" method="_on_return_inside_audio_pressed"]
+[connection signal="value_changed" from="settings/visuals_menu/background" to="settings/visuals_menu/background" method="_on_value_changed"]
+[connection signal="value_changed" from="settings/visuals_menu/effects" to="settings/visuals_menu/effects" method="_on_value_changed"]
 [connection signal="pressed" from="statistics/VBoxContainer/Panel4/Return" to="." method="_on_return_pressed"]

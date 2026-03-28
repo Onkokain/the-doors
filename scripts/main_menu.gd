@@ -2,6 +2,7 @@ extends Node2D
 
 # Preloading the scene into memory
 const MAIN_SCENE = preload("res://scenes/main.tscn")
+@onready var center_container: CenterContainer = $CenterContainer
 
 @onready var start: TextureButton = $CenterContainer/VBoxContainer/Panel/start
 @onready var settings: TextureButton = $CenterContainer/VBoxContainer/Panel2/settings
@@ -17,10 +18,11 @@ var hovered_cards := {}
 var pressed_cards := {}	
 
 func _ready() -> void:
+	center_container.visible=true
+	statistics_menu.visible=false
 	settings_menu.visible=false
 	_configure_hover(start)
 	_configure_hover(settings)
-	_configure_hover(cutscene)
 	_configure_hover(endgame)
 	
 	# Connecting the signal via code

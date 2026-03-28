@@ -335,6 +335,7 @@ vertical_alignment = 1
 stream = ExtResource("6_tefeu")
 volume_db = 20.0
 autoplay = true
+bus = &"background"
 
 [node name="coin manager" type="Node3D" parent="." unique_id=1830904442]
 

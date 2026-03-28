@@ -7,3 +7,4 @@ process_mode = 3
 stream = ExtResource("1_bkp1e")
 pitch_scale = 0.9
 autoplay = true
+bus = &"background"

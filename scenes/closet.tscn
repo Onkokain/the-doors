@@ -362,9 +362,11 @@ shape = SubResource("BoxShape3D_v2322")
 
 [node name="open" type="AudioStreamPlayer3D" parent="." unique_id=1845960347]
 stream = ExtResource("6_hivdx")
+bus = &"effects"
 
 [node name="close" type="AudioStreamPlayer3D" parent="." unique_id=739080410]
 stream = ExtResource("7_v2322")
+bus = &"effects"
 
 [connection signal="body_entered" from="Detection Area" to="StaticBody3D" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Detection Area" to="StaticBody3D" method="_on_detection_area_body_exited"]
