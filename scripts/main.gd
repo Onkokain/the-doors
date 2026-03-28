@@ -9,10 +9,10 @@ var paused = false
 @onready var quit_game: TextureButton = $"CenterContainer/VBoxContainer/Panel/quit game"
 @onready var settings: TextureButton = $CenterContainer/VBoxContainer/Panel2/settings
 @onready var achievements: TextureButton = $CenterContainer/VBoxContainer/Panel3/achievements
-@onready var settings_menu: CenterContainer = $"../settings"
 @onready var statistics_menu: CenterContainer = $"../statistics"
+@onready var player: CharacterBody3D = $"../player"
 
-
+var spawn_position : Vector3
 
 
 # Animation dictionaries
@@ -21,8 +21,8 @@ var hovered_cards := {}
 var pressed_cards := {}
 
 func _ready() -> void:
+	spawn_position = player.global_position
 	statistics_menu.visible=false
-	settings_menu.visible=false
 	# 1. CRITICAL: Set process mode so this script runs while paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
@@ -32,7 +32,6 @@ func _ready() -> void:
 	# 3. Setup hover effects
 	_configure_hover(quit_game)
 	_configure_hover(settings)
-	_configure_hover(achievements)
 	
 
 
@@ -46,8 +45,6 @@ func _toggle_pause() -> void:
 	paused = !paused
 	get_tree().paused = paused
 	_update_menu_state(paused)
-	if !paused:
-		settings_menu.visible=false
 	
 	# Sync Background Audio
 	if is_instance_valid(Background):
@@ -128,15 +125,15 @@ func _on_quit_game_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
-	settings_menu.visible=true
-	container.visible=false
-	
+	if player:
+		player.global_position=spawn_position
+		player.velocity=Vector3.ZERO
+		_toggle_pause()
+		Global.player_reset_button=true
+		await get_tree().create_timer(0.01).timeout
+		Global.player_reset_button=false
 
 
-
-func _on_settings_return_pressed() -> void:
-	settings_menu.visible=false
-	container.visible=true
 
 
 func _on_achievements_pressed() -> void:

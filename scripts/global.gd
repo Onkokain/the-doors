@@ -14,3 +14,5 @@ func register_discovery(room_type: String):
 		print("Total unique rooms: ", unique_room_visited)
 var is_conversio=false
 var is_flickering=true
+
+var player_reset_button = false

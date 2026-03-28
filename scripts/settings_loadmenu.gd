@@ -3,9 +3,10 @@ extends CenterContainer
 @onready var audio: TextureButton = $VBoxContainer/Panel3/Audio
 @onready var settings_return: TextureButton = $VBoxContainer/Panel4/Return
 @onready var visuals_menu: Node2D = $visuals_menu
-@onready var controls_menu: VBoxContainer = $controls_menu
+@onready var controls_menu: Node2D = $controls_menu
 @onready var settings : VBoxContainer = $VBoxContainer
 @onready var return_inside_audio: TextureButton = $visuals_menu/Panel4/Return_inside_audio
+@onready var return_inside_control: TextureButton = $controls_menu/return/return_inside_control
 
 
 
@@ -21,6 +22,8 @@ func _ready() -> void:
 	_configure_hover(audio)
 	_configure_hover(visuals)
 	_configure_hover(return_inside_audio)
+	_configure_hover(return_inside_control)
+	
 	
 
 func _configure_hover(button: TextureButton) -> void:
@@ -76,9 +79,15 @@ func _on_visuals_pressed() -> void:
 
 
 func _on_audio_pressed() -> void:
-	pass # Replace with function body.
+	controls_menu.visible=true
+	settings.visible=false
 
 
 func _on_return_inside_audio_pressed() -> void:
 	settings.visible=true
 	visuals_menu.visible=false
+
+
+func _on_return_inside_control_pressed() -> void:
+	controls_menu.visible=false
+	settings.visible=true

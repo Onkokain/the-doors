@@ -62,7 +62,7 @@ func _ready():
 	camera.rotation.z = 0
 
 func _input(event):
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause") || Global.player_reset_button:
 		_toggle_pause()
 
 	if is_locked:
@@ -142,8 +142,7 @@ func _toggle_pause():
 	get_tree().paused = !is_locked
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if is_locked else Input.MOUSE_MODE_VISIBLE
 	cursor_ui.visible = is_locked
-	if is_locked:
-		settings_menu.visible = false
+
 
 func _handle_ground_movement(delta):
 	if not is_on_floor():
