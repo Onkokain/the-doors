@@ -10,11 +10,11 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	doors_opened.text=str(Global.doors_opened)
 	rooms_visited.text=str(Global.unique_room_visited)+"/10"
 	coins_collected.text=str(Global.coins)
 
 
-func _on_area_3d_body_entered(body: Node3D) -> void:
+func _on_area_3d_body_entered(_body: Node3D) -> void:
 	pass # Replace with function body.

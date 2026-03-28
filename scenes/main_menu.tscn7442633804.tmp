@@ -271,6 +271,7 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 script = ExtResource("7_jk1qb")
+audio_bus_name = "background"
 
 [node name="effects" type="HSlider" parent="settings/visuals_menu" unique_id=2098584339]
 custom_minimum_size = Vector2(800, 0)
@@ -306,6 +307,7 @@ theme_override_font_sizes/font_size = 60
 text = "Sound Effects"
 
 [node name="controls_menu" type="Node2D" parent="settings" unique_id=585087980]
+visible = false
 
 [node name="return" type="PanelContainer" parent="settings/controls_menu" unique_id=566832623]
 custom_minimum_size = Vector2(100, 0)
@@ -500,31 +502,6 @@ theme_override_font_sizes/font_size = 22
 text = "Unbound"
 script = ExtResource("10_flqon")
 action_name = "interact"
-
-[node name="pause" type="Button" parent="settings/controls_menu/main control" unique_id=1805782933]
-layout_mode = 0
-offset_left = 367.0
-offset_top = 52.0
-offset_right = 529.0
-offset_bottom = 82.0
-theme_override_fonts/font = ExtResource("9_lgwnu")
-theme_override_font_sizes/font_size = 22
-text = "Unbound"
-script = ExtResource("10_flqon")
-action_name = "pause"
-
-[node name="Label" type="Label" parent="settings/controls_menu/main control" unique_id=312771719]
-layout_mode = 0
-offset_left = 413.0
-offset_top = 10.0
-offset_right = 505.0
-offset_bottom = 54.0
-theme_override_colors/font_color = Color(0.41062272, 0.41062272, 0.41062272, 1)
-theme_override_colors/font_shadow_color = Color(0.14622861, 0.14622879, 0.1462287, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_l6cm7")
-theme_override_font_sizes/font_size = 32
-text = "Pause"
 
 [node name="statistics" type="CenterContainer" parent="." unique_id=680846564]
 process_mode = 3

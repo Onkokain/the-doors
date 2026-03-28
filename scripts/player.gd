@@ -9,7 +9,7 @@ const HAS_FLYING_PERMS = true
 @onready var body_mesh: MeshInstance3D = $MeshInstance3D
 @onready var camera = $Camera3D
 @onready var cursor_ui: TextureRect = $UI/CustomCursor
-@onready var settings_menu: CenterContainer = $"../settings"
+
 @onready var container: CenterContainer = $"../Panel/CenterContainer"
 
 # --- SETTINGS ---
@@ -55,9 +55,7 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
-	if settings_menu:
-		settings_menu.visible = false
-		settings_menu.process_mode = Node.PROCESS_MODE_ALWAYS
+
 	
 	camera.rotation.z = 0
 

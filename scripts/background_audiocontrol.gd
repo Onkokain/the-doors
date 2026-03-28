@@ -3,7 +3,7 @@ extends HSlider
 var id
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	id=AudioServer.get_bus_index(audio_bus_name)
+	id=AudioServer.get_bus_index('background')
 
 
 
