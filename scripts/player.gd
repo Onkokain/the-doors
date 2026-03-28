@@ -54,13 +54,20 @@ func _ready():
 	Background.playing = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	
-
-	
 	camera.rotation.z = 0
 
+
 func _input(event):
-	if event.is_action_pressed("pause") || Global.player_reset_button:
+
+	# --- FAIL SAFE FOR WEB BUILDS ---
+	# If the game isn't paused and the browser released the mouse
+	if not get_tree().paused and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			is_locked = true
+			return
+
+	if event.is_action_pressed("pause") or Global.player_reset_button:
 		_toggle_pause()
 
 	if is_locked:
@@ -71,34 +78,35 @@ func _input(event):
 			else:
 				is_flying = false
 
-		if Input.is_action_just_pressed('run'):
+		if Input.is_action_just_pressed("run"):
 			is_sprinting = !is_sprinting
 			walking.pitch_scale = 1.5 if is_sprinting else 1.0
 
 		if event is InputEventMouseMotion:
-			# 1-to-1 Inversion multiplier
 			var m_mult : float = -1.0 if Global.is_conversio else 1.0
 			
 			mouse_jolt += -event.relative.x * mouse_sensitivity * shake_intensity * m_mult
 			
 			rotate_y(-event.relative.x * mouse_sensitivity * m_mult)
 			camera.rotate_x(-event.relative.y * mouse_sensitivity * m_mult)
-			
-			# UNDO LOGIC: If conversio is on and the player flips the camera upside down, 
-			# we turn the effect off.
+
 			if Global.is_conversio and camera.global_transform.basis.y.y < 0:
 				Global.is_conversio = false
-			
-			# CLAMP REMOVED so you can actually perform the "undo" movement
+
 
 func _process(delta: float) -> void:
-	if not is_locked: return
+	if not is_locked:
+		return
 	
 	_handle_camera_effects(delta)
 	mouse_jolt = lerp(mouse_jolt, 0.0, delta * 10.0)
 
-func _physics_process(delta: float) -> void:
-	if get_tree().paused: return
+
+func _physics_process(delta: float) -> void: 
+
+	if get_tree().paused:
+		return
+
 	crouching()
 	
 	if is_on_floor() and was_in_air:
@@ -114,6 +122,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	_handle_audio()
+
 
 func _handle_camera_effects(delta: float):
 	var local_vel = velocity * transform.basis
@@ -135,6 +144,7 @@ func _handle_camera_effects(delta: float):
 		var idle_pos = Vector3(0, base_y, 0)
 		camera.transform.origin = camera.transform.origin.lerp(idle_pos, delta * 10.0)
 
+
 func _toggle_pause():
 	is_locked = !is_locked
 	get_tree().paused = !is_locked
@@ -145,16 +155,17 @@ func _toggle_pause():
 func _handle_ground_movement(delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
 	
-	# Keyboard 1-to-1 inversion
 	if Global.is_conversio:
 		input_dir *= -1.0
 		
 	var direction : Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
@@ -162,41 +173,53 @@ func _handle_ground_movement(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
+
 func crouching() -> void:
 	is_croutching = Input.is_action_pressed("crouch")
 	SPEED = CROUCH_SPEED if is_croutching else (SPRINT_SPEED if is_sprinting else WALK_SPEED)
 	walking.pitch_scale = 0.59 if is_croutching else (1.5 if is_sprinting else 1.0)
 
 	var body_height := CROUCH_HEIGHT if is_croutching else STANDING_HEIGHT
+
 	if collision_shape.shape is CapsuleShape3D:
 		collision_shape.shape.height = body_height
+
 	collision_shape.position.y = CROUCH_COLLISION_Y if is_croutching else STANDING_COLLISION_Y
 
 	if body_mesh.mesh is CapsuleMesh:
 		body_mesh.mesh.height = body_height
+
 	body_mesh.position.y = CROUCH_MESH_Y if is_croutching else STANDING_MESH_Y
+
 
 func _handle_fly_movement(_delta):
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
+
 	if Global.is_conversio:
 		input_dir *= -1.0
 		
 	var direction : Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
 	velocity = direction * FLY_SPEED if direction else velocity.move_toward(Vector3.ZERO, FLY_SPEED)
 	
-	if Input.is_action_pressed("jump"): 
+	if Input.is_action_pressed("jump"):
 		velocity.y = -FLY_VERTICAL_SPEED if Global.is_conversio else FLY_VERTICAL_SPEED
-	elif Input.is_action_pressed("crouch"): 
+	elif Input.is_action_pressed("crouch"):
 		velocity.y = FLY_VERTICAL_SPEED if Global.is_conversio else -FLY_VERTICAL_SPEED
-	else: 
+	else:
 		velocity.y = 0
 
+
 func _on_land():
-	if not jump.playing: jump.play()
+	if not jump.playing:
+		jump.play()
+
 
 func _handle_audio() -> void:
 	var is_moving = Vector2(velocity.x, velocity.z).length() > 0.1
+
 	if is_on_floor() and is_moving and not is_flying:
-		if not walking.playing: walking.play()
+		if not walking.playing:
+			walking.play()
 	elif walking.playing:
 		walking.stop()

@@ -10,6 +10,8 @@
 [ext_resource type="FontFile" uid="uid://bur0xekl7f8a7" path="res://fonts/Scratch.ttf" id="7_choun"]
 [ext_resource type="Script" uid="uid://d1qv4ujuym6q1" path="res://scripts/coincounter.gd" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://bjsjak4sabykg" path="res://scripts/statistics_ingame.gd" id="8_choun"]
+[ext_resource type="Script" uid="uid://byaqcsm24e4gs" path="res://scripts/conversio.gd" id="11_ya4ey"]
+[ext_resource type="AudioStream" uid="uid://de2b87bpacdmk" path="res://assets/music/heartbeat.mp3" id="12_eb6dy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbgi4"]
 transparency = 1
@@ -269,6 +271,13 @@ theme_override_fonts/font = ExtResource("3_sugp2")
 theme_override_font_sizes/font_size = 37
 text = "Coins"
 script = ExtResource("7_o6xl0")
+
+[node name="conversio" type="Node" parent="." unique_id=3613237]
+script = ExtResource("11_ya4ey")
+
+[node name="heartbeat" type="AudioStreamPlayer2D" parent="conversio" unique_id=294861088]
+stream = ExtResource("12_eb6dy")
+volume_db = 24.0
 
 [connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Panel2/settings" to="Panel" method="_on_settings_pressed"]
 [connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Panel3/achievements" to="Panel" method="_on_achievements_pressed"]

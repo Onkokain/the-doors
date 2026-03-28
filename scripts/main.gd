@@ -33,8 +33,6 @@ func _ready() -> void:
 	_configure_hover(quit_game)
 	_configure_hover(settings)
 	
-
-
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		_toggle_pause()
@@ -144,3 +142,5 @@ func _on_achievements_pressed() -> void:
 func _on_return_pressed() -> void:
 	statistics_menu.visible=false
 	container.visible=true
+	
+	
