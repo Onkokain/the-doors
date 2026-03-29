@@ -36,6 +36,43 @@ collision_mode = 2
 [sub_resource type="QuadMesh" id="QuadMesh_tefeu"]
 size = Vector2(0.05, 0.2)
 
+[sub_resource type="Animation" id="Animation_eb6dy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_trceg"]
+resource_name = "pulse"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.60784316), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a8y0u"]
+_data = {
+&"RESET": SubResource("Animation_eb6dy"),
+&"pulse": SubResource("Animation_trceg")
+}
+
 [node name="main" type="Node3D" unique_id=891550892]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=228127302]
@@ -275,7 +312,23 @@ script = ExtResource("7_o6xl0")
 [node name="conversio" type="Node" parent="." unique_id=3613237]
 script = ExtResource("11_ya4ey")
 
-[node name="heartbeat" type="AudioStreamPlayer2D" parent="conversio" unique_id=294861088]
+[node name="Utilities" type="Node" parent="." unique_id=1158348240]
+
+[node name="red flash" type="CanvasLayer" parent="Utilities" unique_id=2144430444]
+
+[node name="ColorRect" type="ColorRect" parent="Utilities/red flash" unique_id=71166008]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3882353, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Utilities/red flash" unique_id=610526364]
+libraries/ = SubResource("AnimationLibrary_a8y0u")
+
+[node name="heartbeat" type="AudioStreamPlayer2D" parent="Utilities" unique_id=294861088]
 stream = ExtResource("12_eb6dy")
 volume_db = 24.0
 
