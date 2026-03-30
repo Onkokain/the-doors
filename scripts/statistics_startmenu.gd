@@ -2,6 +2,9 @@ extends CenterContainer
 @onready var achievements: TextureButton = $VBoxContainer/Panel2/achievements
 @onready var rooms_visited: TextureButton = $"VBoxContainer/Panel3/Rooms Visited"
 @onready var return_back: TextureButton = $VBoxContainer/Panel4/Return
+@onready var rooms_list: Panel = $"../rooms_list"
+@onready var return_inside_door_list: TextureButton = $"../rooms_list/return/return_inside_door_list"
+@onready var statistics: CenterContainer = $"."
 
 
 
@@ -15,7 +18,7 @@ func _ready() -> void:
 	_configure_hover(return_back)
 	_configure_hover(rooms_visited)
 	_configure_hover(achievements)
-	
+	_configure_hover(return_inside_door_list)
 
 func _configure_hover(button: TextureButton) -> void:
 	var card := button.get_parent() as Control
@@ -61,4 +64,16 @@ func _update_button_scale(card: Control) -> void:
 
 
 
+	
+
+
+func _on_return_inside_door_list_pressed() -> void:
+	statistics.visible=true
+	rooms_list.visible=false
+	
+
+
+func _on_rooms_visited_pressed() -> void:
+	statistics.visible=false
+	rooms_list.visible=true
 	

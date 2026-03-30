@@ -609,20 +609,20 @@ text = "Return"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Rooms visited" type="Panel" parent="." unique_id=1592661853]
+[node name="rooms_list" type="Panel" parent="." unique_id=1592661853]
 offset_left = 84.0
 offset_top = 132.0
 offset_right = 1067.0
 offset_bottom = 635.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Rooms visited" unique_id=3588891]
+[node name="ScrollContainer" type="ScrollContainer" parent="rooms_list" unique_id=3588891]
 layout_mode = 0
 offset_left = 101.0
 offset_top = 79.0
 offset_right = 874.0
 offset_bottom = 438.0
 
-[node name="GridContainer" type="GridContainer" parent="Rooms visited/ScrollContainer" unique_id=1216064244]
+[node name="GridContainer" type="GridContainer" parent="rooms_list/ScrollContainer" unique_id=1216064244]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -630,14 +630,14 @@ theme_override_constants/h_separation = 160
 theme_override_constants/v_separation = 60
 columns = 2
 
-[node name="Panel" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=599982037]
+[node name="Panel" type="Panel" parent="rooms_list/ScrollContainer/GridContainer" unique_id=599982037]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
 
-[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel" unique_id=2111732966]
+[node name="Label" type="Label" parent="rooms_list/ScrollContainer/GridContainer/Panel" unique_id=2111732966]
 layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
@@ -646,14 +646,14 @@ theme_override_font_sizes/font_size = 50
 text = "Lobby"
 horizontal_alignment = 1
 
-[node name="Panel2" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=1290623549]
+[node name="Panel2" type="Panel" parent="rooms_list/ScrollContainer/GridContainer" unique_id=1290623549]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
 
-[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel2" unique_id=1133188188]
+[node name="Label" type="Label" parent="rooms_list/ScrollContainer/GridContainer/Panel2" unique_id=1133188188]
 layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
@@ -662,14 +662,14 @@ theme_override_font_sizes/font_size = 50
 text = "Hallway"
 horizontal_alignment = 1
 
-[node name="Panel3" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=1761118478]
+[node name="Panel3" type="Panel" parent="rooms_list/ScrollContainer/GridContainer" unique_id=1761118478]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
 
-[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel3" unique_id=1826003541]
+[node name="Label" type="Label" parent="rooms_list/ScrollContainer/GridContainer/Panel3" unique_id=1826003541]
 layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
@@ -678,14 +678,14 @@ theme_override_font_sizes/font_size = 50
 text = "Dining"
 horizontal_alignment = 1
 
-[node name="Panel4" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=885071455]
+[node name="Panel4" type="Panel" parent="rooms_list/ScrollContainer/GridContainer" unique_id=885071455]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
 
-[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel4" unique_id=2121576284]
+[node name="Label" type="Label" parent="rooms_list/ScrollContainer/GridContainer/Panel4" unique_id=2121576284]
 layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
@@ -694,14 +694,14 @@ theme_override_font_sizes/font_size = 50
 text = "Piano"
 horizontal_alignment = 1
 
-[node name="Panel5" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=51592383]
+[node name="Panel5" type="Panel" parent="rooms_list/ScrollContainer/GridContainer" unique_id=51592383]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
 
-[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel5" unique_id=829055356]
+[node name="Label" type="Label" parent="rooms_list/ScrollContainer/GridContainer/Panel5" unique_id=829055356]
 layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
@@ -710,14 +710,14 @@ theme_override_font_sizes/font_size = 50
 text = "Library"
 horizontal_alignment = 1
 
-[node name="Panel6" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=538740147]
+[node name="Panel6" type="Panel" parent="rooms_list/ScrollContainer/GridContainer" unique_id=538740147]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
 
-[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel6" unique_id=415513978]
+[node name="Label" type="Label" parent="rooms_list/ScrollContainer/GridContainer/Panel6" unique_id=415513978]
 layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
@@ -726,14 +726,14 @@ theme_override_font_sizes/font_size = 50
 text = "Cenotaph"
 horizontal_alignment = 1
 
-[node name="Panel7" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=1351656784]
+[node name="Panel7" type="Panel" parent="rooms_list/ScrollContainer/GridContainer" unique_id=1351656784]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
 
-[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel7" unique_id=1994258839]
+[node name="Label" type="Label" parent="rooms_list/ScrollContainer/GridContainer/Panel7" unique_id=1994258839]
 layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
@@ -742,14 +742,14 @@ theme_override_font_sizes/font_size = 50
 text = "Chronary"
 horizontal_alignment = 1
 
-[node name="Panel8" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=611911149]
+[node name="Panel8" type="Panel" parent="rooms_list/ScrollContainer/GridContainer" unique_id=611911149]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
 
-[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel8" unique_id=1392173221]
+[node name="Label" type="Label" parent="rooms_list/ScrollContainer/GridContainer/Panel8" unique_id=1392173221]
 layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
@@ -758,14 +758,14 @@ theme_override_font_sizes/font_size = 50
 text = "Telemetrium"
 horizontal_alignment = 1
 
-[node name="Panel9" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=1534274345]
+[node name="Panel9" type="Panel" parent="rooms_list/ScrollContainer/GridContainer" unique_id=1534274345]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
 
-[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel9" unique_id=48451751]
+[node name="Label" type="Label" parent="rooms_list/ScrollContainer/GridContainer/Panel9" unique_id=48451751]
 layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
@@ -774,14 +774,14 @@ theme_override_font_sizes/font_size = 50
 text = "Couch"
 horizontal_alignment = 1
 
-[node name="Panel10" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=1963971799]
+[node name="Panel10" type="Panel" parent="rooms_list/ScrollContainer/GridContainer" unique_id=1963971799]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
 
-[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel10" unique_id=791949379]
+[node name="Label" type="Label" parent="rooms_list/ScrollContainer/GridContainer/Panel10" unique_id=791949379]
 layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
@@ -790,7 +790,7 @@ theme_override_font_sizes/font_size = 50
 text = "End Room"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Rooms visited" unique_id=1980979412]
+[node name="Label2" type="Label" parent="rooms_list" unique_id=1980979412]
 layout_mode = 0
 offset_left = 389.0
 offset_top = -7.0
@@ -803,7 +803,7 @@ theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 80
 text = "Rooms"
 
-[node name="return" type="PanelContainer" parent="Rooms visited" unique_id=1439606317]
+[node name="return" type="PanelContainer" parent="rooms_list" unique_id=1439606317]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_left = 388.0
@@ -812,7 +812,7 @@ offset_right = 577.0
 offset_bottom = 509.0
 theme_override_styles/panel = ExtResource("4_rtw2f")
 
-[node name="Label4" type="Label" parent="Rooms visited/return" unique_id=176931476]
+[node name="Label4" type="Label" parent="rooms_list/return" unique_id=176931476]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 60
@@ -820,7 +820,7 @@ text = "Return"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="return_inside_control" type="TextureButton" parent="Rooms visited/return" unique_id=1110009427]
+[node name="return_inside_door_list" type="TextureButton" parent="rooms_list/return" unique_id=1110009427]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 ignore_texture_size = true
@@ -837,4 +837,6 @@ stretch_mode = 5
 [connection signal="value_changed" from="settings/visuals_menu/background" to="settings/visuals_menu/background" method="_on_value_changed"]
 [connection signal="value_changed" from="settings/visuals_menu/effects" to="settings/visuals_menu/effects" method="_on_value_changed"]
 [connection signal="pressed" from="settings/controls_menu/return/return_inside_control" to="settings" method="_on_return_inside_control_pressed"]
+[connection signal="pressed" from="statistics/VBoxContainer/Panel3/Rooms Visited" to="statistics" method="_on_rooms_visited_pressed"]
 [connection signal="pressed" from="statistics/VBoxContainer/Panel4/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="rooms_list/return/return_inside_door_list" to="statistics" method="_on_return_inside_door_list_pressed"]

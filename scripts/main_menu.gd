@@ -11,6 +11,8 @@ const MAIN_SCENE = preload("res://scenes/main.tscn")
 @onready var container: CenterContainer = $CenterContainer
 @onready var settings_menu: CenterContainer = $settings
 @onready var statistics_menu: CenterContainer = $statistics
+@onready var statistics: CenterContainer = $statistics
+@onready var rooms_list: Panel = $rooms_list
 
 var button_type = null
 var hover_tweens := {}
@@ -18,6 +20,8 @@ var hovered_cards := {}
 var pressed_cards := {}	
 
 func _ready() -> void:
+	rooms_list.visible=false
+	statistics.visible=false
 	center_container.visible=true
 	statistics_menu.visible=false
 	settings_menu.visible=false
