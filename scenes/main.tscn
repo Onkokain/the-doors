@@ -314,18 +314,19 @@ script = ExtResource("11_ya4ey")
 
 [node name="Utilities" type="Node" parent="." unique_id=1158348240]
 
-[node name="red flash" type="CanvasLayer" parent="Utilities" unique_id=2144430444]
+[node name="red_flash" type="CanvasLayer" parent="Utilities" unique_id=2144430444]
 
-[node name="ColorRect" type="ColorRect" parent="Utilities/red flash" unique_id=71166008]
+[node name="ColorRect" type="ColorRect" parent="Utilities/red_flash" unique_id=71166008]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.3882353, 0, 0, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Utilities/red flash" unique_id=610526364]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Utilities/red_flash" unique_id=610526364]
 libraries/ = SubResource("AnimationLibrary_a8y0u")
 
 [node name="heartbeat" type="AudioStreamPlayer2D" parent="Utilities" unique_id=294861088]

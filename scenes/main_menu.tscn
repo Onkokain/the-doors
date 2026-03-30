@@ -24,6 +24,9 @@ thickness = 6
 color = Color(0.091499984, 0.091499984, 0.61, 1)
 thickness = 6
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
+bg_color = Color(0.9607843, 0, 0, 0.30980393)
+
 [node name="main menu" type="Node2D" unique_id=1985274283]
 script = ExtResource("1_bqqt6")
 
@@ -45,6 +48,7 @@ theme_override_font_sizes/font_size = 113
 text = "The Doors"
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=2024613123]
+visible = false
 offset_left = -1.0
 offset_top = 140.0
 offset_right = 1161.0
@@ -107,7 +111,6 @@ theme_override_styles/panel = ExtResource("4_rtw2f")
 [node name="cutscene" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel3" unique_id=1170486371]
 custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
-disabled = true
 
 [node name="Label3" type="Label" parent="CenterContainer/VBoxContainer/Panel3/cutscene" unique_id=2049295387]
 layout_mode = 0
@@ -117,7 +120,7 @@ offset_right = 595.0
 offset_bottom = 88.0
 theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 60
-text = "Achievements"
+text = "Statistics"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -158,6 +161,7 @@ vertical_alignment = 1
 
 [node name="settings" type="CenterContainer" parent="." unique_id=405921128]
 process_mode = 3
+visible = false
 offset_top = 137.0
 offset_right = 1149.0
 offset_bottom = 616.0
@@ -529,7 +533,6 @@ text = "Pause"
 
 [node name="statistics" type="CenterContainer" parent="." unique_id=680846564]
 process_mode = 3
-visible = false
 offset_left = -1.0
 offset_top = 138.0
 offset_right = 1148.0
@@ -605,6 +608,223 @@ theme_override_font_sizes/font_size = 60
 text = "Return"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Rooms visited" type="Panel" parent="." unique_id=1592661853]
+offset_left = 84.0
+offset_top = 132.0
+offset_right = 1067.0
+offset_bottom = 635.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Rooms visited" unique_id=3588891]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 79.0
+offset_right = 874.0
+offset_bottom = 438.0
+
+[node name="GridContainer" type="GridContainer" parent="Rooms visited/ScrollContainer" unique_id=1216064244]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 160
+theme_override_constants/v_separation = 60
+columns = 2
+
+[node name="Panel" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=599982037]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
+
+[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel" unique_id=2111732966]
+layout_mode = 0
+offset_top = 239.0
+offset_right = 302.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 50
+text = "Lobby"
+horizontal_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=1290623549]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
+
+[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel2" unique_id=1133188188]
+layout_mode = 0
+offset_top = 239.0
+offset_right = 302.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 50
+text = "Hallway"
+horizontal_alignment = 1
+
+[node name="Panel3" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=1761118478]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
+
+[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel3" unique_id=1826003541]
+layout_mode = 0
+offset_top = 239.0
+offset_right = 302.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 50
+text = "Dining"
+horizontal_alignment = 1
+
+[node name="Panel4" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=885071455]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
+
+[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel4" unique_id=2121576284]
+layout_mode = 0
+offset_top = 239.0
+offset_right = 302.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 50
+text = "Piano"
+horizontal_alignment = 1
+
+[node name="Panel5" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=51592383]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
+
+[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel5" unique_id=829055356]
+layout_mode = 0
+offset_top = 239.0
+offset_right = 302.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 50
+text = "Library"
+horizontal_alignment = 1
+
+[node name="Panel6" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=538740147]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
+
+[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel6" unique_id=415513978]
+layout_mode = 0
+offset_top = 239.0
+offset_right = 302.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 50
+text = "Cenotaph"
+horizontal_alignment = 1
+
+[node name="Panel7" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=1351656784]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
+
+[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel7" unique_id=1994258839]
+layout_mode = 0
+offset_top = 239.0
+offset_right = 302.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 50
+text = "Chronary"
+horizontal_alignment = 1
+
+[node name="Panel8" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=611911149]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
+
+[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel8" unique_id=1392173221]
+layout_mode = 0
+offset_top = 239.0
+offset_right = 302.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 50
+text = "Telemetrium"
+horizontal_alignment = 1
+
+[node name="Panel9" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=1534274345]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
+
+[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel9" unique_id=48451751]
+layout_mode = 0
+offset_top = 239.0
+offset_right = 302.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 50
+text = "Couch"
+horizontal_alignment = 1
+
+[node name="Panel10" type="Panel" parent="Rooms visited/ScrollContainer/GridContainer" unique_id=1963971799]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lgwnu")
+
+[node name="Label" type="Label" parent="Rooms visited/ScrollContainer/GridContainer/Panel10" unique_id=791949379]
+layout_mode = 0
+offset_top = 239.0
+offset_right = 302.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 50
+text = "End Room"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Rooms visited" unique_id=1980979412]
+layout_mode = 0
+offset_left = 389.0
+offset_top = -7.0
+offset_right = 584.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0.39841208, 0.3984121, 0.39841208, 1)
+theme_override_colors/font_shadow_color = Color(7.4190426, 1.2321472e-05, 3.411683, 0)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 80
+text = "Rooms"
+
+[node name="return" type="PanelContainer" parent="Rooms visited" unique_id=1439606317]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 388.0
+offset_top = 426.0
+offset_right = 577.0
+offset_bottom = 509.0
+theme_override_styles/panel = ExtResource("4_rtw2f")
+
+[node name="Label4" type="Label" parent="Rooms visited/return" unique_id=176931476]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 60
+text = "Return"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="return_inside_control" type="TextureButton" parent="Rooms visited/return" unique_id=1110009427]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Panel/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Panel2/settings" to="." method="_on_settings_pressed"]

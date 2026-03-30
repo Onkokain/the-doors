@@ -1,6 +1,6 @@
 extends Node
 @onready var heartbeat: AudioStreamPlayer2D = $"../Utilities/heartbeat"
-@onready var bloodred: AnimationPlayer = $"../Utilities/red flash/AnimationPlayer"
+@onready var bloodred: AnimationPlayer = $"../Utilities/red_flash/AnimationPlayer"
 
 var was_conversio: bool = false
 
