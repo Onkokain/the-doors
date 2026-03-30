@@ -57,6 +57,10 @@ E: Interact
 
 F: Toggle Fly Mode (Debug builds only)
 
+P : Pause the game
+
+Optionally, you can also change the controls in the settings menu!
+
 # Inspiration
 My main inspiration to build this copy was the Roblox game 'Doors'. I've always been fascinated by the concept of the game and wanted to recreate it on my own, add new features and improve the overall gameplay loop. I've always been fascinated by 3D games and I took this opportunity to make one on my own.
 # Development Status

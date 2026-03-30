@@ -1,16 +1,10 @@
-[gd_scene format=3 uid="uid://bxg5d7ookg47r"]
+[gd_scene format=3 uid="uid://c3peqgpw3oilo"]
 
-[ext_resource type="Script" uid="uid://db3tfuvjnvkgi" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="FontFile" uid="uid://cicxmv8cu64m2" path="res://fonts/Creepy Blood.ttf" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://dl8xow7j515r8" path="res://assets/bg_img.png" id="4_8ln24"]
 [ext_resource type="StyleBox" uid="uid://blwe5doujew70" path="res://materials/menubuttons.tres" id="4_rtw2f"]
 [ext_resource type="FontFile" uid="uid://bur0xekl7f8a7" path="res://fonts/Scratch.ttf" id="4_wu84c"]
-[ext_resource type="Script" uid="uid://bi5kih2tqvh5k" path="res://scripts/settings_loadmenu.gd" id="6_rtw2f"]
-[ext_resource type="Script" uid="uid://o6xuxv6gw5y3" path="res://scripts/background_audiocontrol.gd" id="7_jk1qb"]
-[ext_resource type="Script" uid="uid://byqphsdel1uln" path="res://scripts/statistics_startmenu.gd" id="7_oa1go"]
-[ext_resource type="Script" uid="uid://dsaodwifqlywr" path="res://scripts/effects_audiocontrol.gd" id="8_5dd4i"]
 [ext_resource type="FontFile" uid="uid://c2gb8he1fd85l" path="res://fonts/PressStart2P-Regular.ttf" id="9_lgwnu"]
-[ext_resource type="Script" uid="uid://bp22mpwidmbxv" path="res://scripts/button_remap.gd" id="10_flqon"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_oa1go"]
 color = Color(1, 1, 1, 1)
@@ -25,10 +19,9 @@ color = Color(0.091499984, 0.091499984, 0.61, 1)
 thickness = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
-bg_color = Color(0.9607843, 0, 0, 0.30980393)
+bg_color = Color(0.9607843, 0, 0.37254903, 0.050980393)
 
 [node name="main menu" type="Node2D" unique_id=1985274283]
-script = ExtResource("1_bqqt6")
 
 [node name="BgImg" type="Sprite2D" parent="." unique_id=326582910]
 position = Vector2(563, 321.00003)
@@ -124,18 +117,6 @@ text = "Statistics"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/Panel3/cutscene" unique_id=1549230688]
-layout_mode = 0
-offset_left = 511.0
-offset_top = 85.0
-offset_right = 620.0
-offset_bottom = 117.0
-rotation = -0.5235988
-theme_override_colors/font_color = Color(0.37, 0, 0.0061665727, 1)
-theme_override_fonts/font = ExtResource("1_l6cm7")
-theme_override_font_sizes/font_size = 23
-text = "Coming soon"
-
 [node name="Panel4" type="PanelContainer" parent="CenterContainer/VBoxContainer" unique_id=1452950814]
 custom_minimum_size = Vector2(620, 71)
 layout_mode = 2
@@ -165,7 +146,6 @@ visible = false
 offset_top = 137.0
 offset_right = 1149.0
 offset_bottom = 616.0
-script = ExtResource("6_rtw2f")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="settings" unique_id=1283085276]
 custom_minimum_size = Vector2(0, 71)
@@ -274,7 +254,6 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_jk1qb")
 max_value = 1.0
 step = 0.05
 value = 1.0
-script = ExtResource("7_jk1qb")
 
 [node name="effects" type="HSlider" parent="settings/visuals_menu" unique_id=2098584339]
 custom_minimum_size = Vector2(800, 0)
@@ -288,8 +267,6 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_jk1qb")
 max_value = 1.0
 step = 0.05
 value = 1.0
-script = ExtResource("8_5dd4i")
-audio_bus_name = "effects"
 
 [node name="Label" type="Label" parent="settings/visuals_menu" unique_id=1314178848]
 offset_left = 468.0
@@ -439,32 +416,24 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
 text = "Unbound"
-script = ExtResource("10_flqon")
-action_name = "forward"
 
 [node name="backward" type="Button" parent="settings/controls_menu/main control/buttons_left" unique_id=702472397]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
 text = "Unbound"
-script = ExtResource("10_flqon")
-action_name = "backward"
 
 [node name="left" type="Button" parent="settings/controls_menu/main control/buttons_left" unique_id=1350958492]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
 text = "Unbound"
-script = ExtResource("10_flqon")
-action_name = "left"
 
 [node name="right" type="Button" parent="settings/controls_menu/main control/buttons_left" unique_id=910947551]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
 text = "Unbound"
-script = ExtResource("10_flqon")
-action_name = "right"
 
 [node name="buttons_right" type="VBoxContainer" parent="settings/controls_menu/main control" unique_id=159650391]
 layout_mode = 0
@@ -479,32 +448,24 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
 text = "Unbound"
-script = ExtResource("10_flqon")
-action_name = "jump"
 
 [node name="sprint" type="Button" parent="settings/controls_menu/main control/buttons_right" unique_id=538598877]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
 text = "Unbound"
-script = ExtResource("10_flqon")
-action_name = "run"
 
 [node name="crouch" type="Button" parent="settings/controls_menu/main control/buttons_right" unique_id=2049060861]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
 text = "Unbound"
-script = ExtResource("10_flqon")
-action_name = "crouch"
 
 [node name="interact" type="Button" parent="settings/controls_menu/main control/buttons_right" unique_id=1859517018]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
 text = "Unbound"
-script = ExtResource("10_flqon")
-action_name = "interact"
 
 [node name="pause" type="Button" parent="settings/controls_menu/main control" unique_id=1805782933]
 layout_mode = 0
@@ -515,8 +476,6 @@ offset_bottom = 82.0
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
 text = "Unbound"
-script = ExtResource("10_flqon")
-action_name = "pause"
 
 [node name="Label" type="Label" parent="settings/controls_menu/main control" unique_id=312771719]
 layout_mode = 0
@@ -537,7 +496,6 @@ offset_left = -1.0
 offset_top = 138.0
 offset_right = 1148.0
 offset_bottom = 617.0
-script = ExtResource("7_oa1go")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="statistics" unique_id=314682726]
 custom_minimum_size = Vector2(0, 71)
@@ -552,6 +510,7 @@ theme_override_styles/panel = ExtResource("4_rtw2f")
 [node name="achievements" type="TextureButton" parent="statistics/VBoxContainer/Panel2" unique_id=1425815389]
 custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
+disabled = true
 
 [node name="Label2" type="Label" parent="statistics/VBoxContainer/Panel2/achievements" unique_id=1395906669]
 layout_mode = 0
@@ -564,6 +523,18 @@ theme_override_font_sizes/font_size = 60
 text = "Achievements"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="statistics/VBoxContainer/Panel2/achievements" unique_id=1173206722]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 85.0
+offset_right = 620.0
+offset_bottom = 117.0
+rotation = -0.5235988
+theme_override_colors/font_color = Color(0.37, 0, 0.0061665727, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 23
+text = "Coming soon"
 
 [node name="Panel3" type="PanelContainer" parent="statistics/VBoxContainer" unique_id=690602624]
 custom_minimum_size = Vector2(0, 71)
@@ -582,7 +553,7 @@ offset_right = 595.0
 offset_bottom = 88.0
 theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 60
-text = "Rooms  Visisted"
+text = "Rooms"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -642,6 +613,7 @@ layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
 offset_bottom = 308.0
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 50
 text = "Lobby"
 horizontal_alignment = 1
@@ -658,6 +630,7 @@ layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
 offset_bottom = 308.0
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 50
 text = "Hallway"
 horizontal_alignment = 1
@@ -674,6 +647,7 @@ layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
 offset_bottom = 308.0
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 50
 text = "Dining"
 horizontal_alignment = 1
@@ -690,6 +664,7 @@ layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
 offset_bottom = 308.0
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 50
 text = "Piano"
 horizontal_alignment = 1
@@ -706,6 +681,7 @@ layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
 offset_bottom = 308.0
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 50
 text = "Library"
 horizontal_alignment = 1
@@ -722,6 +698,7 @@ layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
 offset_bottom = 308.0
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 50
 text = "Cenotaph"
 horizontal_alignment = 1
@@ -738,6 +715,7 @@ layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
 offset_bottom = 308.0
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 50
 text = "Chronary"
 horizontal_alignment = 1
@@ -754,6 +732,7 @@ layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
 offset_bottom = 308.0
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 50
 text = "Telemetrium"
 horizontal_alignment = 1
@@ -770,6 +749,7 @@ layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
 offset_bottom = 308.0
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 50
 text = "Couch"
 horizontal_alignment = 1
@@ -786,6 +766,7 @@ layout_mode = 0
 offset_top = 239.0
 offset_right = 302.0
 offset_bottom = 308.0
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 50
 text = "End Room"
 horizontal_alignment = 1
