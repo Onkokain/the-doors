@@ -11,216 +11,353 @@
 [ext_resource type="Script" uid="uid://dsaodwifqlywr" path="res://scripts/audio/effects_audiocontrol.gd" id="8_5dd4i"]
 [ext_resource type="FontFile" uid="uid://c2gb8he1fd85l" path="res://fonts/PressStart2P-Regular.ttf" id="9_lgwnu"]
 [ext_resource type="Script" uid="uid://bp22mpwidmbxv" path="res://scripts/ui/input/button_remap.gd" id="10_flqon"]
+[ext_resource type="StyleBox" path="res://materials/ui/horror_frame.tres" id="11_frame"]
+[ext_resource type="StyleBox" path="res://materials/ui/horror_card.tres" id="12_card"]
+[ext_resource type="StyleBox" path="res://materials/ui/horror_button_normal.tres" id="13_btn"]
+[ext_resource type="StyleBox" path="res://materials/ui/horror_button_hover.tres" id="14_btn"]
+[ext_resource type="StyleBox" path="res://materials/ui/horror_button_pressed.tres" id="15_btn"]
+[ext_resource type="Shader" uid="uid://cn3qi6li1hijq" path="res://shaders/ui/horror_overlay.gdshader" id="16_shader"]
+[ext_resource type="Shader" uid="uid://cy4e7nq7p6wo3" path="res://shaders/ui/blood_glow.gdshader" id="17_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_overlay"]
+shader = ExtResource("16_shader")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_title_glow"]
+shader = ExtResource("17_shader")
+shader_parameter/glow_color = Color(0.67058825, 0.047058824, 0.08235294, 0.38)
+shader_parameter/stretch = Vector2(1.1, 0.72)
+shader_parameter/intensity = 1.35
+shader_parameter/pulse_speed = 0.7
+shader_parameter/wobble_amount = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_frame_glow"]
+shader = ExtResource("17_shader")
+shader_parameter/glow_color = Color(0.63529414, 0.039215688, 0.07450981, 0.3)
+shader_parameter/stretch = Vector2(1.35, 0.84)
+shader_parameter/intensity = 1.15
+shader_parameter/pulse_speed = 0.95
+shader_parameter/wobble_amount = 0.028
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_oa1go"]
-color = Color(1, 1, 1, 1)
+color = Color(0.48235294, 0.05882353, 0.09411765, 1)
 thickness = 6
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_tbmy8"]
-color = Color(0.077850364, 0.3659946, 0.7039271, 1)
+color = Color(0.8745098, 0.16470589, 0.20784314, 1)
 thickness = 6
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_jk1qb"]
-color = Color(0.091499984, 0.091499984, 0.61, 1)
+color = Color(1, 0.32941177, 0.32941177, 1)
 thickness = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
-bg_color = Color(0.9607843, 0, 0.37254903, 0.050980393)
+bg_color = Color(0.09411765, 0.011764706, 0.019607844, 0.88)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.34901962, 0.05882353, 0.09019608, 0.76)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.45)
+shadow_size = 18
+shadow_offset = Vector2(0, 6)
 
 [node name="main menu" type="Node2D" unique_id=1985274283]
 script = ExtResource("1_bqqt6")
 
 [node name="BgImg" type="Sprite2D" parent="." unique_id=326582910]
-position = Vector2(563, 321.00003)
-scale = Vector2(0.63169014, 0.63169014)
+modulate = Color(0.58, 0.22, 0.28, 0.65)
+position = Vector2(576, 324)
+scale = Vector2(0.76, 0.76)
 texture = ExtResource("4_8ln24")
 
-[node name="Label" type="Label" parent="." unique_id=1246752811]
-offset_left = 392.0
-offset_top = -1.0
-offset_right = 805.0
-offset_bottom = 150.0
-theme_override_colors/font_color = Color(0.78586525, 0.12752235, 0.2466143, 1)
-theme_override_colors/font_shadow_color = Color(7.4190426, 1.2321472e-05, 3.411683, 0)
-theme_override_colors/font_outline_color = Color(0.6079359, 0.36190447, 1, 1)
+[node name="BackVeil" type="ColorRect" parent="." unique_id=1144290790]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.011764706, 0.003921569, 0.007843138, 0.82)
+
+[node name="CrimsonFog" type="ColorRect" parent="." unique_id=1141986654]
+material = SubResource("ShaderMaterial_overlay")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="UpperGlow" type="ColorRect" parent="." unique_id=190506987]
+material = SubResource("ShaderMaterial_title_glow")
+offset_left = 474.0
+offset_top = -76.0
+offset_right = 1179.0
+offset_bottom = 312.0
+mouse_filter = 2
+
+[node name="FrameGlow" type="ColorRect" parent="." unique_id=684930202]
+material = SubResource("ShaderMaterial_frame_glow")
+offset_left = -18.0
+offset_top = 142.0
+offset_right = 718.0
+offset_bottom = 618.0
+mouse_filter = 2
+
+[node name="TitleGlow" type="ColorRect" parent="." unique_id=1242087242]
+material = SubResource("ShaderMaterial_title_glow")
+offset_left = 18.0
+offset_top = -24.0
+offset_right = 598.0
+offset_bottom = 214.0
+mouse_filter = 2
+
+[node name="TitleShadow" type="Label" parent="." unique_id=297168628]
+offset_left = 92.0
+offset_top = 28.0
+offset_right = 616.0
+offset_bottom = 188.0
+theme_override_colors/font_color = Color(0.11764706, 0.007843138, 0.019607844, 0.92)
 theme_override_fonts/font = ExtResource("1_l6cm7")
-theme_override_font_sizes/font_size = 113
+theme_override_font_sizes/font_size = 120
 text = "The Doors"
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2024613123]
-visible = false
-offset_left = -1.0
+[node name="Label" type="Label" parent="." unique_id=1246752811]
+offset_left = 80.0
+offset_top = 12.0
+offset_right = 604.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0.92941177, 0.4392157, 0.4392157, 1)
+theme_override_colors/font_outline_color = Color(0.30588236, 0.011764706, 0.043137256, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 120
+text = "The Doors"
+
+[node name="Subtitle" type="Label" parent="." unique_id=810732574]
+offset_left = 35.0
 offset_top = 140.0
-offset_right = 1161.0
-offset_bottom = 623.0
+offset_right = 605.0
+offset_bottom = 184.0
+theme_override_colors/font_color = Color(0.9254902, 0.79607844, 0.78039217, 0.84)
+theme_override_fonts/font = ExtResource("9_lgwnu")
+theme_override_font_sizes/font_size = 14
+text = "ENTER THE HOUSE BEFORE IT REMEMBERS YOU"
+
+[node name="MenuFrame" type="PanelContainer" parent="." unique_id=762496797]
+offset_left = 74.0
+offset_top = 164.0
+offset_right = 570.0
+offset_bottom = 593.0
+theme_override_styles/panel = ExtResource("11_frame")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2024613123]
+offset_left = 73.0
+offset_top = 138.0
+offset_right = 565.0
+offset_bottom = 626.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1652959937]
-custom_minimum_size = Vector2(0, 71)
+custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
-theme_override_constants/separation = 17
+theme_override_constants/separation = 14
 
 [node name="Panel" type="PanelContainer" parent="CenterContainer/VBoxContainer" unique_id=1992484361]
-custom_minimum_size = Vector2(620, 71)
+custom_minimum_size = Vector2(430, 78)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="start" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel" unique_id=491180969]
-custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Panel/start" unique_id=1722541976]
 layout_mode = 0
-offset_left = -17.0
-offset_top = -9.0
-offset_right = 595.0
-offset_bottom = 89.0
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 403.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0.9764706, 0.8745098, 0.8627451, 1)
+theme_override_colors/font_shadow_color = Color(0.18039216, 0.011764706, 0.02745098, 0.88)
 theme_override_fonts/font = ExtResource("4_wu84c")
-theme_override_font_sizes/font_size = 60
-text = "New Game"
+theme_override_font_sizes/font_size = 46
+text = "Begin  Descent"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel2" type="PanelContainer" parent="CenterContainer/VBoxContainer" unique_id=1250357231]
-custom_minimum_size = Vector2(0, 71)
+custom_minimum_size = Vector2(430, 78)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="settings" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2" unique_id=449818160]
-custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/Panel2/settings" unique_id=2007656305]
 layout_mode = 0
-offset_left = -17.0
-offset_top = -13.0
-offset_right = 595.0
-offset_bottom = 85.0
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 404.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.9764706, 0.8745098, 0.8627451, 1)
+theme_override_colors/font_shadow_color = Color(0.18039216, 0.011764706, 0.02745098, 0.88)
 theme_override_fonts/font = ExtResource("4_wu84c")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 46
 text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel3" type="PanelContainer" parent="CenterContainer/VBoxContainer" unique_id=700221987]
-custom_minimum_size = Vector2(0, 71)
+custom_minimum_size = Vector2(430, 78)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="cutscene" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel3" unique_id=1170486371]
-custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
 
 [node name="Label3" type="Label" parent="CenterContainer/VBoxContainer/Panel3/cutscene" unique_id=2049295387]
 layout_mode = 0
-offset_left = -17.0
-offset_top = -10.0
-offset_right = 595.0
-offset_bottom = 88.0
+offset_left = -27.0
+offset_top = -26.0
+offset_right = 403.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.9764706, 0.8745098, 0.8627451, 1)
+theme_override_colors/font_shadow_color = Color(0.18039216, 0.011764706, 0.02745098, 0.88)
 theme_override_fonts/font = ExtResource("4_wu84c")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 46
 text = "Statistics"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel4" type="PanelContainer" parent="CenterContainer/VBoxContainer" unique_id=1452950814]
-custom_minimum_size = Vector2(620, 71)
+custom_minimum_size = Vector2(430, 78)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="endgame" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel4" unique_id=1762738036]
-custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Label4" type="Label" parent="CenterContainer/VBoxContainer/Panel4/endgame" unique_id=1284310866]
 layout_mode = 0
-offset_left = -17.0
-offset_top = -15.0
-offset_right = 595.0
-offset_bottom = 83.0
+offset_left = -31.0
+offset_top = -27.0
+offset_right = 399.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0.9764706, 0.8745098, 0.8627451, 1)
+theme_override_colors/font_shadow_color = Color(0.18039216, 0.011764706, 0.02745098, 0.88)
 theme_override_fonts/font = ExtResource("4_wu84c")
-theme_override_font_sizes/font_size = 60
-text = "Quit game"
+theme_override_font_sizes/font_size = 46
+text = "Flee the Estate"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="settings" type="CenterContainer" parent="." unique_id=405921128]
 process_mode = 3
 visible = false
+offset_left = 2.0
 offset_top = 137.0
-offset_right = 1149.0
-offset_bottom = 616.0
+offset_right = 1146.0
+offset_bottom = 651.0
 script = ExtResource("6_rtw2f")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="settings" unique_id=1283085276]
-custom_minimum_size = Vector2(0, 71)
+[node name="Frame" type="PanelContainer" parent="settings" unique_id=1869055553]
+custom_minimum_size = Vector2(800, 470)
 layout_mode = 2
-theme_override_constants/separation = 17
+theme_override_styles/panel = ExtResource("11_frame")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settings" unique_id=1283085276]
+custom_minimum_size = Vector2(0, 470)
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Heading" type="Label" parent="settings/VBoxContainer" unique_id=105894837]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9843137, 0.47843137, 0.47843137, 1)
+theme_override_colors/font_outline_color = Color(0.2901961, 0.011764706, 0.039215688, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 70
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Caption" type="Label" parent="settings/VBoxContainer" unique_id=1728003235]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9254902, 0.83137256, 0.8235294, 0.78)
+theme_override_fonts/font = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 20
+text = "You decide how the house sounds.. better not anger the house.. better not stay here for long.."
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="Panel2" type="PanelContainer" parent="settings/VBoxContainer" unique_id=1455720034]
-custom_minimum_size = Vector2(0, 71)
+custom_minimum_size = Vector2(520, 78)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="visuals" type="TextureButton" parent="settings/VBoxContainer/Panel2" unique_id=530630425]
-custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
 
 [node name="Label2" type="Label" parent="settings/VBoxContainer/Panel2/visuals" unique_id=1841030820]
 layout_mode = 0
-offset_left = -17.0
-offset_top = -13.0
-offset_right = 595.0
-offset_bottom = 85.0
+offset_left = -27.0
+offset_top = -29.0
+offset_right = 493.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0.9764706, 0.8745098, 0.8627451, 1)
 theme_override_fonts/font = ExtResource("4_wu84c")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 44
 text = "Audio"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel3" type="PanelContainer" parent="settings/VBoxContainer" unique_id=932530024]
-custom_minimum_size = Vector2(0, 71)
+custom_minimum_size = Vector2(520, 78)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="Audio" type="TextureButton" parent="settings/VBoxContainer/Panel3" unique_id=828110143]
-custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
 
 [node name="Label3" type="Label" parent="settings/VBoxContainer/Panel3/Audio" unique_id=1307396720]
 layout_mode = 0
-offset_left = -17.0
-offset_top = -10.0
-offset_right = 595.0
-offset_bottom = 88.0
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 495.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0.9764706, 0.8745098, 0.8627451, 1)
 theme_override_fonts/font = ExtResource("4_wu84c")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 44
 text = "Controls"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel4" type="PanelContainer" parent="settings/VBoxContainer" unique_id=707217889]
-custom_minimum_size = Vector2(620, 71)
+custom_minimum_size = Vector2(520, 78)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="Return" type="TextureButton" parent="settings/VBoxContainer/Panel4" unique_id=110307165]
-custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Label4" type="Label" parent="settings/VBoxContainer/Panel4/Return" unique_id=653290063]
 layout_mode = 0
-offset_left = -17.0
-offset_top = -15.0
-offset_right = 595.0
-offset_bottom = 83.0
+offset_left = -28.0
+offset_top = -30.0
+offset_right = 492.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.9764706, 0.8745098, 0.8627451, 1)
 theme_override_fonts/font = ExtResource("4_wu84c")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 44
 text = "Return"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -238,14 +375,14 @@ theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="Label4" type="Label" parent="settings/visuals_menu/Panel4" unique_id=1764060964]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.9764706, 0.8745098, 0.8627451, 1)
 theme_override_fonts/font = ExtResource("4_wu84c")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 44
 text = "Return"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Return_inside_audio" type="TextureButton" parent="settings/visuals_menu/Panel4" unique_id=1858499642]
-custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 ignore_texture_size = true
 stretch_mode = 5
@@ -284,6 +421,9 @@ offset_left = 468.0
 offset_top = 111.0
 offset_right = 741.0
 offset_bottom = 192.0
+theme_override_colors/font_color = Color(0.9843137, 0.47843137, 0.47843137, 1)
+theme_override_colors/font_outline_color = Color(0.2901961, 0.011764706, 0.039215688, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 60
 text = "Background "
@@ -293,6 +433,9 @@ offset_left = 452.0
 offset_top = 272.0
 offset_right = 745.0
 offset_bottom = 353.0
+theme_override_colors/font_color = Color(0.9843137, 0.47843137, 0.47843137, 1)
+theme_override_colors/font_outline_color = Color(0.2901961, 0.011764706, 0.039215688, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 60
 text = "Sound Effects"
@@ -302,115 +445,102 @@ visible = false
 
 [node name="return" type="PanelContainer" parent="settings/controls_menu" unique_id=566832623]
 custom_minimum_size = Vector2(100, 0)
-offset_left = 494.0
-offset_top = 390.0
-offset_right = 683.0
-offset_bottom = 473.0
+offset_left = 506.0
+offset_top = 400.0
+offset_right = 695.0
+offset_bottom = 483.0
 theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="Label4" type="Label" parent="settings/controls_menu/return" unique_id=1870471728]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.9764706, 0.8745098, 0.8627451, 1)
 theme_override_fonts/font = ExtResource("4_wu84c")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 44
 text = "Return"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="return_inside_control" type="TextureButton" parent="settings/controls_menu/return" unique_id=1683365156]
-custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="main control" type="Panel" parent="settings/controls_menu" unique_id=1680084925]
-offset_left = 114.0
-offset_top = 24.0
-offset_right = 1008.0
-offset_bottom = 356.0
+offset_left = 140.0
+offset_top = 52.0
+offset_right = 1034.0
+offset_bottom = 384.0
+theme_override_styles/panel = ExtResource("12_card")
 
 [node name="text_left" type="VBoxContainer" parent="settings/controls_menu/main control" unique_id=2020455998]
 layout_mode = 0
 offset_left = 30.0
-offset_top = 71.0
-offset_right = 142.0
-offset_bottom = 259.0
+offset_top = 83.0
+offset_right = 145.0
+offset_bottom = 310.0
+theme_override_constants/separation = 33
 
 [node name="Label" type="Label" parent="settings/controls_menu/main control/text_left" unique_id=870692917]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.41062272, 0.41062272, 0.41062272, 1)
-theme_override_colors/font_shadow_color = Color(0.14622861, 0.14622879, 0.1462287, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_colors/font_color = Color(0.95686275, 0.84705883, 0.8392157, 0.92)
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 32
 text = "Forward"
 
 [node name="Label2" type="Label" parent="settings/controls_menu/main control/text_left" unique_id=1618964662]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.41062272, 0.41062272, 0.41062272, 1)
-theme_override_colors/font_shadow_color = Color(0.14622861, 0.14622879, 0.1462287, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_colors/font_color = Color(0.95686275, 0.84705883, 0.8392157, 0.92)
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 32
 text = "Backward"
 
 [node name="Label3" type="Label" parent="settings/controls_menu/main control/text_left" unique_id=271384794]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.41062272, 0.41062272, 0.41062272, 1)
-theme_override_colors/font_shadow_color = Color(0.14622861, 0.14622879, 0.1462287, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_colors/font_color = Color(0.95686275, 0.84705883, 0.8392157, 0.92)
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 32
 text = "Left"
 
 [node name="Label4" type="Label" parent="settings/controls_menu/main control/text_left" unique_id=867148606]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.41062272, 0.41062272, 0.41062272, 1)
-theme_override_colors/font_shadow_color = Color(0.14622861, 0.14622879, 0.1462287, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_colors/font_color = Color(0.95686275, 0.84705883, 0.8392157, 0.92)
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 32
 text = "Right"
 
 [node name="text_right" type="VBoxContainer" parent="settings/controls_menu/main control" unique_id=98911832]
 layout_mode = 0
 offset_left = 548.0
-offset_top = 72.0
-offset_right = 629.0
-offset_bottom = 212.0
+offset_top = 84.0
+offset_right = 648.0
+offset_bottom = 311.0
+theme_override_constants/separation = 33
 
 [node name="Label5" type="Label" parent="settings/controls_menu/main control/text_right" unique_id=715826412]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.41062272, 0.41062272, 0.41062272, 1)
-theme_override_colors/font_shadow_color = Color(0.14622861, 0.14622879, 0.1462287, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_colors/font_color = Color(0.95686275, 0.84705883, 0.8392157, 0.92)
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 32
 text = "Jump"
 
 [node name="Label6" type="Label" parent="settings/controls_menu/main control/text_right" unique_id=337853740]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.41062272, 0.41062272, 0.41062272, 1)
-theme_override_colors/font_shadow_color = Color(0.14622861, 0.14622879, 0.1462287, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_colors/font_color = Color(0.95686275, 0.84705883, 0.8392157, 0.92)
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 32
 text = "Sprint"
 
 [node name="Label7" type="Label" parent="settings/controls_menu/main control/text_right" unique_id=997149894]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.41062272, 0.41062272, 0.41062272, 1)
-theme_override_colors/font_shadow_color = Color(0.14622861, 0.14622879, 0.1462287, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_colors/font_color = Color(0.95686275, 0.84705883, 0.8392157, 0.92)
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 32
 text = "Crouch"
 
 [node name="Label8" type="Label" parent="settings/controls_menu/main control/text_right" unique_id=1090431496]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.41062272, 0.41062272, 0.41062272, 1)
-theme_override_colors/font_shadow_color = Color(0.14622861, 0.14622879, 0.1462287, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_colors/font_color = Color(0.95686275, 0.84705883, 0.8392157, 0.92)
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 32
 text = "Interact"
 
@@ -424,32 +554,56 @@ theme_override_constants/separation = 19
 
 [node name="forward" type="Button" parent="settings/controls_menu/main control/buttons_left" unique_id=2120375908]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.99607843, 0.9019608, 0.89411765, 1)
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("13_btn")
+theme_override_styles/pressed = ExtResource("15_btn")
+theme_override_styles/hover = ExtResource("14_btn")
+theme_override_styles/hover_pressed = ExtResource("15_btn")
+theme_override_styles/focus = ExtResource("14_btn")
 text = "Unbound"
 script = ExtResource("10_flqon")
 action_name = "forward"
 
 [node name="backward" type="Button" parent="settings/controls_menu/main control/buttons_left" unique_id=702472397]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.99607843, 0.9019608, 0.89411765, 1)
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("13_btn")
+theme_override_styles/pressed = ExtResource("15_btn")
+theme_override_styles/hover = ExtResource("14_btn")
+theme_override_styles/hover_pressed = ExtResource("15_btn")
+theme_override_styles/focus = ExtResource("14_btn")
 text = "Unbound"
 script = ExtResource("10_flqon")
 action_name = "backward"
 
 [node name="left" type="Button" parent="settings/controls_menu/main control/buttons_left" unique_id=1350958492]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.99607843, 0.9019608, 0.89411765, 1)
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("13_btn")
+theme_override_styles/pressed = ExtResource("15_btn")
+theme_override_styles/hover = ExtResource("14_btn")
+theme_override_styles/hover_pressed = ExtResource("15_btn")
+theme_override_styles/focus = ExtResource("14_btn")
 text = "Unbound"
 script = ExtResource("10_flqon")
 action_name = "left"
 
 [node name="right" type="Button" parent="settings/controls_menu/main control/buttons_left" unique_id=910947551]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.99607843, 0.9019608, 0.89411765, 1)
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("13_btn")
+theme_override_styles/pressed = ExtResource("15_btn")
+theme_override_styles/hover = ExtResource("14_btn")
+theme_override_styles/hover_pressed = ExtResource("15_btn")
+theme_override_styles/focus = ExtResource("14_btn")
 text = "Unbound"
 script = ExtResource("10_flqon")
 action_name = "right"
@@ -464,32 +618,56 @@ theme_override_constants/separation = 19
 
 [node name="jump" type="Button" parent="settings/controls_menu/main control/buttons_right" unique_id=1046141115]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.99607843, 0.9019608, 0.89411765, 1)
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("13_btn")
+theme_override_styles/pressed = ExtResource("15_btn")
+theme_override_styles/hover = ExtResource("14_btn")
+theme_override_styles/hover_pressed = ExtResource("15_btn")
+theme_override_styles/focus = ExtResource("14_btn")
 text = "Unbound"
 script = ExtResource("10_flqon")
 action_name = "jump"
 
 [node name="sprint" type="Button" parent="settings/controls_menu/main control/buttons_right" unique_id=538598877]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.99607843, 0.9019608, 0.89411765, 1)
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("13_btn")
+theme_override_styles/pressed = ExtResource("15_btn")
+theme_override_styles/hover = ExtResource("14_btn")
+theme_override_styles/hover_pressed = ExtResource("15_btn")
+theme_override_styles/focus = ExtResource("14_btn")
 text = "Unbound"
 script = ExtResource("10_flqon")
 action_name = "run"
 
 [node name="crouch" type="Button" parent="settings/controls_menu/main control/buttons_right" unique_id=2049060861]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.99607843, 0.9019608, 0.89411765, 1)
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("13_btn")
+theme_override_styles/pressed = ExtResource("15_btn")
+theme_override_styles/hover = ExtResource("14_btn")
+theme_override_styles/hover_pressed = ExtResource("15_btn")
+theme_override_styles/focus = ExtResource("14_btn")
 text = "Unbound"
 script = ExtResource("10_flqon")
 action_name = "crouch"
 
 [node name="interact" type="Button" parent="settings/controls_menu/main control/buttons_right" unique_id=1859517018]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.99607843, 0.9019608, 0.89411765, 1)
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("13_btn")
+theme_override_styles/pressed = ExtResource("15_btn")
+theme_override_styles/hover = ExtResource("14_btn")
+theme_override_styles/hover_pressed = ExtResource("15_btn")
+theme_override_styles/focus = ExtResource("14_btn")
 text = "Unbound"
 script = ExtResource("10_flqon")
 action_name = "interact"
@@ -500,8 +678,14 @@ offset_left = 367.0
 offset_top = 52.0
 offset_right = 529.0
 offset_bottom = 82.0
+theme_override_colors/font_color = Color(0.99607843, 0.9019608, 0.89411765, 1)
 theme_override_fonts/font = ExtResource("9_lgwnu")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("13_btn")
+theme_override_styles/pressed = ExtResource("15_btn")
+theme_override_styles/hover = ExtResource("14_btn")
+theme_override_styles/hover_pressed = ExtResource("15_btn")
+theme_override_styles/focus = ExtResource("14_btn")
 text = "Unbound"
 script = ExtResource("10_flqon")
 action_name = "pause"
@@ -512,109 +696,134 @@ offset_left = 413.0
 offset_top = 10.0
 offset_right = 505.0
 offset_bottom = 54.0
-theme_override_colors/font_color = Color(0.41062272, 0.41062272, 0.41062272, 1)
-theme_override_colors/font_shadow_color = Color(0.14622861, 0.14622879, 0.1462287, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_colors/font_color = Color(0.95686275, 0.84705883, 0.8392157, 0.92)
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 32
 text = "Pause"
 
 [node name="statistics" type="CenterContainer" parent="." unique_id=680846564]
 process_mode = 3
-offset_left = -1.0
-offset_top = 138.0
-offset_right = 1148.0
-offset_bottom = 617.0
+visible = false
+offset_left = 28.0
+offset_top = 155.0
+offset_right = 1122.0
+offset_bottom = 634.0
 script = ExtResource("7_oa1go")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="statistics" unique_id=314682726]
-custom_minimum_size = Vector2(0, 71)
+[node name="Frame" type="PanelContainer" parent="statistics" unique_id=783864439]
+custom_minimum_size = Vector2(800, 470)
 layout_mode = 2
-theme_override_constants/separation = 17
+theme_override_styles/panel = ExtResource("11_frame")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="statistics" unique_id=314682726]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Heading" type="Label" parent="statistics/VBoxContainer" unique_id=1073638532]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9843137, 0.47843137, 0.47843137, 1)
+theme_override_colors/font_outline_color = Color(0.2901961, 0.011764706, 0.039215688, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 70
+text = "Statistics"
+horizontal_alignment = 1
+
+[node name="Caption" type="Label" parent="statistics/VBoxContainer" unique_id=173033767]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9254902, 0.83137256, 0.8235294, 0.78)
+theme_override_fonts/font = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 20
+text = "The house keeps count of everything. It simply refuses to explain why."
+autowrap_mode = 3
 
 [node name="Panel2" type="PanelContainer" parent="statistics/VBoxContainer" unique_id=1174266100]
-custom_minimum_size = Vector2(0, 71)
+custom_minimum_size = Vector2(520, 78)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="achievements" type="TextureButton" parent="statistics/VBoxContainer/Panel2" unique_id=1425815389]
-custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
 disabled = true
 
 [node name="Label2" type="Label" parent="statistics/VBoxContainer/Panel2/achievements" unique_id=1395906669]
 layout_mode = 0
-offset_left = -17.0
-offset_top = -13.0
-offset_right = 595.0
-offset_bottom = 85.0
+offset_left = -28.0
+offset_top = -27.0
+offset_right = 492.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0.72, 0.55, 0.55, 0.85)
 theme_override_fonts/font = ExtResource("4_wu84c")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 44
 text = "Achievements"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="statistics/VBoxContainer/Panel2/achievements" unique_id=1173206722]
 layout_mode = 0
-offset_left = 511.0
-offset_top = 85.0
-offset_right = 620.0
-offset_bottom = 117.0
-rotation = -0.5235988
-theme_override_colors/font_color = Color(0.37, 0, 0.0061665727, 1)
-theme_override_fonts/font = ExtResource("1_l6cm7")
-theme_override_font_sizes/font_size = 23
-text = "Coming soon"
+offset_left = 358.0
+offset_top = 48.0
+offset_right = 512.0
+offset_bottom = 80.0
+rotation = -0.18
+theme_override_colors/font_color = Color(0.9843137, 0.30588236, 0.32156864, 0.9)
+theme_override_fonts/font = ExtResource("9_lgwnu")
+theme_override_font_sizes/font_size = 10
+text = "COMING SOON"
 
 [node name="Panel3" type="PanelContainer" parent="statistics/VBoxContainer" unique_id=690602624]
-custom_minimum_size = Vector2(0, 71)
+custom_minimum_size = Vector2(520, 78)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="Rooms Visited" type="TextureButton" parent="statistics/VBoxContainer/Panel3" unique_id=1001797794]
-custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
 
 [node name="Label3" type="Label" parent="statistics/VBoxContainer/Panel3/Rooms Visited" unique_id=780540257]
 layout_mode = 0
-offset_left = -17.0
-offset_top = -10.0
-offset_right = 595.0
-offset_bottom = 88.0
+offset_left = -27.0
+offset_top = -24.0
+offset_right = 493.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.9764706, 0.8745098, 0.8627451, 1)
 theme_override_fonts/font = ExtResource("4_wu84c")
-theme_override_font_sizes/font_size = 60
-text = "Rooms"
+theme_override_font_sizes/font_size = 44
+text = "Rooms Visited"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel4" type="PanelContainer" parent="statistics/VBoxContainer" unique_id=1219391539]
-custom_minimum_size = Vector2(620, 71)
+custom_minimum_size = Vector2(520, 78)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="Return" type="TextureButton" parent="statistics/VBoxContainer/Panel4" unique_id=1091169992]
-custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Label4" type="Label" parent="statistics/VBoxContainer/Panel4/Return" unique_id=1247043219]
 layout_mode = 0
-offset_left = -17.0
-offset_top = -15.0
-offset_right = 595.0
-offset_bottom = 83.0
+offset_left = -27.0
+offset_top = -22.0
+offset_right = 493.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0.9764706, 0.8745098, 0.8627451, 1)
 theme_override_fonts/font = ExtResource("4_wu84c")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 44
 text = "Return"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="rooms_list" type="Panel" parent="." unique_id=1592661853]
-offset_left = 84.0
-offset_top = 132.0
-offset_right = 1067.0
-offset_bottom = 635.0
+visible = false
+offset_left = 99.0
+offset_top = 163.0
+offset_right = 1052.0
+offset_bottom = 604.0
+theme_override_styles/panel = ExtResource("11_frame")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="rooms_list" unique_id=3588891]
 layout_mode = 0
@@ -807,9 +1016,9 @@ offset_left = 389.0
 offset_top = -7.0
 offset_right = 584.0
 offset_bottom = 100.0
-theme_override_colors/font_color = Color(0.39841208, 0.3984121, 0.39841208, 1)
-theme_override_colors/font_shadow_color = Color(7.4190426, 1.2321472e-05, 3.411683, 0)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.9843137, 0.47843137, 0.47843137, 1)
+theme_override_colors/font_outline_color = Color(0.2901961, 0.011764706, 0.039215688, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 80
 text = "Rooms"
@@ -818,21 +1027,21 @@ text = "Rooms"
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_left = 388.0
-offset_top = 426.0
+offset_top = 397.0
 offset_right = 577.0
-offset_bottom = 509.0
+offset_bottom = 480.0
 theme_override_styles/panel = ExtResource("4_rtw2f")
 
 [node name="Label4" type="Label" parent="rooms_list/return" unique_id=176931476]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.9764706, 0.8745098, 0.8627451, 1)
 theme_override_fonts/font = ExtResource("4_wu84c")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 44
 text = "Return"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="return_inside_door_list" type="TextureButton" parent="rooms_list/return" unique_id=1110009427]
-custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 ignore_texture_size = true
 stretch_mode = 5

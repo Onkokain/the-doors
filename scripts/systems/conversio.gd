@@ -18,6 +18,8 @@ func conversio():
 		heartbeat.play()
 		await get_tree().create_timer(5).timeout
 		bloodred.play("pulse")
+		await get_tree().create_timer(6).timeout
+		bloodred.stop()
 	
 func conversio_disable():
 	if heartbeat.playing or bloodred.playing:
