@@ -5,6 +5,7 @@ const CARD_HOVER_TINT := Color(1.0, 0.9, 0.92, 1.0)
 const CARD_PRESSED_TINT := Color(1.0, 0.82, 0.86, 1.0)
 const LABEL_NORMAL_TINT := Color(1.0, 1.0, 1.0, 1.0)
 const LABEL_HOVER_TINT := Color(1.08, 0.92, 0.94, 1.0)
+@onready var center_container: CenterContainer = $CenterContainer
 
 @onready var panel: Panel = self
 @onready var title_label: Label = $Label
@@ -194,8 +195,12 @@ func _on_settings_pressed() -> void:
 func _on_achievements_pressed() -> void:
 	statistics_menu.visible = true
 	container.visible = false
+	center_container.visible=false
+	menu_frame.visible=false
 
 
 func _on_return_pressed() -> void:
 	statistics_menu.visible = false
 	container.visible = true
+	center_container.visible=true
+	menu_frame.visible=true

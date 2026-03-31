@@ -273,6 +273,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12301254, 0)
 shape = SubResource("WorldBoundaryShape3D_oxp1g")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1361732489]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.147041, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1688496573]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.244071, 2.9979858, 20.794607)

@@ -32,7 +32,7 @@ var net_rotation: int = 0
 	{"name": "rotate_right", "scene": preload("res://scenes/gamemaps/rotate_right.tscn"), "weight": 20.0, "type": "right"},
 	{"name": "closet_room", "scene": preload("res://scenes/gamemaps/closet_room.tscn"), "weight": 20.0, "type": "straight"},
 	{"name": "tv_room", "scene": preload("res://scenes/gamemaps/tv_room.tscn"), "weight": 20.0, "type": "straight"},
-	{"name": "tv_room", "scene": preload("res://scenes/gamemaps/rocking_chair_room.tscn"), "weight": 20.0, "type": "straight"},
+	{"name": "tv_room", "scene": preload("res://scenes/gamemaps/rocking_chair_room.tscn"), "weight": 2000.0, "type": "straight"},
 	{"name": "tv_room", "scene": preload("res://scenes/gamemaps/bar.tscn"), "weight": 20.0, "type": "straight"},
 
 

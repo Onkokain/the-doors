@@ -99,10 +99,8 @@ func _update_button_state(card: Control) -> void:
 func _on_rooms_visited_pressed() -> void:
 	rooms_list.visible = true
 	statistics.visible = false
-	panel.visible = false
 
 
 func _on_return_inside_door_list_pressed() -> void:
 	rooms_list.visible = false
 	statistics.visible = true
-	panel.visible = true

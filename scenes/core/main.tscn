@@ -172,6 +172,7 @@ offset_bottom = 220.0
 mouse_filter = 2
 
 [node name="MenuFrame" type="PanelContainer" parent="Panel" unique_id=911650687]
+custom_minimum_size = Vector2(586, 448)
 layout_mode = 0
 offset_left = 280.0
 offset_top = 146.0
@@ -321,14 +322,14 @@ horizontal_alignment = 1
 [node name="statistics" type="CenterContainer" parent="." unique_id=65236672]
 process_mode = 3
 visible = false
-offset_left = 54.0
-offset_top = 138.0
-offset_right = 1148.0
-offset_bottom = 617.0
+offset_left = 1.0
+offset_top = 127.0
+offset_right = 1145.0
+offset_bottom = 613.0
 script = ExtResource("8_choun")
 
 [node name="Frame" type="PanelContainer" parent="statistics" unique_id=1569256670]
-custom_minimum_size = Vector2(860, 486)
+custom_minimum_size = Vector2(586, 448)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("13_frame")
 
@@ -345,6 +346,7 @@ theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_sugp2")
 theme_override_font_sizes/font_size = 70
 text = "Statistics"
+horizontal_alignment = 1
 
 [node name="Caption" type="Label" parent="statistics/VBoxContainer" unique_id=790006043]
 custom_minimum_size = Vector2(0, 52)
@@ -361,14 +363,14 @@ layout_mode = 2
 theme_override_styles/panel = ExtResource("6_choun")
 
 [node name="achievements" type="TextureButton" parent="statistics/VBoxContainer/Panel2" unique_id=646924512]
-custom_minimum_size = Vector2(100, 78)
 layout_mode = 2
 
 [node name="Label2" type="Label" parent="statistics/VBoxContainer/Panel2/achievements" unique_id=1044017032]
 layout_mode = 0
-offset_top = -4.0
-offset_right = 520.0
-offset_bottom = 86.0
+offset_left = -28.0
+offset_top = -24.0
+offset_right = 492.0
+offset_bottom = 66.0
 theme_override_colors/font_color = Color(0.72, 0.55, 0.55, 0.85)
 theme_override_fonts/font = ExtResource("7_choun")
 theme_override_font_sizes/font_size = 44
@@ -382,14 +384,14 @@ layout_mode = 2
 theme_override_styles/panel = ExtResource("6_choun")
 
 [node name="Rooms Visited" type="TextureButton" parent="statistics/VBoxContainer/Panel3" unique_id=510808442]
-custom_minimum_size = Vector2(100, 78)
 layout_mode = 2
 
 [node name="Label3" type="Label" parent="statistics/VBoxContainer/Panel3/Rooms Visited" unique_id=580161717]
 layout_mode = 0
-offset_top = -4.0
-offset_right = 520.0
-offset_bottom = 86.0
+offset_left = -28.0
+offset_top = -24.0
+offset_right = 492.0
+offset_bottom = 66.0
 theme_override_colors/font_color = Color(0.9764706, 0.8745098, 0.8627451, 1)
 theme_override_fonts/font = ExtResource("7_choun")
 theme_override_font_sizes/font_size = 44
@@ -403,16 +405,16 @@ layout_mode = 2
 theme_override_styles/panel = ExtResource("6_choun")
 
 [node name="Return" type="TextureButton" parent="statistics/VBoxContainer/Panel4" unique_id=1607582482]
-custom_minimum_size = Vector2(100, 78)
 layout_mode = 2
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Label4" type="Label" parent="statistics/VBoxContainer/Panel4/Return" unique_id=1364388642]
 layout_mode = 0
-offset_top = -4.0
-offset_right = 520.0
-offset_bottom = 86.0
+offset_left = -28.0
+offset_top = -24.0
+offset_right = 492.0
+offset_bottom = 66.0
 theme_override_colors/font_color = Color(0.9764706, 0.8745098, 0.8627451, 1)
 theme_override_fonts/font = ExtResource("7_choun")
 theme_override_font_sizes/font_size = 44
@@ -453,6 +455,7 @@ script = ExtResource("11_ya4ey")
 [node name="Utilities" type="Node" parent="." unique_id=1158348240]
 
 [node name="red_flash" type="CanvasLayer" parent="Utilities" unique_id=2144430444]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Utilities/red_flash" unique_id=71166008]
 modulate = Color(1, 1, 1, 0)
@@ -473,11 +476,10 @@ volume_db = 24.0
 
 [node name="rooms_list" type="Panel" parent="." unique_id=95608960]
 process_mode = 3
-visible = false
-offset_left = 84.0
-offset_top = 77.0
-offset_right = 1067.0
-offset_bottom = 580.0
+offset_left = 90.0
+offset_top = 125.0
+offset_right = 1073.0
+offset_bottom = 628.0
 theme_override_styles/panel = ExtResource("13_frame")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="rooms_list" unique_id=815767319]
@@ -663,6 +665,40 @@ offset_bottom = 308.0
 theme_override_fonts/font = ExtResource("7_choun")
 theme_override_font_sizes/font_size = 50
 text = "Closet"
+horizontal_alignment = 1
+
+[node name="Panel11" type="Panel" parent="rooms_list/ScrollContainer/GridContainer" unique_id=1036230613]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_eb6dy")
+
+[node name="Label" type="Label" parent="rooms_list/ScrollContainer/GridContainer/Panel11" unique_id=918586971]
+layout_mode = 0
+offset_top = 239.0
+offset_right = 302.0
+offset_bottom = 308.0
+theme_override_fonts/font = ExtResource("7_choun")
+theme_override_font_sizes/font_size = 50
+text = "Chair"
+horizontal_alignment = 1
+
+[node name="Panel12" type="Panel" parent="rooms_list/ScrollContainer/GridContainer" unique_id=1833274449]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_eb6dy")
+
+[node name="Label" type="Label" parent="rooms_list/ScrollContainer/GridContainer/Panel12" unique_id=1544597441]
+layout_mode = 0
+offset_top = 239.0
+offset_right = 302.0
+offset_bottom = 308.0
+theme_override_fonts/font = ExtResource("7_choun")
+theme_override_font_sizes/font_size = 50
+text = "Bar"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="rooms_list" unique_id=1819924960]
