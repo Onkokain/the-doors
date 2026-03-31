@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const HAS_FLYING_PERMS := false
+const HAS_FLYING_PERMS := true
 
 const WALK_SPEED := 5.0
 const SPRINT_SPEED := 7.5

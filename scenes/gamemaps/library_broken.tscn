@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://boi866841lpv4" path="res://scenes/assets/furniture/bookshelf.tscn" id="7_5t3b1"]
 [ext_resource type="PackedScene" uid="uid://ch2sqs27dc4s0" path="res://scenes/assets/furniture/chest.tscn" id="8_pusen"]
 [ext_resource type="PackedScene" uid="uid://bvafej76q2um6" path="res://scenes/assets/furniture/floormat.tscn" id="8_qf47x"]
-[ext_resource type="PackedScene" uid="uid://cngtetqnup6ps" path="res://scenes/entities/wall_light.tscn" id="9_50e82"]
+[ext_resource type="PackedScene" uid="uid://2yd50od1jaxs" path="res://scenes/entities/wall_light.tscn" id="9_50e82"]
 [ext_resource type="PackedScene" uid="uid://csgcwopx75qhl" path="res://scenes/entities/trappedchest.tscn" id="9_vvpus"]
 [ext_resource type="PackedScene" uid="uid://csdxyfoy36kxa" path="res://scenes/assets/furniture/cobweb.tscn" id="12_vvpus"]
-[ext_resource type="PackedScene" uid="uid://dqi0h7nf2xwes" path="res://assets/public assets/frames/frame03.glb" id="13_pe33r"]
-[ext_resource type="PackedScene" uid="uid://77ndh6s57l3v" path="res://assets/public assets/frames/frame01_lowpoly.glb" id="14_5t3b1"]
+[ext_resource type="PackedScene" uid="uid://dqi0h7nf2xwes" path="res://assets/public assets/frame03/frames/frame03.glb" id="13_pe33r"]
+[ext_resource type="PackedScene" uid="uid://77ndh6s57l3v" path="res://assets/public assets/frame01_lowpoly/frames/frame01_lowpoly.glb" id="14_5t3b1"]
 [ext_resource type="ArrayOccluder3D" uid="uid://dd378ace8b8eg" path="res://baked occlusion scenes/library_broken.occ" id="15_5t3b1"]
 [ext_resource type="PackedScene" uid="uid://dpgkioa12n3en" path="res://scenes/assets/furniture/crate.tscn" id="16_qf47x"]
 
@@ -51,7 +51,7 @@ font = ExtResource("3_pusen")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.773961, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="updator" unique_id=1071553891]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.064923, 4.231201, -14.695917)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.280526, 4.231201, -14.695917)
 shape = SubResource("BoxShape3D_ffxv4")
 
 [node name="ceiling" type="Node3D" parent="." unique_id=1656465122]

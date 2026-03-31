@@ -51,7 +51,7 @@ font = ExtResource("3_qjeoa")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.691771, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="updator" unique_id=1071553891]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36048508, 4.231201, -14.180541)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.841293, 4.231201, -14.180541)
 shape = SubResource("BoxShape3D_ffxv4")
 
 [node name="ceiling" type="Node3D" parent="." unique_id=1656465122]
