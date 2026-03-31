@@ -1,9 +1,5 @@
 extends Panel
 
-var is_already_playing = false
-var paused = false
-
-# Using @onready to ensure nodes are loaded
 @onready var panel: Panel = self
 @onready var container: CenterContainer = $CenterContainer
 @onready var quit_game: TextureButton = $"CenterContainer/VBoxContainer/Panel/quit game"
@@ -14,9 +10,8 @@ var paused = false
 @onready var return_inside_door_list: TextureButton = $"../rooms_list/return/return_inside_door_list"
 
 var spawn_position : Vector3
-
-
-# Animation dictionaries
+var is_already_playing = false
+var paused = false
 var hover_tweens := {}
 var hovered_cards := {}
 var pressed_cards := {}
@@ -24,17 +19,14 @@ var pressed_cards := {}
 func _ready() -> void:
 	spawn_position = player.global_position
 	statistics_menu.visible=false
-	# 1. CRITICAL: Set process mode so this script runs while paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
-	# 2. Hide everything on startup
 	_update_menu_state(false)
-	
-	# 3. Setup hover effects
 	_configure_hover(achievements)
 	_configure_hover(quit_game)
 	_configure_hover(settings)
 	_configure_hover(return_inside_door_list)
+	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		_toggle_pause()
@@ -46,31 +38,25 @@ func _toggle_pause() -> void:
 	get_tree().paused = paused
 	_update_menu_state(paused)
 	
-	# Sync Background Audio
 	if is_instance_valid(Background):
 		Background.playing = paused
 
 func _update_menu_state(should_show: bool) -> void:
-	# Update the main panel
 	panel.visible = should_show
 	
-	# Update the container holding the buttons
 	if container:
 		container.visible = should_show
 	
-	# Explicitly update button visibility just to be safe
 	quit_game.visible = should_show
 	settings.visible = should_show
 	achievements.visible = should_show
 
-# --- Animation Logic ---
 
 func _configure_hover(button: TextureButton) -> void:
 	var card := button.get_parent() as Control
 	hovered_cards[card] = false
 	pressed_cards[card] = false
 	
-	# Force sync the pivot right away
 	_sync_card_pivot(card)
 	card.resized.connect(_sync_card_pivot.bind(card))
 	
@@ -82,7 +68,6 @@ func _configure_hover(button: TextureButton) -> void:
 	button.button_up.connect(_set_button_pressed.bind(card, false))
 	
 func _sync_card_pivot(card: Control) -> void:
-	# Force the UI to calculate its size if it hasn't already
 	if card.size == Vector2.ZERO:
 		card.force_update_transform()
 	card.pivot_offset = card.size / 2.0
@@ -102,19 +87,17 @@ func _update_button_scale(card: Control) -> void:
 	if existing != null:
 		existing.kill()
 
-	# Using absolute vectors instead of multiplication for accuracy
 	var target_scale := Vector2.ONE
 	if pressed_cards.get(card, false):
-		target_scale = Vector2(0.90, 0.90) # Punched up the shrink effect here
+		target_scale = Vector2(0.90, 0.90) 
 	elif hovered_cards.get(card, false):
 		target_scale = Vector2(1.06, 1.06)
 
 	var tween := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	# This ensures buttons still "pop" when you hover them in the pause menu
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS) 
 	
 	hover_tweens[card] = tween
-	tween.tween_property(card, "scale", target_scale, 0.1) # Snappier animation speed
+	tween.tween_property(card, "scale", target_scale, 0.1)
 
 
 func _on_quit_game_pressed() -> void:
@@ -144,5 +127,3 @@ func _on_achievements_pressed() -> void:
 func _on_return_pressed() -> void:
 	statistics_menu.visible=false
 	container.visible=true
-	
-	

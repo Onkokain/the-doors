@@ -5,17 +5,14 @@ extends Node3D
 var is_player_inside: bool = false
 
 func _ready() -> void:
-	# Hide the prompt immediately
 	label.visible = false
 
 func _process(_delta: float) -> void:
-	# We check for the input here every frame, but ONLY if the player is in the area
 	if is_player_inside:
 		if Input.is_action_just_pressed("interact"):
 			trapchest()
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	# Ensure it's the player
 	if body is CharacterBody3D:
 		is_player_inside = true
 		label.visible = true

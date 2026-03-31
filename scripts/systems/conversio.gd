@@ -2,16 +2,16 @@ extends Node
 @onready var heartbeat: AudioStreamPlayer2D = $"../Utilities/heartbeat"
 @onready var bloodred: AnimationPlayer = $"../Utilities/red_flash/AnimationPlayer"
 
-var was_conversio: bool = false
+var in_effect: bool = false
 
 func _process(_delta: float) -> void:
 	if Global.is_conversio:
-		if not was_conversio:
+		if not in_effect:
 			conversio()
 	else:
-		if was_conversio:
+		if in_effect:
 			conversio_disable()
-	was_conversio = Global.is_conversio
+	in_effect = Global.is_conversio
 
 func conversio():
 	if not heartbeat.playing:
@@ -20,6 +20,6 @@ func conversio():
 		bloodred.play("pulse")
 	
 func conversio_disable():
-	if heartbeat.playing:
+	if heartbeat.playing or bloodred.playing:
 		heartbeat.stop()
 		bloodred.stop()

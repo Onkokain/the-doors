@@ -3,7 +3,6 @@ extends HSlider
 
 @export var audio_bus_name: String
 var id
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	id=AudioServer.get_bus_index('effects')
 	effects.value = Global.effects_music

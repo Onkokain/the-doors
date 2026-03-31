@@ -1,6 +1,5 @@
 extends Node2D
 
-# Preloading the scene into memory
 const MAIN_SCENE = preload("res://scenes/core/main.tscn")
 @onready var center_container: CenterContainer = $CenterContainer
 
@@ -31,7 +30,6 @@ func _ready() -> void:
 	_configure_hover(cutscene)
 	
 	
-	# Connecting the signal via code
 
 func _configure_hover(button: TextureButton) -> void:
 	var card := button.get_parent() as Control
@@ -76,7 +74,6 @@ func _update_button_scale(card: Control) -> void:
 	tween.tween_property(card, "scale", target_scale, 0.12)
 	
 func _on_start_pressed() -> void:
-	# Using change_scene_to_packed since we already preloaded it
 	get_tree().change_scene_to_packed(MAIN_SCENE)
 
 
@@ -96,8 +93,9 @@ func _on_return_pressed() -> void:
 func _on_endgame_pressed() -> void:
 	if OS.has_feature("web"):
 		JavaScriptBridge.eval("window.location.href = 'https://baralekogyan.itch.io/';")
+		# doesnt seem to work on itch.io gotta fix this
 	else:
-		get_tree().quit() # Normal quit for desktop testing
+		get_tree().quit() 
 		
 
 

@@ -10,7 +10,6 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	
-	# Check if the player is within the area AND presses the key
 	if is_player_inside and Input.is_action_just_pressed("interact"):
 		collect_coin()
 
@@ -28,5 +27,4 @@ func collect_coin() -> void:
 	coin_audio.play()
 	Global.coins+=[1,2,3].pick_random()
 	await get_tree().create_timer(0.5).timeout
-	# Add any score-keeping logic here!
 	queue_free()

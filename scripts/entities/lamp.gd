@@ -5,7 +5,7 @@ extends Node3D
 @onready var label_3d: Label3D = $Area3D/Label3D
 
 var is_player_inside: bool = false
-var is_flickering: bool = false # Prevents spamming the toggle during the animation
+var is_flickering: bool = false 
 
 func _ready() -> void:
 	label_3d.visible = false
@@ -28,23 +28,19 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 func toggle_light() -> void:
 	if omni_light_3d.light_energy > 0:
-		# Instant OFF for a clean "click" feel
 		omni_light_3d.light_energy = 0.0
 	else:
-		# Start the flicker effect for turning it ON
 		run_flicker_effect()
 
 func run_flicker_effect() -> void:
 	is_flickering = true
 	var tween = create_tween()
 	
-	# Flicker sequence: On (dim) -> Off -> On (bright) -> Off -> Final On (8.0)
 	tween.tween_property(omni_light_3d, "light_energy", 2.0, 0.05)
 	tween.tween_property(omni_light_3d, "light_energy", 0.0, 0.05)
 	tween.tween_property(omni_light_3d, "light_energy", 5.0, 0.07)
 	tween.tween_property(omni_light_3d, "light_energy", 0.0, 0.05)
 	tween.tween_property(omni_light_3d, "light_energy", 8.0, 0.03)
 	
-	# Re-enable interaction once the flicker finishes
 	await tween.finished
 	is_flickering = false

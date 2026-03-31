@@ -618,6 +618,8 @@ theme_override_font_sizes/font_size = 50
 text = "Lobby"
 horizontal_alignment = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="rooms_list/ScrollContainer/GridContainer/Panel" unique_id=719875368]
+
 [node name="Panel2" type="Panel" parent="rooms_list/ScrollContainer/GridContainer" unique_id=1290623549]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
@@ -768,7 +770,7 @@ offset_right = 302.0
 offset_bottom = 308.0
 theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 50
-text = "End Room"
+text = "Closet"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="rooms_list" unique_id=1980979412]

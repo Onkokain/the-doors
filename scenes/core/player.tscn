@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dexc8vvd7ghmx"]
 
 [ext_resource type="Script" uid="uid://tamknsnvnemd" path="res://scripts/player/player.gd" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://dgru8u2tp6br1" path="res://scripts/player/raycast.gd" id="2_g2els"]
 [ext_resource type="Script" uid="uid://s8j4colg5lni" path="res://scripts/player/spotlight_player_head.gd" id="2_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://bja6r3ay5x43e" path="res://assets/music/walking.mp3" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://cap1brs84y80i" path="res://assets/music/jumpland.wav" id="4_dqkch"]
@@ -30,16 +29,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.138707, 0)
 [node name="SpotLight3D" type="SpotLight3D" parent="Camera3D" unique_id=167183864]
 light_color = Color(0.91764706, 0.90588236, 0.7254902, 1)
 light_energy = 10.0
-spot_range = 17.6
+spot_range = 176000.0
 spot_attenuation = 0.99
 spot_angle = 45.94
 spot_angle_attenuation = 1.9118468
 script = ExtResource("2_tuyoq")
-
-[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1949263254]
-transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, -0.46420476)
-debug_shape_custom_color = Color(0, 0, 0.56078434, 1)
-script = ExtResource("2_g2els")
 
 [node name="walking" type="AudioStreamPlayer3D" parent="." unique_id=194239202]
 stream = ExtResource("3_qhqgy")

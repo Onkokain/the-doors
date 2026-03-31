@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://bk34sy1gxddw0"]
 
-[ext_resource type="Environment" uid="uid://0yyqkdr2f33f" path="res://materials/world.tres" id="1_choun"]
 [ext_resource type="Script" uid="uid://dfxe5rgid5rpe" path="res://scripts/ui/menus/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dexc8vvd7ghmx" path="res://scenes/core/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://8gsbq2h6uijs" path="res://scripts/systems/world_generator.gd" id="2_0wfyh"]
@@ -79,7 +78,6 @@ bg_color = Color(0.9607843, 0, 0.37254903, 0.050980393)
 [node name="main" type="Node3D" unique_id=891550892]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=228127302]
-environment = ExtResource("1_choun")
 
 [node name="player" parent="." unique_id=289016444 instance=ExtResource("1_o5qli")]
 process_mode = 3
@@ -513,7 +511,7 @@ offset_right = 302.0
 offset_bottom = 308.0
 theme_override_fonts/font = ExtResource("7_choun")
 theme_override_font_sizes/font_size = 50
-text = "End Room"
+text = "Closet"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="rooms_list" unique_id=1819924960]
