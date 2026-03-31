@@ -39,15 +39,16 @@ use_collision = true
 script = ExtResource("1_ffxv4")
 
 [node name="ExitMarker" type="Marker3D" parent="." unique_id=412077109]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42.244835)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.691771, 0, 42.244835)
 
 [node name="Label3D" type="Label3D" parent="." unique_id=309539866]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.46270072, 5.495962, 14.617483)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 8.22907, 5.495962, 14.617483)
 pixel_size = 0.03
 text = "1"
 font = ExtResource("3_qjeoa")
 
 [node name="updator" type="Area3D" parent="." unique_id=1750448096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.691771, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="updator" unique_id=1071553891]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36048508, 4.231201, -14.180541)
@@ -167,7 +168,7 @@ size = Vector3(35.58203, 0.9898529, 0.491333)
 material = ExtResource("4_6blaw")
 
 [node name="door wall cutout" type="CSGBox3D" parent="walls" unique_id=1041976223]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34743786, 2.4377308, 14.679522)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.344333, 2.4377308, 14.679522)
 operation = 2
 size = Vector3(3.0489502, 4.9295692, 0.7310791)
 material = ExtResource("4_6blaw")
@@ -191,6 +192,60 @@ shape = SubResource("BoxShape3D_0aj1t")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="decor/Area3D" unique_id=710963028]
 stream = ExtResource("11_y1ug3")
 
+[node name="tv_1" parent="decor" unique_id=1832528154 instance=ExtResource("9_y1ug3")]
+transform = Transform3D(-5.509393, 0, -2.3762548, 0, 6, 0, 2.3762548, 0, -5.509393, -0.97642374, 1.4005451, 3.7160816)
+
+[node name="tv_4" parent="decor" unique_id=340280823 instance=ExtResource("9_y1ug3")]
+transform = Transform3D(5.2312884, 0, -2.9383025, 0, 6, 0, 2.9383025, 0, 5.2312884, -12.102119, 1.4005451, 11.040491)
+
+[node name="tv_3" parent="decor" unique_id=1122638259 instance=ExtResource("9_y1ug3")]
+transform = Transform3D(-5.9980335, 0, -0.1536076, 0, 6, 0, 0.1536076, 0, -5.9980335, -9.245543, 1.4005451, -10.013214)
+
+[node name="tv_2" parent="decor" unique_id=1808167694 instance=ExtResource("9_y1ug3")]
+transform = Transform3D(4.766424, 0, 3.6443381, 0, 6, 0, -3.6443381, 0, 4.766424, 1.5888629, 1.4005451, -2.8316536)
+
+[node name="tv_5" parent="decor" unique_id=1201236228 instance=ExtResource("10_juxgk")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -6.0863304, 0.5969868, 3.3739414)
+
+[node name="tv_9" parent="decor" unique_id=1182307929 instance=ExtResource("10_juxgk")]
+transform = Transform3D(-6.280374, 0, -4.955492, 0, 8, 0, 4.955492, 0, -6.280374, 12.596363, 0.5969868, 10.101404)
+
+[node name="tv_6" parent="decor" unique_id=184698082 instance=ExtResource("10_juxgk")]
+transform = Transform3D(2.390194, 0, 7.6345906, 0, 8, 0, -7.6345906, 0, 2.390194, -6.0863304, 0.5969868, -6.4755497)
+
+[node name="tv_7" parent="decor" unique_id=980953982 instance=ExtResource("10_juxgk")]
+transform = Transform3D(6.3266277, 0, -4.896303, 0, 8, 0, 4.896303, 0, 6.3266277, 11.95372, 0.5969868, -6.4755497)
+
+[node name="tv_8" parent="decor" unique_id=894042343 instance=ExtResource("10_juxgk")]
+transform = Transform3D(6.3266277, 0, -4.896303, 0, 8, 0, 4.896303, 0, 6.3266277, 2.609085, 0.5969868, 10.628454)
+
+[node name="tv_10" parent="decor" unique_id=325259021 instance=ExtResource("11_ylo7w")]
+transform = Transform3D(5.4767914, 0, 2.4504607, 0, 6, 0, -2.4504607, 0, 5.4767914, 10.816565, 0.07250595, 0.17484474)
+
+[node name="tv_13" parent="decor" unique_id=1444419845 instance=ExtResource("11_ylo7w")]
+transform = Transform3D(1.6571453, 0, -5.766617, 0, 5.9999995, 0, 5.766617, 0, 1.6571453, 6.9022207, 0.07250595, 0.17484474)
+
+[node name="tv_14" parent="decor" unique_id=50733432 instance=ExtResource("11_ylo7w")]
+transform = Transform3D(-4.926776, 0, -3.4244533, 0, 5.9999995, 0, 3.4244533, 0, -4.926776, -6.789893, 0.07250595, 9.017286)
+
+[node name="tv_11" parent="decor" unique_id=1852875600 instance=ExtResource("11_ylo7w")]
+transform = Transform3D(1.3109031, 0, -5.8550434, 0, 5.9999995, 0, 5.8550434, 0, 1.3109031, -11.950117, 0.07250595, 0.17484474)
+
+[node name="tv_12" parent="decor" unique_id=841887805 instance=ExtResource("11_ylo7w")]
+transform = Transform3D(1.3109031, 0, -5.8550434, 0, 5.9999995, 0, 5.8550434, 0, 1.3109031, -2.3445282, 0.07250595, -12.377216)
+
+[node name="tv_15" parent="decor" unique_id=383047510 instance=ExtResource("12_rru4l")]
+transform = Transform3D(0.003850465, 0, 0.0046015126, 0, 0.006, 0, -0.0046015126, 0, 0.003850465, -3.108069, 0.3156128, 9.928099)
+
+[node name="tv_16" parent="decor" unique_id=1572656585 instance=ExtResource("12_rru4l")]
+transform = Transform3D(-0.0054679876, 0, -0.002470041, 0, 0.006, 0, 0.002470041, 0, -0.0054679876, 10.252464, 0.3156128, 5.688616)
+
+[node name="tv_17" parent="decor" unique_id=662172179 instance=ExtResource("12_rru4l")]
+transform = Transform3D(-0.004078414, 0, -0.0044007422, 0, 0.006, 0, 0.0044007422, 0, -0.004078414, -2.9862003, 0.3156128, -5.598181)
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="decor" unique_id=2087580718]
+occluder = ExtResource("13_o2p2v")
+
 [node name="floor" type="Node3D" parent="." unique_id=1984927911]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=620957960]
@@ -204,6 +259,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12301254, 0)
 shape = SubResource("WorldBoundaryShape3D_oxp1g")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1361732489]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.691771, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1688496573]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.244071, 2.9979858, 20.794607)
@@ -220,62 +276,8 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.5
 size = Vector3(0.11968994, 6.9959717, 12.196289)
 material = ExtResource("4_6blaw")
 
-[node name="tv_1" parent="." unique_id=1832528154 instance=ExtResource("9_y1ug3")]
-transform = Transform3D(-5.509393, 0, -2.3762548, 0, 6, 0, 2.3762548, 0, -5.509393, -0.97642374, 1.4005451, 3.7160816)
-
-[node name="tv_4" parent="." unique_id=340280823 instance=ExtResource("9_y1ug3")]
-transform = Transform3D(5.2312884, 0, -2.9383025, 0, 6, 0, 2.9383025, 0, 5.2312884, -12.102119, 1.4005451, 11.040491)
-
-[node name="tv_3" parent="." unique_id=1122638259 instance=ExtResource("9_y1ug3")]
-transform = Transform3D(-5.9980335, 0, -0.1536076, 0, 6, 0, 0.1536076, 0, -5.9980335, -9.245543, 1.4005451, -10.013214)
-
-[node name="tv_2" parent="." unique_id=1808167694 instance=ExtResource("9_y1ug3")]
-transform = Transform3D(4.766424, 0, 3.6443381, 0, 6, 0, -3.6443381, 0, 4.766424, 1.5888629, 1.4005451, -2.8316536)
-
-[node name="tv_5" parent="." unique_id=1201236228 instance=ExtResource("10_juxgk")]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -6.0863304, 0.5969868, 3.3739414)
-
-[node name="tv_9" parent="." unique_id=1182307929 instance=ExtResource("10_juxgk")]
-transform = Transform3D(-6.280374, 0, -4.955492, 0, 8, 0, 4.955492, 0, -6.280374, 12.596363, 0.5969868, 10.101404)
-
-[node name="tv_6" parent="." unique_id=184698082 instance=ExtResource("10_juxgk")]
-transform = Transform3D(2.390194, 0, 7.6345906, 0, 8, 0, -7.6345906, 0, 2.390194, -6.0863304, 0.5969868, -6.4755497)
-
-[node name="tv_7" parent="." unique_id=980953982 instance=ExtResource("10_juxgk")]
-transform = Transform3D(6.3266277, 0, -4.896303, 0, 8, 0, 4.896303, 0, 6.3266277, 11.95372, 0.5969868, -6.4755497)
-
-[node name="tv_8" parent="." unique_id=894042343 instance=ExtResource("10_juxgk")]
-transform = Transform3D(6.3266277, 0, -4.896303, 0, 8, 0, 4.896303, 0, 6.3266277, 2.609085, 0.5969868, 10.628454)
-
-[node name="tv_10" parent="." unique_id=325259021 instance=ExtResource("11_ylo7w")]
-transform = Transform3D(5.4767914, 0, 2.4504607, 0, 6, 0, -2.4504607, 0, 5.4767914, 10.816565, 0.07250595, 0.17484474)
-
-[node name="tv_13" parent="." unique_id=1444419845 instance=ExtResource("11_ylo7w")]
-transform = Transform3D(1.6571453, 0, -5.766617, 0, 5.9999995, 0, 5.766617, 0, 1.6571453, 6.9022207, 0.07250595, 0.17484474)
-
-[node name="tv_14" parent="." unique_id=50733432 instance=ExtResource("11_ylo7w")]
-transform = Transform3D(-4.926776, 0, -3.4244533, 0, 5.9999995, 0, 3.4244533, 0, -4.926776, -6.789893, 0.07250595, 9.017286)
-
-[node name="tv_11" parent="." unique_id=1852875600 instance=ExtResource("11_ylo7w")]
-transform = Transform3D(1.3109031, 0, -5.8550434, 0, 5.9999995, 0, 5.8550434, 0, 1.3109031, -11.950117, 0.07250595, 0.17484474)
-
-[node name="tv_12" parent="." unique_id=841887805 instance=ExtResource("11_ylo7w")]
-transform = Transform3D(1.3109031, 0, -5.8550434, 0, 5.9999995, 0, 5.8550434, 0, 1.3109031, -2.3445282, 0.07250595, -12.377216)
-
-[node name="tv_15" parent="." unique_id=383047510 instance=ExtResource("12_rru4l")]
-transform = Transform3D(0.003850465, 0, 0.0046015126, 0, 0.006, 0, -0.0046015126, 0, 0.003850465, -3.108069, 0.3156128, 9.928099)
-
-[node name="tv_16" parent="." unique_id=1572656585 instance=ExtResource("12_rru4l")]
-transform = Transform3D(-0.0054679876, 0, -0.002470041, 0, 0.006, 0, 0.002470041, 0, -0.0054679876, 10.252464, 0.3156128, 5.688616)
-
-[node name="tv_17" parent="." unique_id=662172179 instance=ExtResource("12_rru4l")]
-transform = Transform3D(-0.004078414, 0, -0.0044007422, 0, 0.006, 0, 0.0044007422, 0, -0.004078414, -2.9862003, 0.3156128, -5.598181)
-
-[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=2087580718]
-occluder = ExtResource("13_o2p2v")
-
 [node name="door" parent="." unique_id=1196333875 instance=ExtResource("1_36trf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2548171, 2.217392, 15.29582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.946588, 2.217392, 15.29582)
 
 [connection signal="body_entered" from="updator" to="." method="_on_updator_body_entered"]
 [connection signal="body_entered" from="decor/Area3D" to="decor/Area3D" method="_on_body_entered"]

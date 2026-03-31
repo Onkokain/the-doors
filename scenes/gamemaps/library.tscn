@@ -11,7 +11,7 @@
 [ext_resource type="ArrayOccluder3D" uid="uid://bvs0ukkm77qrt" path="res://baked occlusion scenes/library.occ" id="12_aotgj"]
 [ext_resource type="PackedScene" uid="uid://ch2sqs27dc4s0" path="res://scenes/assets/furniture/chest.tscn" id="14_o5f1n"]
 [ext_resource type="PackedScene" uid="uid://boi866841lpv4" path="res://scenes/assets/furniture/bookshelf.tscn" id="15_xgxdy"]
-[ext_resource type="PackedScene" uid="uid://cngtetqnup6ps" path="res://scenes/entities/wall_light.tscn" id="17_6blaw"]
+[ext_resource type="PackedScene" uid="uid://2yd50od1jaxs" path="res://scenes/entities/wall_light.tscn" id="17_6blaw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
 size = Vector3(6.814453, 9.462402, 1)
@@ -35,13 +35,13 @@ use_collision = true
 script = ExtResource("1_ffxv4")
 
 [node name="door" parent="." unique_id=1196333875 instance=ExtResource("1_36trf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.588605, 2.217392, 15.29582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.495185, 2.217392, 15.29582)
 
 [node name="ExitMarker" type="Marker3D" parent="." unique_id=412077109]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.843422, 0, 42.244835)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.240368, 0, 42.244835)
 
 [node name="Label3D" type="Label3D" parent="." unique_id=309539866]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -10.306123, 5.495962, 14.617483)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 12.777667, 5.495962, 14.617483)
 pixel_size = 0.03
 text = "1"
 font = ExtResource("3_qjeoa")
@@ -167,7 +167,7 @@ size = Vector3(35.58203, 0.9898529, 0.491333)
 material = ExtResource("4_6blaw")
 
 [node name="door wall cutout" type="CSGBox3D" parent="walls" unique_id=1041976223]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.19086, 2.4377308, 14.679522)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.89293, 2.4377308, 14.679522)
 ignore_occlusion_culling = true
 operation = 2
 size = Vector3(3.0489502, 4.9295692, 0.7310791)
@@ -336,7 +336,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13.
 transform = Transform3D(0.10359107, 0, 0.99461997, 0, 1, 0, -0.99461997, 0, 0.10359107, 12.57757, 1.0671482, -12.306412)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1773959290]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.907026, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.176764, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1236055989]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.244071, 2.9979858, 20.794607)

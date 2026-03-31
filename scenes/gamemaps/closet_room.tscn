@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cbo6rdnsq2731" path="res://assets/public materials/stylized_wood_pbr_material_0.png" id="6_0dvdo"]
 [ext_resource type="PackedScene" uid="uid://befj2xtxekpuv" path="res://scenes/entities/closet.tscn" id="6_7x1sp"]
 [ext_resource type="Texture2D" uid="uid://br7h5phbhttrw" path="res://assets/public assets/bedside_table/bedside_table_0.jpg" id="6_o5f1n"]
-[ext_resource type="PackedScene" uid="uid://cngtetqnup6ps" path="res://scenes/entities/wall_light.tscn" id="7_tyd3v"]
+[ext_resource type="PackedScene" uid="uid://2yd50od1jaxs" path="res://scenes/entities/wall_light.tscn" id="7_tyd3v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
 size = Vector3(5.7139893, 9.462402, 1)
@@ -31,15 +31,16 @@ use_collision = true
 script = ExtResource("1_ffxv4")
 
 [node name="ExitMarker" type="Marker3D" parent="." unique_id=412077109]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42.244835)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.559402, 0, 42.244835)
 
 [node name="Label3D" type="Label3D" parent="." unique_id=309539866]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.46270072, 5.495962, 14.617483)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -13.022104, 5.495962, 14.617483)
 pixel_size = 0.03
 text = "1"
 font = ExtResource("3_qjeoa")
 
 [node name="updator" type="Area3D" parent="." unique_id=1750448096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.559402, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="updator" unique_id=1071553891]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93779373, 4.231201, -13.311024)
@@ -159,7 +160,7 @@ size = Vector3(35.58203, 0.9898529, 0.491333)
 material = ExtResource("4_6blaw")
 
 [node name="door wall cutout" type="CSGBox3D" parent="walls" unique_id=1041976223]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34743786, 2.4377308, 14.679522)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.906841, 2.4377308, 14.679522)
 operation = 2
 size = Vector3(3.0489502, 4.9295692, 0.7310791)
 material = ExtResource("4_6blaw")
@@ -240,6 +241,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12301254, 0)
 shape = SubResource("WorldBoundaryShape3D_oxp1g")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1361732489]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.559402, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1688496573]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.244071, 2.9979858, 20.794607)
@@ -257,6 +259,6 @@ size = Vector3(0.11968994, 6.9959717, 12.196289)
 material = ExtResource("4_6blaw")
 
 [node name="door" parent="." unique_id=1196333875 instance=ExtResource("1_36trf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2548171, 2.217392, 15.29582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.304586, 2.217392, 15.29582)
 
 [connection signal="body_entered" from="updator" to="." method="_on_updator_body_entered"]

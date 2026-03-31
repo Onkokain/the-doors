@@ -3,10 +3,17 @@
 [ext_resource type="Script" uid="uid://d1gomfab7a1il" path="res://scripts/gamemaps/room.gd" id="1_ffxv4"]
 [ext_resource type="FontFile" uid="uid://cicxmv8cu64m2" path="res://fonts/Creepy Blood.ttf" id="3_qjeoa"]
 [ext_resource type="Material" uid="uid://b0ltckauk0x8p" path="res://materials/wood_walls.tres" id="4_6blaw"]
-[ext_resource type="PackedScene" uid="uid://cngtetqnup6ps" path="res://scenes/entities/wall_light.tscn" id="5_cipcg"]
+[ext_resource type="PackedScene" uid="uid://2yd50od1jaxs" path="res://scenes/entities/wall_light.tscn" id="5_cipcg"]
 [ext_resource type="Texture2D" uid="uid://cbo6rdnsq2731" path="res://assets/public materials/stylized_wood_pbr_material_0.png" id="6_0dvdo"]
 [ext_resource type="Texture2D" uid="uid://br7h5phbhttrw" path="res://assets/public assets/bedside_table/bedside_table_0.jpg" id="6_o5f1n"]
+[ext_resource type="PackedScene" uid="uid://bnui2mjhxk4tm" path="res://scenes/assets/furniture/couch.tscn" id="6_u2icd"]
 [ext_resource type="Script" uid="uid://dekax8kjm4vq8" path="res://scripts/systems/gameover_won.gd" id="7_8fv13"]
+[ext_resource type="PackedScene" uid="uid://boi866841lpv4" path="res://scenes/assets/furniture/bookshelf.tscn" id="7_jyjom"]
+[ext_resource type="PackedScene" uid="uid://dpgkioa12n3en" path="res://scenes/assets/furniture/crate.tscn" id="8_ogb4a"]
+[ext_resource type="PackedScene" uid="uid://c56gf3nkk8l1q" path="res://scenes/assets/furniture/low_table.tscn" id="9_xpnw4"]
+[ext_resource type="PackedScene" uid="uid://ch2sqs27dc4s0" path="res://scenes/assets/furniture/chest.tscn" id="10_ru87y"]
+[ext_resource type="PackedScene" uid="uid://chme7u8ud8fmu" path="res://scenes/assets/furniture/lamptable.tscn" id="11_gvlsx"]
+[ext_resource type="PackedScene" uid="uid://eyxvmq7w2flb" path="res://scenes/entities/lamp.tscn" id="12_4st3m"]
 [ext_resource type="PackedScene" uid="uid://bvafej76q2um6" path="res://scenes/assets/furniture/floormat.tscn" id="12_6blaw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
@@ -28,6 +35,9 @@ material = SubResource("StandardMaterial3D_qan31")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cipcg"]
 albedo_color = Color(1, 0.706, 0.16000003, 1)
 albedo_texture = ExtResource("6_o5f1n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wmmw1"]
+albedo_color = Color(0.7176471, 0, 0, 0.46666667)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8xqwj"]
 size = Vector3(16.017578, 3.9667969, 6.5421143)
@@ -186,10 +196,67 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.01
 [node name="Node3D4" parent="decor" unique_id=1246718362 instance=ExtResource("5_cipcg")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.447296, 6.8347416, 14.997488)
 
+[node name="Node3D5" parent="decor" unique_id=179517213 instance=ExtResource("6_u2icd")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.585979, 1.5605164, -5.6496716)
+
+[node name="Node3D6" parent="decor" unique_id=1937612806 instance=ExtResource("7_jyjom")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.299026, -0.12301254, 0.850708)
+
+[node name="Node3D7" parent="decor" unique_id=391984766 instance=ExtResource("7_jyjom")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.299026, -0.12301254, 4.497345)
+
+[node name="Node3D8" parent="decor" unique_id=464085642 instance=ExtResource("7_jyjom")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.299026, -0.12301254, 8.096121)
+
+[node name="crate" parent="decor" unique_id=754083182 instance=ExtResource("8_ogb4a")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -11.260788, -0.12301254, -10.256422)
+
+[node name="crate2" parent="decor" unique_id=1180407237 instance=ExtResource("8_ogb4a")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -13.487932, -0.12301254, -10.256422)
+
+[node name="crate3" parent="decor" unique_id=1810051469 instance=ExtResource("8_ogb4a")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -13.487932, -0.12301254, -12.943708)
+
+[node name="crate4" parent="decor" unique_id=1585678660 instance=ExtResource("8_ogb4a")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -12.581139, 1.5885334, -9.985888)
+
+[node name="crate5" parent="decor" unique_id=1191511288 instance=ExtResource("8_ogb4a")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -12.581139, 1.5885334, -13.07024)
+
+[node name="crate6" parent="decor" unique_id=709953909 instance=ExtResource("8_ogb4a")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -11.370584, -0.0026302338, -13.07024)
+
+[node name="Node3D9" parent="decor" unique_id=1967974127 instance=ExtResource("9_xpnw4")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.990759, -0.12301254, -2.0700855)
+
+[node name="chest" parent="decor" unique_id=854197798 instance=ExtResource("10_ru87y")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.915949, 0.52267456, -4.3045273)
+
+[node name="chest4" parent="decor" unique_id=1983129083 instance=ExtResource("10_ru87y")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.005958, 0.52267456, -1.6528053)
+
+[node name="chest5" parent="decor" unique_id=788949646 instance=ExtResource("10_ru87y")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.895013, 0.52267456, -7.5887413)
+
+[node name="chest6" parent="decor" unique_id=1482567844 instance=ExtResource("10_ru87y")]
+transform = Transform3D(-0.9979448, 0.06407946, -8.72431e-08, 0.06407946, 0.9979448, 5.6020046e-09, 8.742278e-08, 0, -1, -12.143628, 3.8285923, -9.841135)
+
+[node name="chest2" parent="decor" unique_id=893424276 instance=ExtResource("10_ru87y")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -13.621821, 0.52267456, 5.397753)
+
+[node name="chest3" parent="decor" unique_id=805215752 instance=ExtResource("10_ru87y")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12.638011, 0.52267456, 8.964357)
+
+[node name="Node3D10" parent="decor" unique_id=1992892835 instance=ExtResource("11_gvlsx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.20504, -0.12301254, -14.351379)
+
+[node name="lamp" parent="decor" unique_id=1792009558 instance=ExtResource("12_4st3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7.2209435, -0.08872032, -18.92509)
+
 [node name="floor" type="Node3D" parent="." unique_id=1984927911]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=620957960]
-transform = Transform3D(24.70394, 0, 0, 0, 0.73599076, 0, 0, 0, 30.724575, 0.8695431, 0.015729904, 4.682003)
+transform = Transform3D(24.70394, 0, 0, 0, 0.73599076, 0, 0, 0, 30.724575, 0.8582964, -0.0065364838, 4.6759987)
 mesh = SubResource("PlaneMesh_8f3np")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="floor" unique_id=1962419449]
@@ -227,6 +294,11 @@ material = SubResource("StandardMaterial3D_cipcg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.702034, 10.163641)
 size = Vector3(15.144531, 1, 5.098633)
 material = SubResource("StandardMaterial3D_cipcg")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1925772637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7087345, 10.163641)
+size = Vector3(12.228516, 1, 2.803711)
+material = SubResource("StandardMaterial3D_wmmw1")
 
 [node name="Label3D2" type="Label3D" parent="." unique_id=1370677969]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.86465096, 3.2157173, 10.550528)
