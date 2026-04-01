@@ -34,7 +34,8 @@ void fragment() {
 	float haze_secondary = noise(uv * haze_scale * 2.2 - vec2(time * 1.6, time));
 	float haze = clamp(haze_primary * 0.7 + haze_secondary * 0.3, 0.0, 1.0);
 	float scanline = sin((uv.y + TIME * 0.2) * 900.0) * 0.5 + 0.5;
-	float grain = hash(uv * VIEWPORT_SIZE.xy + fract(TIME) * 2400.0) - 0.5;
+	vec2 viewport_size = 1.0 / SCREEN_PIXEL_SIZE;
+	float grain = hash(uv * viewport_size + vec2(fract(TIME) * 2400.0)) - 0.5;
 	float vignette = smoothstep(0.38, 0.95, length((uv - 0.5) * vec2(1.3, 1.0)));
 	vec3 color = base_tint.rgb;
 	color += haze_tint.rgb * haze * haze_tint.a * (0.85 + 0.15 * sin(TIME * 0.7));

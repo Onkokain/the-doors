@@ -37,6 +37,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.104858, 0, 42.244835)
 [node name="Label3D" type="Label3D" parent="." unique_id=309539866]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10.6421585, 5.495962, 14.617483)
 pixel_size = 0.03
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 0.25490198)
 text = "1"
 font = ExtResource("2_xpx2i")
 

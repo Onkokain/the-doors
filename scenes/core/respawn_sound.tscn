@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dgvpc4k8yhsoy"]
+
+[ext_resource type="AudioStream" uid="uid://dcowsxvuqhh4o" path="res://assets/music/respawn.mp3" id="1_hcuol"]
+
+[node name="respawn" type="AudioStreamPlayer2D" unique_id=1997342400]
+stream = ExtResource("1_hcuol")

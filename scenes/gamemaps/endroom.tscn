@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://chme7u8ud8fmu" path="res://scenes/assets/furniture/lamptable.tscn" id="11_gvlsx"]
 [ext_resource type="PackedScene" uid="uid://eyxvmq7w2flb" path="res://scenes/entities/lamp.tscn" id="12_4st3m"]
 [ext_resource type="PackedScene" uid="uid://bvafej76q2um6" path="res://scenes/assets/furniture/floormat.tscn" id="12_6blaw"]
+[ext_resource type="PackedScene" uid="uid://dgvpc4k8yhsoy" path="res://scenes/core/respawn_sound.tscn" id="16_jyjom"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffxv4"]
 size = Vector3(4.711548, 9.462402, 1)
@@ -314,6 +315,8 @@ script = ExtResource("7_8fv13")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1204904275]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4181461, 10.037771)
 shape = SubResource("BoxShape3D_8xqwj")
+
+[node name="respawn" parent="Area3D" unique_id=1997342400 instance=ExtResource("16_jyjom")]
 
 [connection signal="body_entered" from="updator" to="." method="_on_updator_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

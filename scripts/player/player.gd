@@ -43,18 +43,15 @@ var bob_t := 0.0
 
 func _ready() -> void:
 	Background.playing = false
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	camera.rotation.z = 0.0
+	set_pause_state(false)
 
 
 func _input(event: InputEvent) -> void:
 	if _should_recapture_mouse(event):
 		_capture_mouse()
 		return
-
-	if event.is_action_pressed("pause") or Global.player_reset_button:
-		_toggle_pause()
 
 	if not is_locked:
 		return
@@ -114,15 +111,18 @@ func _should_recapture_mouse(event: InputEvent) -> bool:
 
 
 func _capture_mouse() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	is_locked = true
+	set_pause_state(false)
 
 
-func _toggle_pause() -> void:
-	is_locked = not is_locked
-	get_tree().paused = not is_locked
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if is_locked else Input.MOUSE_MODE_VISIBLE
-	cursor_ui.visible = is_locked
+func toggle_pause_state() -> void:
+	set_pause_state(not get_tree().paused)
+
+
+func set_pause_state(should_pause: bool) -> void:
+	is_locked = not should_pause
+	get_tree().paused = should_pause
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if should_pause else Input.MOUSE_MODE_CAPTURED
+	cursor_ui.visible = not should_pause
 
 
 func _toggle_flight_mode() -> void:

@@ -1,5 +1,7 @@
 extends Panel
 
+const BUTTON_HOVER_SOUND = preload("res://assets/music/button_hover.mp3")
+const BUTTON_PRESS_SOUND = preload("res://assets/music/button_press.mp3")
 const CARD_NORMAL_TINT := Color(1.0, 1.0, 1.0, 0.96)
 const CARD_HOVER_TINT := Color(1.0, 0.9, 0.92, 1.0)
 const CARD_PRESSED_TINT := Color(1.0, 0.82, 0.86, 1.0)
@@ -28,16 +30,17 @@ var hover_tweens := {}
 var hovered_cards := {}
 var pressed_cards := {}
 var card_labels := {}
+var configured_buttons := {}
 var ambient_time := 0.0
 var title_base_position := Vector2.ZERO
 var shadow_base_position := Vector2.ZERO
 var subtitle_base_position := Vector2.ZERO
+var hover_player: AudioStreamPlayer
+var press_player: AudioStreamPlayer
 
 
 func _ready() -> void:
 	spawn_position = player.global_position
-	statistics_menu.visible = false
-	rooms_list.visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 	title_base_position = title_label.position
@@ -46,11 +49,12 @@ func _ready() -> void:
 	title_shadow.z_index = 0
 	title_label.z_index = 1
 	menu_frame.pivot_offset = menu_frame.size / 2.0
+	_setup_ui_sound_players()
 
+	_reset_submenu_state()
 	_update_menu_state(false)
 
-	for button in [achievements, quit_game, settings, return_inside_door_list]:
-		_configure_hover(button)
+	_configure_buttons_in(self)
 
 
 func _input(event: InputEvent) -> void:
@@ -74,37 +78,72 @@ func _process(delta: float) -> void:
 
 
 func _toggle_pause() -> void:
-	paused = not paused
-	get_tree().paused = paused
+	if player == null:
+		return
 
-	if not paused:
-		statistics_menu.visible = false
-		rooms_list.visible = false
-		container.visible = false
+	var should_pause := not get_tree().paused
+	player.set_pause_state(should_pause)
+	paused = should_pause
 
-	_update_menu_state(paused)
+	if should_pause:
+		_reset_submenu_state()
+
+	_update_menu_state(should_pause)
 
 	if is_instance_valid(Background):
-		Background.playing = paused
+		Background.playing = should_pause
 
 
 func _update_menu_state(should_show: bool) -> void:
 	panel.visible = should_show
 
 	if should_show:
-		container.visible = true
-		quit_game.visible = true
-		settings.visible = true
-		achievements.visible = true
+		_show_main_menu()
 	else:
-		container.visible = false
-		quit_game.visible = false
-		settings.visible = false
-		achievements.visible = false
+		_hide_all_menus()
 
 
-func _configure_hover(button: TextureButton) -> void:
-	var card := button.get_parent() as Control
+func _show_main_menu() -> void:
+	container.visible = true
+	center_container.visible = true
+	menu_frame.visible = true
+	statistics_menu.visible = false
+	rooms_list.visible = false
+	quit_game.visible = true
+	settings.visible = true
+	achievements.visible = true
+
+
+func _hide_all_menus() -> void:
+	container.visible = false
+	center_container.visible = false
+	menu_frame.visible = false
+	statistics_menu.visible = false
+	rooms_list.visible = false
+	quit_game.visible = false
+	settings.visible = false
+	achievements.visible = false
+
+
+func _reset_submenu_state() -> void:
+	statistics_menu.visible = false
+	rooms_list.visible = false
+	_show_main_menu()
+
+
+func _configure_buttons_in(node: Node) -> void:
+	for child in node.get_children():
+		if child is BaseButton:
+			_configure_hover(child)
+		_configure_buttons_in(child)
+
+
+func _configure_hover(button: BaseButton) -> void:
+	if configured_buttons.has(button):
+		return
+
+	configured_buttons[button] = true
+	var card := _resolve_card(button)
 	if card == null:
 		return
 
@@ -119,11 +158,18 @@ func _configure_hover(button: TextureButton) -> void:
 	button.mouse_exited.connect(_set_button_hover.bind(card, false))
 	button.focus_entered.connect(_set_button_hover.bind(card, true))
 	button.focus_exited.connect(_set_button_hover.bind(card, false))
-	button.button_down.connect(_set_button_pressed.bind(card, true))
+	button.button_down.connect(_on_button_down.bind(card))
 	button.button_up.connect(_set_button_pressed.bind(card, false))
 
 
-func _find_card_label(button: TextureButton) -> Label:
+func _resolve_card(button: BaseButton) -> Control:
+	var parent := button.get_parent() as Control
+	if parent is PanelContainer or parent is Panel:
+		return parent
+	return button as Control
+
+
+func _find_card_label(button: BaseButton) -> Label:
 	for child in button.get_children():
 		if child is Label:
 			return child
@@ -136,8 +182,27 @@ func _sync_card_pivot(card: Control) -> void:
 	card.pivot_offset = card.size / 2.0
 
 
+func _setup_ui_sound_players() -> void:
+	hover_player = AudioStreamPlayer.new()
+	hover_player.stream = BUTTON_HOVER_SOUND
+	hover_player.bus = &"effects"
+	hover_player.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(hover_player)
+
+	press_player = AudioStreamPlayer.new()
+	press_player.stream = BUTTON_PRESS_SOUND
+	press_player.bus = &"effects"
+	press_player.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(press_player)
+
+
 func _set_button_hover(card: Control, hovered: bool) -> void:
+	var was_hovered: bool = hovered_cards.get(card, false)
 	hovered_cards[card] = hovered
+
+	if hovered and not was_hovered:
+		_play_ui_hover()
+
 	_update_button_state(card)
 
 
@@ -146,10 +211,15 @@ func _set_button_pressed(card: Control, pressed: bool) -> void:
 	_update_button_state(card)
 
 
+func _on_button_down(card: Control) -> void:
+	_set_button_pressed(card, true)
+	_play_ui_press()
+
+
 func _update_button_state(card: Control) -> void:
 	_sync_card_pivot(card)
 
-	var existing: Tween = hover_tweens.get(card)
+	var existing: Tween = hover_tweens.get(card) as Tween
 	if existing != null:
 		existing.kill()
 
@@ -177,8 +247,20 @@ func _update_button_state(card: Control) -> void:
 		tween.parallel().tween_property(label, "modulate", label_tint, 0.14)
 
 
+func _play_ui_hover() -> void:
+	if hover_player != null:
+		hover_player.play()
+
+
+func _play_ui_press() -> void:
+	if press_player != null:
+		press_player.play()
+
+
 func _on_quit_game_pressed() -> void:
-	get_tree().paused = false
+	if player != null:
+		player.set_pause_state(false)
+	paused = false
 	get_tree().change_scene_to_file("res://scenes/core/main_menu.tscn")
 
 
@@ -186,7 +268,9 @@ func _on_settings_pressed() -> void:
 	if player:
 		player.global_position = spawn_position
 		player.velocity = Vector3.ZERO
-		_toggle_pause()
+		player.set_pause_state(false)
+		paused = false
+		_update_menu_state(false)
 		Global.player_reset_button = true
 		await get_tree().create_timer(0.01).timeout
 		Global.player_reset_button = false
@@ -195,12 +279,9 @@ func _on_settings_pressed() -> void:
 func _on_achievements_pressed() -> void:
 	statistics_menu.visible = true
 	container.visible = false
-	center_container.visible=false
-	menu_frame.visible=false
+	center_container.visible = false
+	menu_frame.visible = false
 
 
 func _on_return_pressed() -> void:
-	statistics_menu.visible = false
-	container.visible = true
-	center_container.visible=true
-	menu_frame.visible=true
+	_show_main_menu()

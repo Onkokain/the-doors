@@ -455,7 +455,6 @@ script = ExtResource("11_ya4ey")
 [node name="Utilities" type="Node" parent="." unique_id=1158348240]
 
 [node name="red_flash" type="CanvasLayer" parent="Utilities" unique_id=2144430444]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Utilities/red_flash" unique_id=71166008]
 modulate = Color(1, 1, 1, 0)

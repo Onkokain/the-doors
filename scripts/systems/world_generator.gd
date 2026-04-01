@@ -9,31 +9,28 @@ extends Node3D
 var generation_finished: bool = false
 const END_ROOM_INDEX: int = 25
 
-# --- THE CACHE ---
 var room_cache: Dictionary = {} 
 var current_room_index: int = 0
 
-# --- DISTANCE OPTIMIZATIONS ---
 var check_timer: float = 0.0
 const CHECK_INTERVAL: float = 0.2 
 
-# --- GENERATION STATE ---
 var prev_room_type: String = "straight"
 var straight_buffer: int = 3
 var net_rotation: int = 0
 
 @export var room_data: Array[Dictionary] = [
-	{"name": "hallway", "scene": preload("res://scenes/gamemaps/hallway.tscn"), "weight": 30.0, "type": "straight"},
-	{"name": "library_broken", "scene": preload("res://scenes/gamemaps/library_broken.tscn"), "weight": 20.0, "type": "straight"},
-	{"name": "library", "scene": preload("res://scenes/gamemaps/library.tscn"), "weight": 35.0, "type": "straight"},
-	{"name": "piano_room", "scene": preload("res://scenes/gamemaps/piano_room.tscn"), "weight": 35.0, "type": "straight"},
-	{"name": "clock_room", "scene": preload("res://scenes/gamemaps/clock_room.tscn"), "weight": 20.0, "type": "straight"},
+	{"name": "hallway", "scene": preload("res://scenes/gamemaps/hallway.tscn"), "weight": 10.0, "type": "straight"},
+	{"name": "library_broken", "scene": preload("res://scenes/gamemaps/library_broken.tscn"), "weight": 10.0, "type": "straight"},
+	{"name": "library", "scene": preload("res://scenes/gamemaps/library.tscn"), "weight": 20.0, "type": "straight"},
+	{"name": "piano_room", "scene": preload("res://scenes/gamemaps/piano_room.tscn"), "weight": 20.0, "type": "straight"},
+	{"name": "clock_room", "scene": preload("res://scenes/gamemaps/clock_room.tscn"), "weight": 15.0, "type": "straight"},
 	{"name": "rotate_left", "scene": preload("res://scenes/gamemaps/rotate_left.tscn"), "weight": 20.0, "type": "left"},
 	{"name": "rotate_right", "scene": preload("res://scenes/gamemaps/rotate_right.tscn"), "weight": 20.0, "type": "right"},
 	{"name": "closet_room", "scene": preload("res://scenes/gamemaps/closet_room.tscn"), "weight": 20.0, "type": "straight"},
-	{"name": "tv_room", "scene": preload("res://scenes/gamemaps/tv_room.tscn"), "weight": 20.0, "type": "straight"},
-	{"name": "tv_room", "scene": preload("res://scenes/gamemaps/rocking_chair_room.tscn"), "weight": 2000.0, "type": "straight"},
-	{"name": "tv_room", "scene": preload("res://scenes/gamemaps/bar.tscn"), "weight": 20.0, "type": "straight"},
+	{"name": "tv_room", "scene": preload("res://scenes/gamemaps/tv_room.tscn"), "weight": 15.0, "type": "straight"},
+	{"name": "rocking_chair", "scene": preload("res://scenes/gamemaps/rocking_chair_room.tscn"), "weight": 20.0, "type": "straight"},
+	{"name": "bar", "scene": preload("res://scenes/gamemaps/bar.tscn"), "weight": 20.0, "type": "straight"},
 
 
 ]
@@ -105,7 +102,7 @@ func _refresh_window():
 			_generate_new_room(idx)
 
 func _generate_new_room(index: int):
-	var selected_data: Dictionary # Now storing the whole dictionary
+	var selected_data: Dictionary 
 	
 	if index == 0:
 		selected_data = {"name": "lobby", "scene": lobby_scene}
@@ -127,13 +124,11 @@ func _generate_new_room(index: int):
 				new_room.global_transform = exit.global_transform
 	
 	if new_room.has_method("set_room_info"):
-		# FIX: Pass the real name (e.g., "piano_room") instead of the hardcoded "room"
 		new_room.set_room_info(index, selected_data["name"])
 
 	room_cache[index] = new_room
 	add_child(new_room)
 
-# UPDATED: This now returns the whole Dictionary, not just the Scene
 func _pick_random_room_data() -> Dictionary:
 	var valid_indices: Array[int] = []
 	var total_weight: float = 0.0

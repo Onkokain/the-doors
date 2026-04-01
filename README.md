@@ -1,3 +1,5 @@
+# Note
+If the game is lagging a lot in full screen please disable it :D
 # The Doors 
 
 The Doors is a first-person atmospheric horror game I built with Godot 4.6. It currently includes 10 different  rooms each with an atmosphere with its own. The main objective of the room is get to room 25, where the game currently ends.
@@ -65,3 +67,4 @@ Optionally, you can also change the controls in the settings menu!
 My main inspiration to build this copy was the Roblox game 'Doors'. I've always been fascinated by the concept of the game and wanted to recreate it on my own, add new features and improve the overall gameplay loop. I've always been fascinated by 3D games and I took this opportunity to make one on my own.
 # Development Status
 This is my first 3D project, and I am currently pushing updates every few days.
+P.S all the latest updates are being shipped to [The Doors Debug](https://baralekogyan.itch.io/the-doors-debug)

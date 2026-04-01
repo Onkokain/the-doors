@@ -12,7 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://cs01mjx4ld0qg" path="res://assets/public assets/petate_carpet_straw_carpet_straw_rug/petate_carpet_straw_carpet_straw_rug_2.png" id="9_o2i1r"]
 [ext_resource type="ArrayOccluder3D" uid="uid://jmn80vppkiyj" path="res://scenes/gamemaps/occlusion/lobby.occ" id="13_dyhay"]
 [ext_resource type="PackedScene" uid="uid://bnui2mjhxk4tm" path="res://scenes/assets/furniture/couch.tscn" id="13_qjeoa"]
-[ext_resource type="PackedScene" uid="uid://cngtetqnup6ps" path="res://scenes/entities/wall_light.tscn" id="14_q6qq2"]
+[ext_resource type="PackedScene" uid="uid://2yd50od1jaxs" path="res://scenes/entities/wall_light.tscn" id="14_q6qq2"]
+[ext_resource type="PackedScene" uid="uid://dgvpc4k8yhsoy" path="res://scenes/core/respawn_sound.tscn" id="14_r1t3a"]
 [ext_resource type="PackedScene" uid="uid://boi866841lpv4" path="res://scenes/assets/furniture/bookshelf.tscn" id="15_xgxdy"]
 [ext_resource type="PackedScene" uid="uid://c56gf3nkk8l1q" path="res://scenes/assets/furniture/low_table.tscn" id="16_8tebx"]
 [ext_resource type="PackedScene" uid="uid://dgxrd460hgqnf" path="res://scenes/assets/furniture/big_cabinet.tscn" id="17_qjeoa"]
@@ -268,7 +269,7 @@ mesh = SubResource("ArrayMesh_3eero")
 [node name="floor" type="Node3D" parent="." unique_id=1984927911]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=620957960]
-transform = Transform3D(24.70394, 0, 0, 0, 0.73599076, 0, 0, 0, 30.724575, 0.8695431, 0.015729904, 4.682003)
+transform = Transform3D(24.70394, 0, 0, 0, 0.73599076, 0, 0, 0, 30.724575, 0.86524534, 0.015729904, 4.684679)
 mesh = SubResource("PlaneMesh_8f3np")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="floor" unique_id=1962419449]
@@ -410,6 +411,8 @@ billboard = 1
 modulate = Color(0.67481464, 0.67481464, 0.6748146, 1)
 text = "Reset Rooms"
 font = ExtResource("3_qjeoa")
+
+[node name="respawn" parent="spawn room/Area3D" unique_id=1997342400 instance=ExtResource("14_r1t3a")]
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="spawn room" unique_id=502070066]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.239382, 4.4085197, -12.687578)
