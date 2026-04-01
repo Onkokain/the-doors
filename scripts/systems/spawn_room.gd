@@ -6,5 +6,5 @@ extends CSGCombiner3D
 
 func _process(_delta: float) -> void:
 	doors_opened.text=str(Global.doors_opened)
-	rooms_visited.text=str(Global.unique_room_visited)+"/10"
+	rooms_visited.text=str(Global.unique_room_visited)+"/12"
 	coins_collected.text=str(Global.coins)

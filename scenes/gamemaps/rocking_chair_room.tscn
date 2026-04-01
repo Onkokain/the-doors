@@ -223,7 +223,7 @@ material = ExtResource("4_37hw5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.359676, 2.217392, 15.29582)
 
 [node name="rocking_chair" parent="." unique_id=1028523917 instance=ExtResource("8_0p0mo")]
-transform = Transform3D(6.0000014, 0, 0, 0, -2.6226837e-07, 6.0000014, 0, -6.000001, -2.622684e-07, -0.6096566, 0.9222851, 2.046358)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6096566, 0.9222851, 2.046358)
 
 [node name="crate" parent="." unique_id=754083182 instance=ExtResource("9_xpx2i")]
 transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 7.697839, -0.12301254, 1.3078766)

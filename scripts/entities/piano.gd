@@ -1,4 +1,5 @@
 extends Node3D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var label: Label3D = $Area3D/Label3D
 @onready var music: AudioStreamPlayer3D = $AudioStreamPlayer3D
@@ -26,3 +27,5 @@ func play_interaction_music() -> void:
 	if not music.playing:
 		music.play()
 		label.visible = false
+		await get_tree().create_timer(10).timeout
+		animation_player.play('kaboom')

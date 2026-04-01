@@ -17,6 +17,12 @@ func update_button_text():
 	var events = InputMap.action_get_events(action_name)
 	if events.size() > 0:
 		text = events[0].as_text().trim_suffix(" - Physical")
+		if text.contains("Left Mouse"):
+			text="LMB"
+		elif text.contains("Right Mouse"):
+			text="RMB"
+		elif text.contains("Middle Mouse"):
+			text="MMB"
 	else:
 		text = "Unbound"
 

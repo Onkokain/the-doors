@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dhgnmdmeobdyw" path="res://scenes/temporary to review/rocking_chair_0.png" id="1_y5clj"]
 [ext_resource type="Texture2D" uid="uid://dns8fwqjipclt" path="res://scenes/temporary to review/rocking_chair_1.png" id="2_p7hsv"]
 [ext_resource type="Texture2D" uid="uid://0hb3xfdicepx" path="res://scenes/temporary to review/rocking_chair_2.png" id="3_chg7i"]
+[ext_resource type="PackedScene" uid="uid://dvs7l2lovtcd7" path="res://scenes/entities/anabelle.tscn" id="5_chg7i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lqokb"]
 resource_name = "DefaultMaterial"
@@ -104,12 +105,15 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0
 script = ExtResource("1_p7hsv")
 
 [node name="Chair_DefaultMaterial_0" type="MeshInstance3D" parent="." unique_id=1268595838]
-transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, 0.9999999, 0, -1, -4.3711385e-08, 0, 0, 0)
+transform = Transform3D(6, 0, 0, 0, -2.6226832e-07, 6, 0, -6, -2.6226832e-07, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rd882")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1654366352]
-transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, 0.9999999, 0, -1, -4.3711385e-08, 0, 0, 0)
+transform = Transform3D(6, 0, 0, 0, -2.6226832e-07, 6, 0, -6, -2.6226832e-07, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_rq8ls")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=520890454]
 libraries/ = SubResource("AnimationLibrary_f7g3v")
+
+[node name="Node3D" parent="." unique_id=745530263 instance=ExtResource("5_chg7i")]
+transform = Transform3D(0.0014718845, -0.26032525, 0.9655198, -0.03192557, 0.9650165, 0.2602382, -0.9994892, -0.031207813, -0.006890632, -0.09236944, -1.1329622, -0.6533378)

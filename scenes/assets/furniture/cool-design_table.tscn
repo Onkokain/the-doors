@@ -1,22 +1,13 @@
 [gd_scene format=4 uid="uid://dd8f66g67hqgn"]
 
-[ext_resource type="Texture2D" uid="uid://ds5y0u8esfnue" path="res://scenes/temporary to review/old_furniture_0.jpg" id="1_mbnaf"]
-[ext_resource type="Texture2D" uid="uid://8fgyq8rordct" path="res://scenes/temporary to review/old_furniture_1.png" id="2_1xf5a"]
-[ext_resource type="Texture2D" uid="uid://cpy616mf53kf3" path="res://scenes/temporary to review/old_furniture_2.jpg" id="3_3nmqs"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ks55"]
 resource_name = "lambert1"
 cull_mode = 2
-albedo_texture = ExtResource("1_mbnaf")
 metallic = 1.0
-metallic_texture = ExtResource("2_1xf5a")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("2_1xf5a")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("3_3nmqs")
 ao_enabled = true
-ao_texture = ExtResource("2_1xf5a")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_p8xbd"]
 _surfaces = [{
