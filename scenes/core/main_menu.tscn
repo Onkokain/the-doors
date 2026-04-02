@@ -21,6 +21,14 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_overlay"]
 shader = ExtResource("16_shader")
+shader_parameter/base_tint = Color(0.03, 0, 0, 0.8)
+shader_parameter/haze_tint = Color(0.58, 0.05, 0.08, 0.28)
+shader_parameter/haze_scale = 3.4
+shader_parameter/haze_speed = 0.12
+shader_parameter/scanline_strength = 0.05
+shader_parameter/grain_strength = 0.035
+shader_parameter/vignette_strength = 0.72
+shader_parameter/edge_darkness = 0.4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_title_glow"]
 shader = ExtResource("17_shader")

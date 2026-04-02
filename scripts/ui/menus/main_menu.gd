@@ -1,6 +1,6 @@
 extends Node2D
 
-const MAIN_SCENE = preload("res://scenes/core/main.tscn")
+const MAIN_SCENE = preload("res://scenes/core/walmart.tscn")
 const BUTTON_HOVER_SOUND = preload("res://assets/music/button_hover.mp3")
 const BUTTON_PRESS_SOUND = preload("res://assets/music/button_press.mp3")
 const CARD_NORMAL_TINT := Color(1.0, 1.0, 1.0, 0.96)

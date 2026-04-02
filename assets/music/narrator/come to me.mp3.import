@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dypp8ms76u32u"
+path="res://.godot/imported/come to me.mp3-2f69b6eb16bcfeb749a0df2e9bb31c46.mp3str"
+
+[deps]
+
+source_file="res://assets/music/narrator/come to me.mp3"
+dest_files=["res://.godot/imported/come to me.mp3-2f69b6eb16bcfeb749a0df2e9bb31c46.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
