@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dns8fwqjipclt" path="res://scenes/temporary to review/rocking_chair_1.png" id="2_p7hsv"]
 [ext_resource type="Texture2D" uid="uid://0hb3xfdicepx" path="res://scenes/temporary to review/rocking_chair_2.png" id="3_chg7i"]
 [ext_resource type="PackedScene" uid="uid://dvs7l2lovtcd7" path="res://scenes/entities/anabelle.tscn" id="5_chg7i"]
+[ext_resource type="AudioStream" uid="uid://dpf7otql47rwq" path="res://assets/music/rocking_chair.mp3" id="6_rq8ls"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lqokb"]
 resource_name = "DefaultMaterial"
@@ -117,3 +118,7 @@ libraries/ = SubResource("AnimationLibrary_f7g3v")
 
 [node name="Node3D" parent="." unique_id=745530263 instance=ExtResource("5_chg7i")]
 transform = Transform3D(0.0014718845, -0.26032525, 0.9655198, -0.03192557, 0.9650165, 0.2602382, -0.9994892, -0.031207813, -0.006890632, -0.09236944, -1.1329622, -0.6533378)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=936544313]
+stream = ExtResource("6_rq8ls")
+autoplay = true

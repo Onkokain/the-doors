@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d38ksy1ors2kt" path="res://assets/public assets/ps1_style_nightstand/ps1_style_nightstand_0.jpg" id="1_vdudn"]
 [ext_resource type="Script" uid="uid://csf58ahmxmkl" path="res://scripts/entities/night_stand.gd" id="2_swicn"]
+[ext_resource type="PackedScene" uid="uid://d2lcb6sc6b260" path="res://scenes/entities/coin.tscn" id="3_fb5ci"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tfvx4"]
 resource_name = "Nightstand"
@@ -179,7 +180,7 @@ _data = {
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k8xmr"]
-radius = 0.86825323
+radius = 1.1216191
 
 [node name="night stand" type="Node3D" unique_id=1992892835]
 
@@ -213,19 +214,26 @@ transform = Transform3D(1, 0, 3.3881318e-21, 2.842171e-14, 1.0000001, -7.1054274
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Nightstand/Nightstand drawer/StaticBody3D" unique_id=2052498904]
 shape = SubResource("ConcavePolygonShape3D_u2pcu")
 
+[node name="Label3D" type="Label3D" parent="Nightstand/Nightstand drawer" unique_id=77246721]
+transform = Transform3D(-1.2892151, 1.5788032e-16, 5.020387e-07, 5.851661e-07, 1.1344939e-07, 1.5026823, -3.774499e-14, 1.2892151, -9.7333036e-08, -0.5007248, 1.0402039, 0.06609678)
+billboard = 2
+text = "[E]"
+
+[node name="coin" parent="Nightstand/Nightstand drawer" unique_id=1275147191 instance=ExtResource("3_fb5ci")]
+transform = Transform3D(-0.12892151, 1.578732e-17, 5.0203877e-08, 5.8516612e-08, 1.13449365e-08, 0.15026824, -3.774499e-15, 0.12892151, -9.733304e-09, 0.028345346, 0.085832715, -0.20734918)
+
+[node name="coin2" parent="Nightstand/Nightstand drawer" unique_id=99079489 instance=ExtResource("3_fb5ci")]
+transform = Transform3D(0.110523514, 1.578732e-17, -0.06637252, -0.07736243, 1.13449365e-08, -0.1288239, 5.010986e-09, 0.12892151, 8.344293e-09, -0.19524527, -0.08935571, -0.20734918)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1022451514]
 libraries/ = SubResource("AnimationLibrary_vsu88")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1067240846]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8907025, 1.7224993, 1.1374263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8907025, 1.7224993, 1.0597417)
 script = ExtResource("2_swicn")
 
-[node name="Label3D" type="Label3D" parent="Area3D" unique_id=77246721]
-billboard = 2
-text = "[E]"
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1006283184]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40068507, 0, -0.28175926)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36647534, 0, -0.28175926)
 shape = SubResource("SphereShape3D_k8xmr")
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

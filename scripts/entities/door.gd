@@ -9,7 +9,7 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _on_interaction_area_body_entered(body: Node3D) -> void:
-	if body is CharacterBody3D and not is_open:
+	if body is CharacterBody3D and not is_open and !Global.door_locked:
 		open_door_permanently()
 
 func open_door_permanently() -> void:

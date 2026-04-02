@@ -89,7 +89,7 @@ emission_enabled = true
 emission = Color(0.29442102, 0.00021235287, 0.9276993, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_apkv3"]
-height = 10.881348
+height = 1.2366943
 radius = 4.5878906
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_apkv3"]
@@ -401,7 +401,7 @@ material = SubResource("StandardMaterial3D_apkv3")
 script = ExtResource("8_m1sns")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawn room/Area3D" unique_id=327659797]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.95933, 4.440674, 9.663141)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.95933, 0.05048561, 9.663141)
 shape = SubResource("CylinderShape3D_apkv3")
 
 [node name="Label3D" type="Label3D" parent="spawn room/Area3D" unique_id=1917213868]

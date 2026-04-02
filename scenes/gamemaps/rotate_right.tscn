@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://boi866841lpv4" path="res://scenes/assets/furniture/bookshelf.tscn" id="15_xgxdy"]
 [ext_resource type="PackedScene" uid="uid://chme7u8ud8fmu" path="res://scenes/assets/furniture/lamptable.tscn" id="16_6blaw"]
 [ext_resource type="PackedScene" uid="uid://c56gf3nkk8l1q" path="res://scenes/assets/furniture/low_table.tscn" id="16_8tebx"]
-[ext_resource type="PackedScene" uid="uid://cngtetqnup6ps" path="res://scenes/entities/wall_light.tscn" id="17_6blaw"]
+[ext_resource type="PackedScene" uid="uid://2yd50od1jaxs" path="res://scenes/entities/wall_light.tscn" id="17_6blaw"]
 [ext_resource type="PackedScene" uid="uid://ch6egkwqyyn05" path="res://scenes/assets/furniture/chair.tscn" id="17_itmi0"]
 [ext_resource type="PackedScene" uid="uid://dgxrd460hgqnf" path="res://scenes/assets/furniture/big_cabinet.tscn" id="17_qjeoa"]
 [ext_resource type="PackedScene" uid="uid://eyxvmq7w2flb" path="res://scenes/entities/lamp.tscn" id="17_xgxdy"]
@@ -46,6 +46,8 @@ transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -43.
 [node name="Label3D" type="Label3D" parent="." unique_id=309539866]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.422704, 5.495962, -11.350626)
 pixel_size = 0.03
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0.33333334, 0.33333334, 0.33333334, 1)
 text = "1"
 font = ExtResource("3_qjeoa")
 
