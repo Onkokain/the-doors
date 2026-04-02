@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bbn7ld3ejn51r"]
+
+[ext_resource type="PackedScene" uid="uid://ci1q3trw1yiqs" path="res://scenes/roads/road_1x_straight.tscn" id="1_efn2r"]
+[ext_resource type="PackedScene" uid="uid://dexc8vvd7ghmx" path="res://scenes/core/player.tscn" id="2_pmf0u"]
+[ext_resource type="PackedScene" uid="uid://b0wvn0lgng38t" path="res://scenes/roads/road_l_intersection.tscn" id="3_cl0y5"]
+[ext_resource type="Environment" uid="uid://0yyqkdr2f33f" path="res://materials/world.tres" id="4_m1rh2"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pmf0u"]
+
+[node name="roads" type="Node3D" unique_id=173885689]
+
+[node name="player" parent="." unique_id=289016444 instance=ExtResource("2_pmf0u")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=952696371]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1554505268]
+shape = SubResource("WorldBoundaryShape3D_pmf0u")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=965735492]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 6.3187237, -13.301412)
+shape = SubResource("WorldBoundaryShape3D_pmf0u")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=1323590383]
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0, 6.3187237, 10.878259)
+shape = SubResource("WorldBoundaryShape3D_pmf0u")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=989179149]
+transform = Transform3D(-1.4901161e-07, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, -1.4901161e-07, 9.769963e-15, 76.28669, 6.3187237, -0.15982056)
+shape = SubResource("WorldBoundaryShape3D_pmf0u")
+
+[node name="roads" type="Node3D" parent="." unique_id=974942057]
+
+[node name="Road_1X_Straight" parent="roads" unique_id=1471602029 instance=ExtResource("1_efn2r")]
+transform = Transform3D(0.007, 0, 0, 0, 0.007, 0, 0, 0, 0.007, 0, 0, 0)
+
+[node name="Road_1X_Straight2" parent="roads" unique_id=496089511 instance=ExtResource("1_efn2r")]
+transform = Transform3D(-3.059797e-10, 0, 0.0069999998, 0, 0.0069999998, 0, -0.0069999998, 0, -3.059797e-10, 64.16527, 0, -63.808426)
+
+[node name="Road_1X_Straight3" parent="roads" unique_id=1380399734 instance=ExtResource("1_efn2r")]
+transform = Transform3D(-3.059797e-10, 0, 0.0069999998, 0, 0.0069999998, 0, -0.0069999998, 0, -3.059797e-10, 64.16527, 0, -163.81577)
+
+[node name="Road_L_Intersection" parent="." unique_id=1673653108 instance=ExtResource("3_cl0y5")]
+transform = Transform3D(-3.059797e-10, 0, 0.007, 0, 0.0069999998, 0, -0.007, 0, -3.059797e-10, 64.171684, 0.102236725, 0.01819992)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1425953320]
+environment = ExtResource("4_m1rh2")

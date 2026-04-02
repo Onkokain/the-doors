@@ -1,0 +1,46 @@
+[gd_scene format=4 uid="uid://7sdr8w56ivb3"]
+
+[ext_resource type="Texture2D" uid="uid://suf7ccphnx5m" path="res://scenes/temporary to review/modular_roads_pack_0.jpg" id="1_lm30j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqlo1"]
+resource_name = "City_Road_mat"
+cull_mode = 2
+albedo_texture = ExtResource("1_lm30j")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yg080"]
+_surfaces = [{
+"aabb": AABB(-29260.799, -4.1990624e-13, -1895.793, 58521.6, 20.447184, 3791.588),
+"format": 34896613377,
+"index_count": 42,
+"index_data": PackedByteArray("AAABAAIAAwAAAAIAAwACAAQAAAAFAAEABgABAAUABgAFAAcACAAGAAcACAAJAAYACQAIAAoACQAKAAsADAALAAoADAANAAsADgANAAwADgAPAA0A"),
+"name": "City_Road_mat",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAD/////AAD/////SdsAAP///////wAAAAAAAP//AAD//wAA//8AAAAA//9J2wAA//8AAEnbAAAAAAAASdsAAAAAAAC1JAAA//8AALUkAAAAAP//tSQAAP////+1JAAAAAD//wAAAAD/////AAAAAAAAAAAAAAAA//8AAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cyd2r"]
+resource_name = "Sketchfab_Scene_Road_4X_Straight_City_Road_mat_0"
+_surfaces = [{
+"aabb": AABB(-29260.799, -4.1990624e-13, -1895.793, 58521.6, 20.447184, 3791.588),
+"attribute_data": PackedByteArray("/v////8PpO0AEP7//v+k7f7///8AEP7/ABD+//7/////D6Tt/v+k7f7/pO3/D6Tt//9akv8PpO3+/6Tt/w9akv7//3//D1qS/v9akgAQ/3/+//9/ABD/f/7//38AEP9//w9akv7/WpL/D1qS//9akg=="),
+"format": 34896613399,
+"index_count": 42,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkA"),
+"material": SubResource("StandardMaterial3D_vqlo1"),
+"name": "City_Road_mat",
+"primitive": 3,
+"uv_scale": Vector4(16.000088, 2.000001, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("AAD/////AAD/////SdsAAP///////wAAAAD//0nbAAAAAAAA////P/////////8///8AAP///n8AAP//////P///AABJ2///AAD//0nb//8AAAAASdsAAP////9J2///AAAAALUkAAD//wAASdsAAAAAAABJ2wAA//8AALUkAAAAAP//AAAAAP////+1JAAAAAD//7UkAAD/////AAAAAAAAAAAAAAAA/////wAAAAAAAP//AAD/////AAAAAAAA//8AALUk/n8AAP//tST+f/////+1JP5/AAAAALUk/n//f/+//3//v/9//7//f/+/////////////f/////////+//7//v/+//z//v/+//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v/8//7//P/+//7//v/8//7//f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yg080")
+
+[node name="Road_4X_Straight" type="Node3D" unique_id=1727638193]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+
+[node name="Road_4X_Straight_City_Road_mat_0" type="MeshInstance3D" parent="." unique_id=1502917402]
+mesh = SubResource("ArrayMesh_cyd2r")
