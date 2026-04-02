@@ -18,5 +18,5 @@ var is_flickering=true
 var player_reset_button = false
 var effects_music:float=1.0
 var background_music:float=1.0
-
+var play_threats=true
 var door_locked=false

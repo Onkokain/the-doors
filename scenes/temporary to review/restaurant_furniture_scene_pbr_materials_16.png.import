@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf4yrjntwqcie"
+uid="uid://c65girfx1yn6h"
 path.s3tc="res://.godot/imported/restaurant_furniture_scene_pbr_materials_16.png-84c6c005cbe108f58a58cb5948688c36.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "914419806e9249fb00853c37aa6f04c3"
 }
 
 [deps]
@@ -29,8 +26,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=8
-roughness/src_normal="res://scenes/temporary to review/restaurant_furniture_scene_pbr_materials_17.png"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

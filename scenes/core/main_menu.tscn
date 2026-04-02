@@ -826,6 +826,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="rooms_list" type="Panel" parent="." unique_id=1592661853]
+visible = false
 offset_left = 99.0
 offset_top = 163.0
 offset_right = 1052.0

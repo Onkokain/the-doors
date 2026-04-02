@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://taiiwy6k54gv"
+path="res://.godot/imported/i guess you escaped.mp3-169a489ec10acef776dedd39d60c3cf7.mp3str"
+
+[deps]
+
+source_file="res://assets/music/narrator/i guess you escaped.mp3"
+dest_files=["res://.godot/imported/i guess you escaped.mp3-169a489ec10acef776dedd39d60c3cf7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
