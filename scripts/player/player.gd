@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@onready var animation: AnimationPlayer = $mixamo_base/AnimationPlayer
+
 const HAS_FLYING_PERMS := true
 
 const WALK_SPEED := 5.0
@@ -39,6 +41,8 @@ var is_locked := true
 var is_flying := false
 var is_sprinting := false
 var bob_t := 0.0
+
+var current_anim := ""
 
 
 func _ready() -> void:
@@ -94,6 +98,35 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	_handle_audio()
+
+	_update_animation()
+
+
+func _play_anim(name: String) -> void:
+	if current_anim == name:
+		return
+	current_anim = name
+	animation.play(name)
+
+
+func _update_animation() -> void:
+	# Jump
+	if not is_on_floor():
+		_play_anim("jump")
+		return
+
+	var speed := Vector2(velocity.x, velocity.z).length()
+
+	# Idle
+	if speed < 0.1:
+		_play_anim("idle")
+		return
+
+	# Running vs Walking
+	if is_sprinting:
+		_play_anim("running")
+	else:
+		_play_anim("walking")
 
 
 func _should_recapture_mouse(event: InputEvent) -> bool:
